@@ -1,0 +1,18 @@
+#Automatically load aliases from this file
+
+alias restartadb='adb kill-server && adb start-server'
+alias logcat='adb logcat'
+alias logcate='adb -e logcat'
+alias logcatd='adb -d logcat'
+
+# Server stuff
+alias server-env='source env/bin/activate'
+
+alias darkxdragon='cd ~/Source/websites/darkxdragon && source env/bin/activate'
+alias willmoggridge='cd ~/Source/websites/willmoggridge && source env/bin/activate'
+alias wm-site='cd ~/Source/websites/willmoggridge-site && source env/bin/activate'
+
+alias darkxdragon-runserver='darkxdragon && ./manage.py runserver 8010'
+alias willmoggridge-runserver='willmoggridge && ./manage.py runserver 8020'
+alias wm-site-runserver='wm-site && ./manage.py runserver 8020'
+

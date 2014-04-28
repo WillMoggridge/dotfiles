@@ -1,0 +1,33 @@
+#!/bin/bash
+
+#
+# In future, maybe I should make this script a little more advanced to toggle monitors easily.
+#
+
+# Count monitors
+MONITORS=`xrandr | grep connected | grep -v disconnected | wc -l`
+
+# Get hostname
+HOSTNAME=`hostname`
+
+# If hostname = *-desktop
+
+if [ "$MONITORS" > 1 ]; then
+	xrandr --newmode 1920x1080_120.00 369.50 1920 2080 2288 2656 1080 1083 1088 1160 -hsync +vsync
+	
+	#xrandr --addmode DVI-I-1 1920x1080_120.00
+	#xrandr --output DVI-I-1 --mode 1920x1080_120.00
+	xrandr --output DVI-I-1 --mode 1920x1080 -r 120
+    xrandr --output DVI-I-1 --primary
+	xrandr --output DVI-I-1 --preferred
+
+	#xrandr --addmode DP-1 1920x1080_120.00
+	#xrandr --output DP-1 --mode 1920x1080_120.00
+	xrandr --output DP-1 --mode 1920x1080 -r 120
+	xrandr --output DP-1 --right-of DVI-I-1
+    xrandr --output DP-1 --mode 1920x1080-r 120
+
+	xrandr --output DVI-D-0 --left-of DVI-I-1
+fi
+
+# if hostname = *-laptop

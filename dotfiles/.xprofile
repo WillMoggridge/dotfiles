@@ -1,0 +1,27 @@
+# Load display settingss
+~/bin/configure-displays
+
+# Use the CAPS-LOCK key as an additional control
+setxkbmap -option "ctrl:nocaps"
+
+# Enable X restart with CTRL-ALT-BACKSPACE
+setxkbmap -option terminate:ctrl_alt_bksp
+
+# Set wallpaper (Checking for existence)
+if [ -f ~/.wallpaper.png ]
+then
+   feh --bg-scale ~/.wallpaper.png
+elif [ -f ~/.wallpaper.jpg ]
+then
+   feh --bg-scale ~/.wallpaper.jpg
+fi
+
+# Use a better mouse pointer
+xsetroot -cursor_name left_ptr
+
+# Try and get rid of mouse acceleration
+xinput set-prop pointer:"ROCCAT ROCCAT Kone[+]" 'Device Accel Profile' 0
+xinput set-prop pointer:"ROCCAT ROCCAT Kone[+]" 'Device Accel Velocity Scaling' 1
+
+# Speed up keyboard input
+
