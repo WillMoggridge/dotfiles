@@ -20,3 +20,8 @@ fi
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
+
+# Add dotfiles bin
+if [ -d "$HOME/.dotfiles/bin" ] ; then
+    PATH="$HOME/.dotfiles/bin:$PATH"
+fi
