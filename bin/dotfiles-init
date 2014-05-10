@@ -8,6 +8,7 @@ ln -s ~/.dotfiles/dotfiles/.tmux.conf ~/.tmux.conf
 ln -s ~/.dotfiles/dotfiles/.xprofile ~/.xprofile
 ln -s ~/.dotfiles/dotfiles/.zsh-theme ~/.zsh-theme
 ln -s ~/.dotfiles/dotfiles/.zshrc ~/.zshrc
+ln -s ~/.dotfiles/dotfiles/sublime-text-3-preferences ~/.config/sublime-text-3/Packages/User
 
 if [ ! -d ~/.oh-my-zsh ]; then
     git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh

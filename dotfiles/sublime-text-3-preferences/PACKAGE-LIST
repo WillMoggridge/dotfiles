@@ -1,0 +1,18 @@
+{
+    "installed_packages":
+    [
+        "BracketHighlighter",
+        "Conky.tmLanguage",
+        "Emmet",
+        "GitGutter",
+        "Highlight Whitespaces",
+        "i3 wm",
+        "Markdown Extended",
+        "Monokai Extended",
+        "nginx",
+        "SublimeLinter",
+        "SublimeLinter-annotations",
+        "SublimeLinter-pep8",
+        "Theme - Spacegray"
+    ]
+}

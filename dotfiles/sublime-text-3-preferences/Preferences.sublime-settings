@@ -1,0 +1,74 @@
+{
+	"binary_file_patterns":
+	[
+		"*.dds",
+		"*.eot",
+		"*.gif",
+		"*.ico",
+		"*.jar",
+		"*.jpeg",
+		"*.jpg",
+		"*.pdf",
+		"*.png",
+		"*.swf",
+		"*.tga",
+		"*.ttf",
+		"*.zip"
+	],
+	"bold_folder_labels": true,
+	"caret_style": "phase",
+	"color_scheme": "Packages/User/Monokai Extended (SL).tmTheme",
+	"ensure_newline_at_eof_on_save": false,
+	"fade_fold_buttons": false,
+	"file_exclude_patterns":
+	[
+		"*.a",
+		"*.exe",
+		"*.class",
+		"*.db",
+		"*.dll",
+		"*.dylib",
+		"*.idb",
+		"*.lib",
+		"*.ncb",
+		"*.obj",
+		"*.o",
+		"*.pyc",
+		"*.pyo",
+		"*.pdb",
+		"*.psd",
+		"*.sdf",
+		"*.so",
+		"*.sublime-workspace",
+		"*.suo",
+		".DS_Store"
+	],
+	"find_selected_text": true,
+	"folder_exclude_patterns":
+	[
+		"__pycache__",
+		".git",
+		".hg",
+		".svn",
+		"CVS"
+	],
+	"font_size": 9,
+	"highlight_line": true,
+	"highlight_modified_tabs": true,
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"line_padding_bottom": 1,
+	"line_padding_top": 1,
+	"rulers":
+	[
+		79
+	],
+	"scroll_past_end": true,
+	"show_tab_close_buttons": false,
+	"tab_size": 4,
+	"theme": "Spacegray Eighties.sublime-theme",
+	"translate_tabs_to_spaces": true,
+	"trim_automatic_white_space": false
+}
