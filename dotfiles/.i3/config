@@ -111,11 +111,15 @@ bindsym $mod+Shift+9 move container to workspace 9; workspace 9
 bindsym $mod+Shift+0 move container to workspace 10; workspace 10
 
 # move workspace to output
-bindsym $mod+Shift+$alt+Left move workspace to output left; focus output left
-bindsym $mod+Shift+$alt+Right move workspace to output right; focus output right
+bindsym $mod+Shift+$alt+Left  move workspace to output left
+bindsym $mod+Shift+$alt+Down  move workspace to output down
+bindsym $mod+Shift+$alt+Up    move workspace to output up
+bindsym $mod+Shift+$alt+Right move workspace to output right
 
 # move window to output
-bindsym $mod+$alt+Left move container to output left; focus output left
+bindsym $mod+$alt+Left  move container to output left; focus output left
+bindsym $mod+$alt+Down  move container to output down; focus output down
+bindsym $mod+$alt+Up    move container to output up; focus output up
 bindsym $mod+$alt+Right move container to output right; focus output right
 
 # Workspace names
