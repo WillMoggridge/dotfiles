@@ -151,6 +151,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 bindsym $mod+r mode "resize"
 
 bindsym $mod+Pause mode "$system_functions"
+bindsym $mod+Escape mode "$system_functions"
 
 focus_follows_mouse no
 
