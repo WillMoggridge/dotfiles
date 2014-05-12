@@ -1,6 +1,9 @@
 # Load display settingss
 ~/bin/configure-displays
 
+# Correct keyboard layout please
+setxkbmap gb
+
 # Use the CAPS-LOCK key as an additional control
 setxkbmap -option "ctrl:nocaps"
 
