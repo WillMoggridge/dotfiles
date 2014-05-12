@@ -40,6 +40,7 @@ plugins=(git)
 # Add bin paths
 export PATH=$HOME/bin:$PATH
 export PATH=$HOME/.dotfiles/bin:$PATH
+export PATH=$HOME/.tmuxifier/bin:$PATH
 
 # Source files
 if [ -f $ZSH/oh-my-zsh.sh ]; then source $ZSH/oh-my-zsh.sh; fi
@@ -70,4 +71,8 @@ bindkey -e
 #   export EDITOR='mvim'
 # fi
 
+export EDITOR="vim"
+export VISUAL="vim"
 
+export WORKON_HOME=~/.virtualenvs
+source /usr/local/bin/virtualenvwrapper.sh
