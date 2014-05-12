@@ -5,6 +5,8 @@ alias logcat='adb logcat'
 alias logcate='adb -e logcat'
 alias logcatd='adb -d logcat'
 
+alias reloadenvs="source ~/.local_envs"
+
 # Server stuff
 alias server-env='source env/bin/activate'
 
@@ -15,4 +17,10 @@ alias wm-site='cd ~/Source/websites/willmoggridge-site && source env/bin/activat
 alias darkxdragon-runserver='darkxdragon && ./manage.py runserver 8010'
 alias willmoggridge-runserver='willmoggridge && ./manage.py runserver 8020'
 alias wm-site-runserver='wm-site && ./manage.py runserver 8020'
+
+# Programs
+alias ipn="ipython notebook --notebook-dir=~/Source/notebooks --gui gtk"
+alias ff="firefox -P DarkXDragon"
+alias ff-wm="firefox -P WillMoggridge -no-remote"
+alias kp="keepass2"
 
