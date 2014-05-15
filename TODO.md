@@ -41,8 +41,3 @@ Set up correct workspaces on correct displays
 SETTINGS:
 	sublime
 		Don't copy empty selections: http://www.sublimetext.com/forum/viewtopic.php?f=4&t=1225
-
-
-
-
-Also get earphones
