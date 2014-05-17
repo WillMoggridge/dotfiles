@@ -1,14 +1,15 @@
 #!/bin/sh
-ln -s ~/.dotfiles/dotfiles/.i3 ~/.i3
-
-ln -s ~/.dotfiles/dotfiles/.aliases ~/.aliases
-ln -s ~/.dotfiles/dotfiles/.bashrc ~/.bashrc
-ln -s ~/.dotfiles/dotfiles/.profile ~/.profile
-ln -s ~/.dotfiles/dotfiles/.tmux.conf ~/.tmux.conf
-ln -s ~/.dotfiles/dotfiles/.xprofile ~/.xprofile
-ln -s ~/.dotfiles/dotfiles/.zsh-theme ~/.zsh-theme
-ln -s ~/.dotfiles/dotfiles/.zshrc ~/.zshrc
-ln -s ~/.dotfiles/dotfiles/sublime-text-3-preferences ~/.config/sublime-text-3/Packages/User
+ln -s ~/.dotfiles/dotfiles/.i3 ~/
+ln -s ~/.dotfiles/dotfiles/.aliases ~/
+ln -s ~/.dotfiles/dotfiles/.bashrc ~/
+ln -s ~/.dotfiles/dotfiles/.gitconfig ~/
+ln -s ~/.dotfiles/dotfiles/.gitignore_global ~/
+ln -s ~/.dotfiles/dotfiles/.profile ~/
+ln -s ~/.dotfiles/dotfiles/.tmux.conf ~/
+ln -s ~/.dotfiles/dotfiles/.xprofile ~/
+ln -s ~/.dotfiles/dotfiles/.zsh-theme ~/
+ln -s ~/.dotfiles/dotfiles/.zshrc ~/
+ln -s ~/.dotfiles/dotfiles/sublime-text-3-preferences ~/
 
 if [ ! -d ~/.oh-my-zsh ]; then
     git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
