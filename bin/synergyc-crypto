@@ -1,0 +1,3 @@
+#!/bin/bash
+CRYPTOPASS=`grep 'cryptoPass' ~/.config/Synergy/Synergy.conf | sed -r 's/.{11}//'`
+synergyc --crypto-pass $CRYPTOPASS $@
