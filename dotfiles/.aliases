@@ -1,5 +1,7 @@
 #Automatically load aliases from this file
 
+alias ack='ack-grep'
+
 alias restartadb='adb kill-server && adb start-server'
 alias logcat='adb logcat'
 alias logcate='adb -e logcat'
