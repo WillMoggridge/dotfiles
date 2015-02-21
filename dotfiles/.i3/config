@@ -80,8 +80,16 @@ bindsym $mod+a focus parent
 # focus the child container
 bindsym $mod+c focus child
 
-# enter fullscreen mode for the focused container
+# i3 command input
 bindsym $mod+period exec --no-startup-id i3-input
+
+# Volume!
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 -- +10%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -- -10%
+
+# Quick fix resolution shortcut for laptop to remove later
+bindsym $mod+equal exec "xrandr --output eDP1 --mode 2560x1440"
+bindsym $mod+minus   exec "xrandr --output eDP1 --mode 1920x1080"
 
 # focus the child container
 #bindsym $mod+d focus child
@@ -140,7 +148,6 @@ bindsym $mod+$alt+Right move container to output right; focus output right
 #bindsym $mod+Shift+3 move container to workspace 3:Irc
 #bindsym $mod+Shift+4 move container to workspace 4:Shell
 
-
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -190,12 +197,12 @@ mode "resize" {
 
 
 # Easy lock/logout/etc functions
-set $system_functions System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
+set $system_functions System (l) lock, (e) logout, (s) suspend, (r) reboot, (Shift+s) shutdown
 mode "$system_functions" {
     bindsym l exec --no-startup-id i3exit lock, mode "default"
     bindsym e exec --no-startup-id i3exit logout, mode "default"
     bindsym s exec --no-startup-id i3exit suspend, mode "default"
-    bindsym h exec --no-startup-id i3exit hibernate, mode "default"
+    # bindsym h exec --no-startup-id i3exit hibernate, mode "default"
     bindsym r exec --no-startup-id i3exit reboot, mode "default"
     bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"  
 
@@ -223,4 +230,7 @@ exec --no-startup-id gnome-settings-daemon
 #exec --no-startup-id nm-applet
 
 # Autostart programs using dex (https://github.com/jceb/dex)
-exec dex -ae i3
+exec --no-startup-id "dex -ae i3"
+
+# Comtpon composite manager to fix screen tearing
+exec --no-startup-id "compton -CGb --config ~/.config/compton.config"

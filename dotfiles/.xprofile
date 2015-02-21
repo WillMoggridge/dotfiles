@@ -1,5 +1,5 @@
 # Load display settingss
-~/bin/configure-displays
+#~/.dotfiles/bin/configure-displays
 
 # Correct keyboard layout please
 setxkbmap gb
@@ -23,8 +23,8 @@ fi
 xsetroot -cursor_name left_ptr
 
 # Try and get rid of mouse acceleration
-xinput set-prop pointer:"ROCCAT ROCCAT Kone[+]" 'Device Accel Profile' 0
-xinput set-prop pointer:"ROCCAT ROCCAT Kone[+]" 'Device Accel Velocity Scaling' 1
+#xinput set-prop pointer:"ROCCAT ROCCAT Kone[+]" 'Device Accel Profile' 0
+#xinput set-prop pointer:"ROCCAT ROCCAT Kone[+]" 'Device Accel Velocity Scaling' 1
 
 # Speed up keyboard input
 

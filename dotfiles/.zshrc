@@ -54,6 +54,13 @@ if [ $DESKTOP_SESSION = "i3" ]; then
     export SSH_AGENT_PID=$GNOME_KEYRING_PID
 fi
 
+# Stop zsh making it rename folder into variables!
+unsetopt auto_name_dirs
+
+function src() { cd ~/Source/$1; }
+_src() { _files -W ~/Source; }
+compdef _src src 
+
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 HISTSIZE=1000
