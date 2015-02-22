@@ -232,5 +232,8 @@ exec --no-startup-id gnome-settings-daemon
 # Autostart programs using dex (https://github.com/jceb/dex)
 exec --no-startup-id "dex -ae i3"
 
+# Auto screen lock
+exec --no-startup-id "xautolock -time 15 -locker 'i3exit lock'"
+
 # Comtpon composite manager to fix screen tearing
 exec --no-startup-id "compton -CGb --config ~/.config/compton.config"
