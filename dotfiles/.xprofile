@@ -7,6 +7,9 @@ setxkbmap gb
 # Use the CAPS-LOCK key as an additional control
 setxkbmap -option "ctrl:nocaps"
 
+# Speed up keyboard input
+xset r rate 200 80
+
 # Enable X restart with CTRL-ALT-BACKSPACE
 setxkbmap -option terminate:ctrl_alt_bksp
 
@@ -25,6 +28,3 @@ xsetroot -cursor_name left_ptr
 # Try and get rid of mouse acceleration
 #xinput set-prop pointer:"ROCCAT ROCCAT Kone[+]" 'Device Accel Profile' 0
 #xinput set-prop pointer:"ROCCAT ROCCAT Kone[+]" 'Device Accel Velocity Scaling' 1
-
-# Speed up keyboard input
-
