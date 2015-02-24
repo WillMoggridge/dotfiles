@@ -52,12 +52,18 @@
 		".svn",
 		"CVS"
 	],
-	"font_size": 9,
+	"font_size": 12,
 	"highlight_line": true,
 	"highlight_modified_tabs": true,
 	"ignored_packages":
 	[
-		"Vintage"
+		"Vintage",
+		"SublimeLinter-pep8",
+		"Emmet",
+		"i3 wm",
+		"SublimeLinter",
+		"Markdown Extended",
+		"SublimeLinter-pep257"
 	],
 	"line_padding_bottom": 1,
 	"line_padding_top": 1,
