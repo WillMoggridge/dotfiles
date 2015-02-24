@@ -245,4 +245,4 @@ exec --no-startup-id "dex -ae i3"
 exec --no-startup-id "xautolock -time 15 -locker 'i3exit lock' &"
 
 # Comtpon composite manager to fix screen tearing
-exec --no-startup-id "compton -CGb --config ~/.config/compton.config"
+exec --no-startup-id "compton -CGb --config ~/.config/compton.conf"
