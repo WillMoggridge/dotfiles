@@ -23,6 +23,9 @@ bindsym $mod+Return exec i3-sensible-terminal
 # kill focused window
 bindsym $mod+Shift+q kill
 
+# i3 command input
+bindsym $mod+period exec --no-startup-id i3-input
+
 # start dmenu (a program launcher)
 bindsym $mod+d exec dmenu_run
 # There also is the (new) i3-dmenu-desktop which only displays applications
@@ -80,31 +83,39 @@ bindsym $mod+a focus parent
 # focus the child container
 bindsym $mod+c focus child
 
-# i3 command input
-bindsym $mod+period exec --no-startup-id i3-input
+# Jump to urgent window
+bindsym $mod+x [urgent=latest] focus
+
+# Border toggle
+bindsym $mod+b border toggle
 
 # Volume!
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 -- +10%
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -- -10%
 
 # Quick fix resolution shortcut for laptop to remove later
-bindsym $mod+equal exec "xrandr --output eDP1 --mode 2560x1440"
-bindsym $mod+minus   exec "xrandr --output eDP1 --mode 1920x1080"
+bindsym $mod+alt+equal exec "xrandr --output eDP1 --mode 2560x1440"
+bindsym $mod+alt+minus   exec "xrandr --output eDP1 --mode 1920x1080"
 
 # focus the child container
 #bindsym $mod+d focus child
 
-# switch to workspace
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
+# Move window to scratchpad
+bindsym $mod+Shift+minus move scratchpad
+# Toggle scratchpad
+bindsym $mod+minus scratchpad show
+
+# switch to workspace and load scratchpad window unfocused (Useful for playing videos!)
+bindsym $mod+1 exec "i3-msg workspace 1; i3-msg scratchpad show; i3-msg focus mode_toggle"
+bindsym $mod+2 exec "i3-msg workspace 2; i3-msg scratchpad show; i3-msg focus mode_toggle"
+bindsym $mod+3 exec "i3-msg workspace 3; i3-msg scratchpad show; i3-msg focus mode_toggle"
+bindsym $mod+4 exec "i3-msg workspace 4; i3-msg scratchpad show; i3-msg focus mode_toggle"
+bindsym $mod+5 exec "i3-msg workspace 5; i3-msg scratchpad show; i3-msg focus mode_toggle"
+bindsym $mod+6 exec "i3-msg workspace 6; i3-msg scratchpad show; i3-msg focus mode_toggle"
+bindsym $mod+7 exec "i3-msg workspace 7; i3-msg scratchpad show; i3-msg focus mode_toggle"
+bindsym $mod+8 exec "i3-msg workspace 8; i3-msg scratchpad show; i3-msg focus mode_toggle"
+bindsym $mod+9 exec "i3-msg workspace 9; i3-msg scratchpad show; i3-msg focus mode_toggle"
+bindsym $mod+0 exec "i3-msg workspace 10; i3-msg scratchpad show; i3-msg focus mode_toggle"
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1; workspace 1
@@ -233,7 +244,7 @@ exec --no-startup-id gnome-settings-daemon
 exec --no-startup-id "dex -ae i3"
 
 # Auto screen lock
-exec --no-startup-id "xautolock -time 15 -locker 'i3exit lock'"
+exec --no-startup-id "xautolock -time 15 -locker 'i3exit lock' &"
 
 # Comtpon composite manager to fix screen tearing
 exec --no-startup-id "compton -CGb --config ~/.config/compton.config"
