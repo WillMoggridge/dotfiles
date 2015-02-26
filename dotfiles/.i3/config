@@ -76,7 +76,6 @@ bindsym $mod+Right            focus right
 # Parent / child
 bindsym $mod+a                focus parent
 bindsym $mod+c                focus child
-bindsym $mod+d                focus child
 
 # Jump to urgent window
 bindsym $mod+x                [urgent=latest] focus

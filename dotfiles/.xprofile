@@ -15,7 +15,7 @@ xset r rate 200 80
 setxkbmap -option terminate:ctrl_alt_bksp
 
 # Custom key mappings
-if [ -f ~/.xmodmap ]
+if [ -f ~/.xmodmap ]; then
     xmodmap ~/.xmodmap
 fi
 
