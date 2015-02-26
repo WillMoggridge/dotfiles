@@ -1,14 +1,14 @@
 [
-	{ "keys": ["ctrl+tab"], "command": "next_view" },
-	{ "keys": ["ctrl+shift+tab"], "command": "prev_view" },
-    { "keys": ["ctrl+c"], "command": "noop", "context":
-        [
-            { "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true }
-        ]
+	{ "keys": ["ctrl+tab"],            "command": "next_view" },
+	{ "keys": ["ctrl+shift+tab"],      "command": "prev_view" },
+    { "keys": ["ctrl+c"],              "command": "noop", "context":
+        [{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true }]
     },
-    { "keys": ["ctrl+x"], "command": "noop", "context":
-        [
-          { "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true }
-        ]
-    }
+    { "keys": ["ctrl+x"],              "command": "noop", "context":
+        [{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true }]
+    },
+    { "keys": ["ctrl+shift+left"],     "command": "move_text_left" },
+    { "keys": ["ctrl+shift+right"],    "command": "move_text_right" },
+    { "keys": ["ctrl+shift+alt+up"],   "command": "move_text_up" },
+    { "keys": ["ctrl+shift+alt+down"], "command": "move_text_down" }
 ]
