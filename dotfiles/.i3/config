@@ -1,248 +1,292 @@
+####################
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
+####################
 
-# Mod1 = Alt key, Mod4 = Windows key
+# Mod1 = Alt key, Mod4 = Super / Windows key
 set $mod Mod4
 set $alt Mod1
 
-# Font for window titles. Will also be used by the bar unless a different font
-# is used in the bar {} block below. ISO 10646 = Unicode
-# font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-# The font above is very space-efficient, that is, it looks good, sharp and
-# clear in small sizes. However, if you need a lot of unicode glyphs or
-# right-to-left text rendering, you should instead use pango for rendering and
-# chose a FreeType font, such as:
-# font pango:DejaVu Sans Mono 10
+bar {
+    font pango:roboto bold 10
+    position top
+    status_command i3status --config ~/.i3/i3status.conf
+    #status_command ~/.i3/conky
+    tray_output primary
+}
+
+focus_follows_mouse no
 font pango:roboto normal 8
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+# Reload the configuration file
+bindsym $mod+Shift+c          reload
 
-# kill focused window
-bindsym $mod+Shift+q kill
+# Restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r          restart
+
+# System functions! (lock, lougout, etc)
+bindsym $mod+Pause            mode "$system_functions"
+bindsym $mod+Escape           mode "$system_functions"
+
+
+######
+###### Launchers and command input
+######
 
 # i3 command input
-bindsym $mod+period exec --no-startup-id i3-input
+bindsym $mod+period           exec --no-startup-id i3-input
 
-# start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-bindsym $mod+Shift+d exec --no-startup-id i3-dmenu-desktop
+# dmenu and i3-dmenu-desktop (.desktop files) program launchers
+bindsym $mod+d                exec dmenu_run
+bindsym $mod+Shift+d          exec --no-startup-id i3-dmenu-desktop
 
-# change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
 
-# alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
-
-# move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
-
-# alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
-
-# split in horizontal orientation
-bindsym $mod+h split h
-
-# split in vertical orientation
-bindsym $mod+v split v
-
-# enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen
-
-# change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
-
-# toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
-
-# change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
-
-# focus the parent container
-bindsym $mod+a focus parent
-
-# focus the child container
-bindsym $mod+c focus child
-
-# Jump to urgent window
-bindsym $mod+x [urgent=latest] focus
-
-# Border toggle
-bindsym $mod+b border toggle
+######
+###### Other
+######
 
 # Volume!
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 -- +10%
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -- -10%
+bindsym XF86AudioRaiseVolume  exec --no-startup-id pactl set-sink-volume 0 -- +10%
+bindsym XF86AudioLowerVolume  exec --no-startup-id pactl set-sink-volume 0 -- -10%
 
 # Quick fix resolution shortcut for laptop to remove later
-bindsym $mod+alt+equal exec "xrandr --output eDP1 --mode 2560x1440"
-bindsym $mod+alt+minus   exec "xrandr --output eDP1 --mode 1920x1080"
+bindsym $mod+$alt+equal       exec "xrandr --output eDP1 --mode 2560x1440"
+bindsym $mod+$alt+minus       exec "xrandr --output eDP1 --mode 1920x1080"
 
-# focus the child container
-#bindsym $mod+d focus child
 
-# Move window to scratchpad
-bindsym $mod+Shift+minus move scratchpad
-# Toggle scratchpad
-bindsym $mod+minus scratchpad show
 
-# switch to workspace and load scratchpad window unfocused (Useful for playing videos!)
-bindsym $mod+1 exec "i3-msg workspace 1; i3-msg scratchpad show; i3-msg focus mode_toggle"
-bindsym $mod+2 exec "i3-msg workspace 2; i3-msg scratchpad show; i3-msg focus mode_toggle"
-bindsym $mod+3 exec "i3-msg workspace 3; i3-msg scratchpad show; i3-msg focus mode_toggle"
-bindsym $mod+4 exec "i3-msg workspace 4; i3-msg scratchpad show; i3-msg focus mode_toggle"
-bindsym $mod+5 exec "i3-msg workspace 5; i3-msg scratchpad show; i3-msg focus mode_toggle"
-bindsym $mod+6 exec "i3-msg workspace 6; i3-msg scratchpad show; i3-msg focus mode_toggle"
-bindsym $mod+7 exec "i3-msg workspace 7; i3-msg scratchpad show; i3-msg focus mode_toggle"
-bindsym $mod+8 exec "i3-msg workspace 8; i3-msg scratchpad show; i3-msg focus mode_toggle"
-bindsym $mod+9 exec "i3-msg workspace 9; i3-msg scratchpad show; i3-msg focus mode_toggle"
-bindsym $mod+0 exec "i3-msg workspace 10; i3-msg scratchpad show; i3-msg focus mode_toggle"
+####################
+#################### Navigation / Change focus
+####################
 
-# move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1; workspace 1
-bindsym $mod+Shift+2 move container to workspace 2; workspace 2
-bindsym $mod+Shift+3 move container to workspace 3; workspace 3
-bindsym $mod+Shift+4 move container to workspace 4; workspace 4
-bindsym $mod+Shift+5 move container to workspace 5; workspace 5
-bindsym $mod+Shift+6 move container to workspace 6; workspace 6
-bindsym $mod+Shift+7 move container to workspace 7; workspace 7
-bindsym $mod+Shift+8 move container to workspace 8; workspace 8
-bindsym $mod+Shift+9 move container to workspace 9; workspace 9
-bindsym $mod+Shift+0 move container to workspace 10; workspace 10
+# vim keys
+bindsym $mod+j                focus left
+bindsym $mod+k                focus down
+bindsym $mod+l                focus up
+bindsym $mod+semicolon        focus right
 
-# move workspace to output
+# Arrow keys
+bindsym $mod+Left             focus left
+bindsym $mod+Down             focus down
+bindsym $mod+Up               focus up
+bindsym $mod+Right            focus right
+
+# Parent / child
+bindsym $mod+a                focus parent
+bindsym $mod+c                focus child
+bindsym $mod+d                focus child
+
+# Jump to urgent window
+bindsym $mod+x                [urgent=latest] focus
+
+# Change focus between tiling / floating windows
+bindsym $mod+space            focus mode_toggle
+
+
+
+####################
+#################### Workspaces
+####################
+
+
+#####
+##### Switch workspaces
+#####
+
+# Switch to workspace and load scratchpad window unfocused (Useful for playing videos!)
+bindsym $mod+1                exec "i3-msg workspace  1; i3-msg scratchpad show; i3-msg focus mode_toggle"
+bindsym $mod+2                exec "i3-msg workspace  2; i3-msg scratchpad show; i3-msg focus mode_toggle"
+bindsym $mod+3                exec "i3-msg workspace  3; i3-msg scratchpad show; i3-msg focus mode_toggle"
+bindsym $mod+4                exec "i3-msg workspace  4; i3-msg scratchpad show; i3-msg focus mode_toggle"
+bindsym $mod+5                exec "i3-msg workspace  5; i3-msg scratchpad show; i3-msg focus mode_toggle"
+bindsym $mod+6                exec "i3-msg workspace  6; i3-msg scratchpad show; i3-msg focus mode_toggle"
+bindsym $mod+7                exec "i3-msg workspace  7; i3-msg scratchpad show; i3-msg focus mode_toggle"
+bindsym $mod+8                exec "i3-msg workspace  8; i3-msg scratchpad show; i3-msg focus mode_toggle"
+bindsym $mod+9                exec "i3-msg workspace  9; i3-msg scratchpad show; i3-msg focus mode_toggle"
+bindsym $mod+0                exec "i3-msg workspace 10; i3-msg scratchpad show; i3-msg focus mode_toggle"
+
+
+#####
+##### Move workspaces
+#####
+
+# Move workspace to output
 bindsym $mod+Shift+$alt+Left  move workspace to output left
 bindsym $mod+Shift+$alt+Down  move workspace to output down
 bindsym $mod+Shift+$alt+Up    move workspace to output up
 bindsym $mod+Shift+$alt+Right move workspace to output right
 
-# move window to output
-bindsym $mod+$alt+Left  move container to output left;  focus output left
-bindsym $mod+$alt+Down  move container to output down;  focus output down
-bindsym $mod+$alt+Up    move container to output up;    focus output up
-bindsym $mod+$alt+Right move container to output right; focus output right
 
-# Workspace names
-#workspace "1:Web" output LVDS1
-#workspace "2:Mail" output LVDS1
-#workspace "3:Irc" output LVDS1
-#workspace "4:Shell" output LVDS1
 
-# switch to workspace
-#bindsym $mod+1 workspace 1:Web
-#bindsym $mod+2 workspace 2:Mail
-#bindsym $mod+3 workspace 3:Irc
-#bindsym $mod+4 workspace 4:Shell
+####################
+#################### Containers
+####################
 
-# move focused container to workspace
-#bindsym $mod+Shift+1 move container to workspace 1:Web
-#bindsym $mod+Shift+2 move container to workspace 2:Mail
-#bindsym $mod+Shift+3 move container to workspace 3:Irc
-#bindsym $mod+Shift+4 move container to workspace 4:Shell
 
-# reload the configuration file
-bindsym $mod+Shift+c reload
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
+#####
+##### Container layouts
+#####
 
-bindsym $mod+r mode "resize"
+bindsym $mod+r                mode "resize"
 
-bindsym $mod+Pause mode "$system_functions"
-bindsym $mod+Escape mode "$system_functions"
+# Split pane horizontally/vertically
+bindsym $mod+h                split h
+bindsym $mod+v                split v
 
-focus_follows_mouse no
+# Change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s                layout stacking
+bindsym $mod+w                layout tabbed
+bindsym $mod+e                layout toggle split
 
-# Start i3bar
-bar {
-        font pango:roboto bold 10
-        position top
-        status_command i3status --config ~/.i3/i3status.conf
-        #status_command ~/.i3/conky
-        tray_output primary
-}
 
-# resize window (you can also use the mouse for that)
+#####
+##### Move containers
+#####
+
+# vim keys
+bindsym $mod+Shift+j          move left
+bindsym $mod+Shift+k          move down
+bindsym $mod+Shift+l          move up
+bindsym $mod+Shift+semicolon  move right
+
+# Arrow keys
+bindsym $mod+Shift+Left       move left
+bindsym $mod+Shift+Down       move down
+bindsym $mod+Shift+Up         move up
+bindsym $mod+Shift+Right      move right
+
+# Move container to workspace
+bindsym $mod+Shift+1          move container to workspace  1; workspace  1
+bindsym $mod+Shift+2          move container to workspace  2; workspace  2
+bindsym $mod+Shift+3          move container to workspace  3; workspace  3
+bindsym $mod+Shift+4          move container to workspace  4; workspace  4
+bindsym $mod+Shift+5          move container to workspace  5; workspace  5
+bindsym $mod+Shift+6          move container to workspace  6; workspace  6
+bindsym $mod+Shift+7          move container to workspace  7; workspace  7
+bindsym $mod+Shift+8          move container to workspace  8; workspace  8
+bindsym $mod+Shift+9          move container to workspace  9; workspace  9
+bindsym $mod+Shift+0          move container to workspace 10; workspace 10
+
+# Move container to output
+bindsym $mod+$alt+Left        move container to output left;  focus output left
+bindsym $mod+$alt+Down        move container to output down;  focus output down
+bindsym $mod+$alt+Up          move container to output up;    focus output up
+bindsym $mod+$alt+Right       move container to output right; focus output right
+
+
+#####
+##### Mic containers
+#####
+
+# Kill focused container
+bindsym $mod+Shift+q          kill
+
+# Enter fullscreen mode for the focused container
+bindsym $mod+f                fullscreen
+
+# Border toggle
+bindsym $mod+b                border toggle
+
+# Move container to scratchpad
+bindsym $mod+Shift+minus      move scratchpad
+
+# Toggle scratchpad
+bindsym $mod+minus            scratchpad show
+
+# Toggle tiling / floating
+bindsym $mod+Shift+space      floating toggle
+
+
+
+####################
+#################### Modes
+####################
+
+
+#####
+##### Resize the current window
+#####
+
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
+    # vim keys
+    bindsym j                 resize shrink width  10 px or 10 ppt
+    bindsym k                 resize grow   height 10 px or 10 ppt
+    bindsym l                 resize shrink height 10 px or 10 ppt
+    bindsym semicolon         resize grow   width  10 px or 10 ppt
+    bindsym Shift+j           resize shrink width   5 px or  5 ppt
+    bindsym Shift+k           resize grow   height  5 px or  5 ppt
+    bindsym Shift+l           resize shrink height  5 px or  5 ppt
+    bindsym Shift+semicolon   resize grow   width   5 px or  5 ppt
 
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
+    # Arrow keys
+    bindsym Left              resize shrink width  10 px or 10 ppt
+    bindsym Down              resize grow   height 10 px or 10 ppt
+    bindsym Up                resize shrink height 10 px or 10 ppt
+    bindsym Right             resize grow   width  10 px or 10 ppt
+    bindsym Shift+Left        resize shrink width   5 px or  5 ppt
+    bindsym Shift+Down        resize grow   height  5 px or  5 ppt
+    bindsym Shift+Up          resize shrink height  5 px or  5 ppt
+    bindsym Shift+Right       resize grow   width   5 px or  5 ppt
 
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
-
-        # back to normal: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
-
-
-# Easy lock/logout/etc functions
-set $system_functions System (l) lock, (e) logout, (s) suspend, (r) reboot, (Shift+s) shutdown
-mode "$system_functions" {
-    bindsym l exec --no-startup-id i3exit lock, mode "default"
-    bindsym e exec --no-startup-id i3exit logout, mode "default"
-    bindsym s exec --no-startup-id i3exit suspend, mode "default"
-    # bindsym h exec --no-startup-id i3exit hibernate, mode "default"
-    bindsym r exec --no-startup-id i3exit reboot, mode "default"
-    bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"  
-
-    # back to normal: Enter or Escape
+    # Exit mode
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
 
-###
-### Rules
-###
+
+#####
+##### System bar (lock/logout/power)
+#####
+
+set $system_functions System (l) lock, (e) logout, (s) suspend, (r) reboot, (Shift+s) shutdown
+mode "$system_functions" {
+    bindsym l       exec --no-startup-id i3exit lock,      mode "default"
+    bindsym e       exec --no-startup-id i3exit logout,    mode "default"
+    bindsym s       exec --no-startup-id i3exit suspend,   mode "default"
+    #bindsym h       exec --no-startup-id i3exit hibernate, mode "default"
+    bindsym r       exec --no-startup-id i3exit reboot,    mode "default"
+    bindsym Shift+s exec --no-startup-id i3exit shutdown,  mode "default"
+
+    # Exit mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+
+
+####################
+#################### App shortcuts
+####################
+
+# Terminal
+bindsym $mod+Return           exec i3-sensible-terminal
+
+
+
+####################
+#################### Rules
+####################
 
 # Firefox / Pushbullet popups
 # Move to primary output
 #for_window [class="Firefox" window_role="alert"] floating enable
 
 
-###
-### Execute apps
-###
+
+####################
+#################### Startup apps
+####################
 
 # Start gnome-settings-daemon for volume control and other media keys.
 exec --no-startup-id gnome-settings-daemon
-# Network manager applet
-#exec --no-startup-id nm-applet
-
-# Autostart programs using dex (https://github.com/jceb/dex)
-exec --no-startup-id "dex -ae i3"
 
 # Auto screen lock
 exec --no-startup-id "xautolock -time 15 -locker 'i3exit lock' &"
 
 # Comtpon composite manager to fix screen tearing
 exec --no-startup-id "compton -CGb --config ~/.config/compton.conf"
+
+# Autostart programs using dex (https://github.com/jceb/dex)
+exec --no-startup-id "dex -ae i3"
