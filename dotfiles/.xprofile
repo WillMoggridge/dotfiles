@@ -1,5 +1,6 @@
-# Load display settingss
-#~/.dotfiles/bin/configure-displays
+####################
+#################### Keyboard
+####################
 
 # Correct keyboard layout please
 setxkbmap gb
@@ -13,6 +14,30 @@ xset r rate 200 80
 # Enable X restart with CTRL-ALT-BACKSPACE
 setxkbmap -option terminate:ctrl_alt_bksp
 
+# Custom key mappings
+if [ -f ~/.xmodmap ]
+    xmodmap ~/.xmodmap
+fi
+
+
+
+####################
+#################### Mouse
+####################
+
+# Use a better mouse pointer
+xsetroot -cursor_name left_ptr
+
+# Try and get rid of mouse acceleration
+#xinput set-prop pointer:"ROCCAT ROCCAT Kone[+]" 'Device Accel Profile' 0
+#xinput set-prop pointer:"ROCCAT ROCCAT Kone[+]" 'Device Accel Velocity Scaling' 1
+
+
+
+####################
+#################### Other
+####################
+
 # Set wallpaper (Checking for existence)
 if [ -f ~/.wallpaper.png ]
 then
@@ -22,9 +47,5 @@ then
    feh --bg-scale ~/.wallpaper.jpg
 fi
 
-# Use a better mouse pointer
-xsetroot -cursor_name left_ptr
-
-# Try and get rid of mouse acceleration
-#xinput set-prop pointer:"ROCCAT ROCCAT Kone[+]" 'Device Accel Profile' 0
-#xinput set-prop pointer:"ROCCAT ROCCAT Kone[+]" 'Device Accel Velocity Scaling' 1
+# Load display settingss
+#~/.dotfiles/bin/configure-displays
