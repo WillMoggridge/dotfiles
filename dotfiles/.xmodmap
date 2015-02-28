@@ -1,5 +1,5 @@
 !Set Insert as super for my weird keyboard layout through Synergy
-add mod4 = Insert
+!add mod4 = Insert
 
 !Set menu key to right super
 keycode 135 = Super_R
