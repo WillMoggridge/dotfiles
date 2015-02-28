@@ -176,7 +176,7 @@ bindsym $mod+$alt+Right       move container to output right; focus output right
 
 
 #####
-##### Mic containers
+##### Misc containers
 #####
 
 # Kill focused container
