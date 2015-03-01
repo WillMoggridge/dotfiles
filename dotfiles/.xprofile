@@ -14,11 +14,6 @@ xset r rate 200 80
 # Enable X restart with CTRL-ALT-BACKSPACE
 setxkbmap -option terminate:ctrl_alt_bksp
 
-# Custom key mappings
-if [ -f ~/.xmodmap ]; then
-    xmodmap ~/.xmodmap
-fi
-
 
 
 ####################
