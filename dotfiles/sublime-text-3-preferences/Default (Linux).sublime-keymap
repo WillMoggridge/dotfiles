@@ -1,14 +1,41 @@
 [
-	{ "keys": ["ctrl+tab"],            "command": "next_view" },
-	{ "keys": ["ctrl+shift+tab"],      "command": "prev_view" },
-    { "keys": ["ctrl+c"],              "command": "noop", "context":
-        [{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true }]
+    // Navigate tabs
+    {"keys": ["ctrl+tab"],            "command": "next_view"},
+    {"keys": ["ctrl+shift+tab"],      "command": "prev_view"},
+
+    // Add carets above or below selected lines
+    {"keys": ["alt+shift+up"], "command": "select_lines", "args": {"forward": false}},
+    {"keys": ["alt+shift+down"], "command": "select_lines", "args": {"forward": true}},
+
+    // MoveText plugin. Shift selected text by one character
+    {"keys": ["ctrl+shift+left"],     "command": "move_text_left"},
+    {"keys": ["ctrl+shift+right"],    "command": "move_text_right"},
+    {"keys": ["ctrl+shift+alt+up"],   "command": "move_text_up"},
+    {"keys": ["ctrl+shift+alt+down"], "command": "move_text_down"},
+
+    // Paste from primary selection
+    {"keys": ["shift+insert"], "command": "paste", "args": {"clipboard": "selection"}},
+    {"keys": ["shift+delete"], "command": "right_delete"},
+
+    // Prevent text copy during empty selection. (Normally copies whole line).
+    {
+        "keys": ["ctrl+c", "ctrl+insert"],
+        "command": "noop",
+        "context": [{
+            "key": "selection_empty",
+            "operator": "equal",
+            "operand": true,
+            "match_all": true
+        }]
     },
-    { "keys": ["ctrl+x"],              "command": "noop", "context":
-        [{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true }]
+    {
+        "keys": ["ctrl+x"],
+        "command": "noop",
+        "context": [{
+            "key": "selection_empty",
+            "operator": "equal",
+            "operand": true,
+            "match_all": true
+        }]
     },
-    { "keys": ["ctrl+shift+left"],     "command": "move_text_left" },
-    { "keys": ["ctrl+shift+right"],    "command": "move_text_right" },
-    { "keys": ["ctrl+shift+alt+up"],   "command": "move_text_up" },
-    { "keys": ["ctrl+shift+alt+down"], "command": "move_text_down" }
 ]
