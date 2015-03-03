@@ -8,7 +8,7 @@ ln -s ~/.dotfiles/dotfiles/.gitconfig ~/
 ln -s ~/.dotfiles/dotfiles/.gitignore_global ~/
 ln -s ~/.dotfiles/dotfiles/.profile ~/
 ln -s ~/.dotfiles/dotfiles/.tmux.conf ~/
-ln -s ~/.dotfiles/dotfiles/.xmodmap ~/
+ln -s ~/.dotfiles/dotfiles/.Xmodmap ~/
 ln -s ~/.dotfiles/dotfiles/.xprofile ~/
 ln -s ~/.dotfiles/dotfiles/.zsh-theme ~/
 ln -s ~/.dotfiles/dotfiles/.zshrc ~/
