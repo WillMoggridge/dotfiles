@@ -275,7 +275,7 @@ bindsym $mod+Return           exec i3-sensible-terminal
 ####################
 
 # Start gnome-settings-daemon for volume control and other media keys.
-exec --no-startup-id gnome-settings-daemon
+exec --no-startup-id unity-settings-daemon
 
 # Auto screen lock
 exec --no-startup-id "xautolock -time 15 -locker 'i3exit lock' &"
