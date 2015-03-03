@@ -9,7 +9,8 @@ set $alt Mod1
 bar {
     font pango:roboto bold 10
     position top
-    status_command i3status --config ~/.i3/i3status.conf
+    status_command i3blocks -c ~/.i3/i3blocks.conf
+    #status_command i3status --config ~/.i3/i3status.conf
     #status_command ~/.i3/conky
     tray_output primary
 }
