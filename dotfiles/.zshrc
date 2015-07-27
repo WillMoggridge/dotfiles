@@ -39,6 +39,7 @@ plugins=(git)
 
 # Add bin paths
 export PATH=$HOME/bin:$PATH
+if [ -d $HOME/.local/bin ]; then export PATH=$HOME/.local/bin:$PATH; fi
 export PATH=$HOME/.dotfiles/bin:$PATH
 export PATH=$HOME/.tmuxifier/bin:$PATH
 
