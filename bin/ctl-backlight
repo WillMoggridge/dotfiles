@@ -1,0 +1,35 @@
+#!/usr/bin/python3
+
+import argparse
+from math import floor
+from subprocess import call, check_output
+
+def get_arguments():
+    parser = argparse.ArgumentParser(description='change backlight level')
+    parser.add_argument('action', type=str, choices=['+', '-'],
+                       help='+ or -')
+    return parser.parse_args()
+
+args = get_arguments()
+action = args.action
+
+xbacklight = '/usr/bin/xbacklight'
+current_level = floor(float(check_output(xbacklight))) + 1
+
+levels = [1, 2, 3, 5, 8, 13, 20, 40, 60, 80, 100]
+change_to_percent = None
+
+if action is '-':
+    for level in reversed(levels[:-1]):
+        if level < current_level:
+            change_to_percent = level
+            break
+
+if action is '+':
+    for level in levels[1:]:
+        if level > current_level:
+            change_to_percent = level
+            break
+
+if change_to_percent:
+    call([xbacklight, '=', str(change_to_percent)])

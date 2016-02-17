@@ -26,6 +26,14 @@ alias ff="firefox -P DarkXDragon"
 alias ff-wm="firefox -P WillMoggridge -no-remote"
 alias kp="keepass2"
 
+is_ssh() {
+    if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+      return 0
+    else
+      return 1
+    fi
+}
+
 # Call virtualenvwrapper's "workon" if .venv exists.
 # http://justinlilly.com/python/virtualenv_wrapper_helper.html
 # https://gist.github.com/cjerdonek/7583644

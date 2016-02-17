@@ -1,0 +1,7 @@
+#!/bin/bash
+
+synclient RightButtonAreaLeft=3914
+synclient RightButtonAreaTop=3918
+synclient MiddleButtonAreaRight=3873
+synclient MiddleButtonAreaLeft=3100
+synclient MiddleButtonAreaTop=3918

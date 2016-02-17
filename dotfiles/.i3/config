@@ -43,10 +43,31 @@ bindsym $mod+period           exec --no-startup-id i3-input
 bindsym $mod+d                exec dmenu_run
 bindsym $mod+Shift+d          exec --no-startup-id i3-dmenu-desktop
 
+# Pulse Audio controls
+bindsym XF86AudioRaiseVolume  exec --no-startup-id ctl-volume raise
+bindsym XF86AudioLowerVolume  exec --no-startup-id ctl-volume lower
+bindsym XF86AudioMute         exec --no-startup-id ctl-volume mute
+
+# Sreen brightness controls
+bindsym XF86MonBrightnessUp   exec --no-startup-id ctl-backlight +
+bindsym XF86MonBrightnessDown exec --no-startup-id ctl-backlight -
+
+# Touchpad controls
+#bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
+
+# Media player controls
+bindsym XF86AudioPlay         exec playerctl play
+bindsym XF86AudioPause        exec playerctl pause
+bindsym XF86AudioNext         exec playerctl next
+bindsym XF86AudioPrev         exec playerctl previous
+
 
 ######
 ###### Other
 ######
+
+# Toggle keyboard layout
+bindsym ctrl+$alt+space       exec --no-startup-id "toggle-keyboard-layout"
 
 # Quick fix resolution shortcut for laptop to remove later
 bindsym $mod+$alt+equal       exec "xrandr --output eDP1 --mode 2560x1440"
@@ -86,6 +107,7 @@ bindsym $mod+space            focus mode_toggle
 #################### Workspaces
 ####################
 
+# TODO: Can now set scratchpad to sticky!
 
 #####
 ##### Switch workspaces
@@ -282,7 +304,9 @@ exec --no-startup-id unity-settings-daemon
 exec --no-startup-id "xautolock -time 15 -locker 'i3exit lock' &"
 
 # Comtpon composite manager to fix screen tearing
-exec --no-startup-id "compton -CGb --config ~/.config/compton.conf"
+#exec --no-startup-id "compton -CGb --config ~/.config/compton.conf"
 
 # Autostart programs using dex (https://github.com/jceb/dex)
 exec --no-startup-id "dex -ae i3"
+
+exec --no-startup-id "/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &"
