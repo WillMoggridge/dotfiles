@@ -19,6 +19,8 @@ if [ -f ~/.Xmodmap ]; then
  xmodmap ~/.Xmodmap
 fi
 
+# Mouse sensitivity, not best method
+xset m 2 1
 
 
 ####################
