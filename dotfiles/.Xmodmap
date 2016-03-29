@@ -3,3 +3,10 @@
 
 !Set menu key to right super
 keycode 135 = Super_R
+
+
+! TrulyErgonomic Keyboard
+! keycode 101 (keysym 0xff27, Hiragana_Katakana)
+! keycode 97 (keysym 0x0, NoSymbol)
+keycode 101 = Super_L
+keycode 97 = Super_L
