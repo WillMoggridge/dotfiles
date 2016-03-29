@@ -1,0 +1,12 @@
+#!/usr/bin/env sh
+# shell script to prepend i3status with more stuff
+
+
+i3status --config ~/.i3/i3status.conf | while :
+do
+    kb_variant=$(setxkbmap -query | grep layout | grep -Po "[^(layout:\s*)]\w*[^\s]")
+    kb_variant=$(setxkbmap -query | grep variant | grep -Po "[^(variant:\s*)]\w*[^\s]" || echo default)
+
+    read line
+    echo "$kb_layout ($kb_variant) | $line" || exit 1
+done
