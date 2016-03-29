@@ -1,0 +1,38 @@
+#!/bin/bash
+
+# https://clbin.com helper function
+# ===
+#
+# Usage examples:
+# ---
+#
+# $ echo "hello world" | clbin
+# https://clbin.com/SwP5h
+#
+# $ echo "hello world" > hello.txt
+# $ clbin hello.txt
+# https://clbin.com/SwP5h
+#
+# clbin @image.jpg
+# https://clbin.com/JT5ZY2.jpg
+#
+
+
+if [ -n "$1" ]; then
+    input=$1
+else
+    input="-"
+fi
+
+# If arg is not a binary file input (starts with @), prepend <
+if ! [[ $input = @* ]]; then
+    input="<${input}"
+fi
+
+result=$(curl -sF "clbin=${input}" https://clbin.com)
+
+echo $result
+
+if [[ $result = https://clbin.com/* ]]; then
+    echo $result | xsel --clipboard
+fi
