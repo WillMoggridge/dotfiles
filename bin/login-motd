@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# I love some fun messages on login:
+# Can the remote request have a little cache?
+if hash cowsay 2>/dev/null; then
+    whatisonfire=`dig +tries=1 +time=1 +short txt istheinternetonfire.com | sed 's/^"\(.*\)"$/\1/'`
+
+    saythis="Is the internet on fire?
+
+    $whatisonfire"
+
+    cowsay -f dragon -W 75 "$saythis"
+fi
