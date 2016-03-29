@@ -1,6 +1,7 @@
 #Automatically load aliases from this file
 
 alias ack='ack-grep'
+if hash hub 2>/dev/null; then alias git=hub; fi
 
 alias restartadb='adb kill-server && adb start-server'
 alias logcat='adb logcat'
@@ -52,3 +53,13 @@ venv_cd () {
 # Check new shell instances
 check_virtualenv
 alias cd="venv_cd"
+
+# Fix the last command...
+eval "$(thefuck --alias fuck)"
+eval "$(thefuck --alias ugh)"
+# Colemak homerow spam
+eval "$(thefuck --alias arst)"
+eval "$(thefuck --alias oien)"
+# Qwerty homerow spam
+eval "$(thefuck --alias asdf)"
+eval "$(thefuck --alias lkj)"
