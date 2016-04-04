@@ -83,4 +83,19 @@ export EDITOR="vim"
 export VISUAL="vim"
 
 export WORKON_HOME=~/.virtualenvs
-source /usr/local/bin/virtualenvwrapper.sh
+# source /usr/local/bin/virtualenvwrapper.sh
+source $HOME/.canonistack/novarc
+
+source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
+
+
+# I love some fun messages on login:
+# if hash cowsay 2>/dev/null; then
+# dig +short txt istheinternetonfire.com | sed 's/^"\(.*\)"$/\1/' | (echo "Is the internet on fire? \n\n" && cat) | cowsay -f dragon -W 75
+# fi
+login-motd
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export PATH="$PATH:$HOME/.npm-packages/bin"
+
