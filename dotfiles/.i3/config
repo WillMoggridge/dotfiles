@@ -128,6 +128,23 @@ bindsym $mod+0                exec "i3-msg workspace 10; i3-msg scratchpad show;
 
 
 #####
+##### Navigate workspaces
+#####
+
+# vim keys
+bindsym $mod+Ctrl+j                workspace prev_on_output
+bindsym $mod+Ctrl+semicolon        workspace next_on_output
+
+# Arrow keys
+bindsym $mod+Ctrl+Left             workspace prev_on_output
+bindsym $mod+Ctrl+Right            workspace next_on_output
+
+# Quick switch!
+bindsym $mod+q                     workspace back_and_forth
+bindsym $mod+z                     workspace back_and_forth
+
+
+#####
 ##### Move workspaces
 #####
 
@@ -259,13 +276,12 @@ mode "resize" {
 ##### System bar (lock/logout/power)
 #####
 
-set $system_functions System (l) lock, (e) logout, (s) suspend, (r) reboot, (Shift+s) shutdown
+set $system_functions System (l) lock, (s) suspend, (Shift+e) logout, (Shift+r) reboot, (Shift+s) shutdown
 mode "$system_functions" {
     bindsym l       exec --no-startup-id i3exit lock,      mode "default"
-    bindsym e       exec --no-startup-id i3exit logout,    mode "default"
+    bindsym Shift+e exec --no-startup-id i3exit logout,    mode "default"
     bindsym s       exec --no-startup-id i3exit suspend,   mode "default"
-    #bindsym h       exec --no-startup-id i3exit hibernate, mode "default"
-    bindsym r       exec --no-startup-id i3exit reboot,    mode "default"
+    bindsym Shift+r exec --no-startup-id i3exit reboot,    mode "default"
     bindsym Shift+s exec --no-startup-id i3exit shutdown,  mode "default"
 
     # Exit mode
@@ -299,15 +315,15 @@ bindsym $mod+Return           exec i3-sensible-terminal
 ####################
 
 # Start gnome-settings-daemon for volume control and other media keys.
-exec --no-startup-id unity-settings-daemon
+# exec --no-startup-id unity-settings-daemon
 
 # Auto screen lock
-exec --no-startup-id "xautolock -time 15 -locker 'i3exit lock' &"
+# exec --no-startup-id "xautolock -time 15 -locker 'i3exit lock' &"
 
 # Comtpon composite manager to fix screen tearing
 #exec --no-startup-id "compton -CGb --config ~/.config/compton.conf"
 
 # Autostart programs using dex (https://github.com/jceb/dex)
-exec --no-startup-id "dex -ae i3"
+# exec --no-startup-id "dex -ae i3"
 
-exec --no-startup-id "/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &"
+# exec --no-startup-id "/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &"
