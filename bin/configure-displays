@@ -12,27 +12,15 @@ MONITORS=`xrandr | grep connected | grep -v disconnected | wc -l`
 # Get hostname
 HOSTNAME=`hostname`
 
-if [[ "$HOSTNAME" = *"-desktop" ]]; then
+if [[ "$HOSTNAME" = "will-desktop" ]]; then
 	if [ "$MONITORS" -gt 1 ]; then
-		xrandr --newmode 1920x1080_120.00 369.50 1920 2080 2288 2656 1080 1083 1088 1160 -hsync +vsync
-
-		#xrandr --addmode DVI-I-1 1920x1080_120.00
-		#xrandr --output DVI-I-1 --mode 1920x1080_120.00
-		xrandr --output DVI-I-1 --mode 1920x1080 -r 120
-	    xrandr --output DVI-I-1 --primary
-		xrandr --output DVI-I-1 --preferred
-
-		#xrandr --addmode DP-1 1920x1080_120.00
-		#xrandr --output DP-1 --mode 1920x1080_120.00
-		xrandr --output DP-1 --mode 1920x1080 -r 120
-		xrandr --output DP-1 --right-of DVI-I-1
-	    xrandr --output DP-1 --mode 1920x1080-r 120
-
-		xrandr --output DVI-D-0 --left-of DVI-I-1
+		xrandr --output DP-4 --primary       --mode 1920x1080 -r 144.00
+		xrandr --output DP-0 --left-of  DP-4 --mode 1920x1080 -r 119.98
+		xrandr --output DP-2 --right-of DP-4 --mode 1920x1080 -r 119.98
 	fi
 fi
 
-if [[ "$HOSTNAME" = *"-laptop" ]]; then
+if [[ "$HOSTNAME" = "will-laptop" ]]; then
 	if [[ "$MONITORS" -gt 1 ]]; then
 		xrandr --output DP1 --above eDP1 --mode 1920x1080
 	else

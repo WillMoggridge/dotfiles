@@ -50,4 +50,4 @@ then
 fi
 
 # Load display settingss
-#~/.dotfiles/bin/configure-displays
+~/.dotfiles/bin/configure-displays
