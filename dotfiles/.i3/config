@@ -326,4 +326,5 @@ bindsym $mod+Return           exec i3-sensible-terminal
 # Autostart programs using dex (https://github.com/jceb/dex)
 # exec --no-startup-id "dex -ae i3"
 
-# exec --no-startup-id "/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &"
+# Gnome security policies and privilege escalation
+exec --no-startup-id "/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &"
