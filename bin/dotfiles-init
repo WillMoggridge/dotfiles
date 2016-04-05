@@ -1,7 +1,11 @@
 #!/bin/sh
 mkdir -p ~/.config
-ln -s ~/.dotfiles/dotfiles/.bash ~/
+
+ln -s ~/.dotfiles/dotfiles/.config/dunst ~/.config/
+
 ln -s ~/.dotfiles/dotfiles/.config/compton.conf ~/.config/
+
+ln -s ~/.dotfiles/dotfiles/.bash ~/
 ln -s ~/.dotfiles/dotfiles/.i3 ~/
 ln -s ~/.dotfiles/dotfiles/.tmux ~/
 ln -s ~/.dotfiles/dotfiles/.zsh ~/
