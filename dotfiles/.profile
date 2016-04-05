@@ -4,10 +4,6 @@
 # see /usr/share/doc/bash/examples/startup-files for examples.
 # the files are located in the bash-doc package.
 
-# the default umask is set in /etc/profile; for setting the umask
-# for ssh logins, install and configure the libpam-umask package.
-#umask 022
-
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
     # include .bashrc if it exists
@@ -16,7 +12,7 @@ if [ -n "$BASH_VERSION" ]; then
     fi
 fi
 
-# set PATH so it includes user's private bin if it exists
+# Add user bin
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
@@ -26,11 +22,15 @@ if [ -d "$HOME/.dotfiles/bin" ] ; then
     PATH="$HOME/.dotfiles/bin:$PATH"
 fi
 
-# Keyboard options
-setxkbmap gb
+# Node/Ruby Version Manager
+export PATH="$PATH:$HOME/.npm-packages/bin"
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+export PATH="$PATH:$HOME/.rvm/bin"
 
 if [ -f $HOME/.aliases ]; then source $HOME/.aliases; fi
+if [ -f $HOME/.canonistack/novarc ]; then source $HOME/.canonistack/novarc; fi
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+# Keyboard options
+setxkbmap gb

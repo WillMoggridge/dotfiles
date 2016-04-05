@@ -37,30 +37,11 @@ DISABLE_AUTO_TITLE="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(git)
 
-# Add bin paths
-export PATH=$HOME/bin:$PATH
-if [ -d $HOME/.local/bin ]; then export PATH=$HOME/.local/bin:$PATH; fi
-export PATH=$HOME/.dotfiles/bin:$PATH
-export PATH=$HOME/.tmuxifier/bin:$PATH
-
 # Source files
 if [ -f $ZSH/oh-my-zsh.sh ]; then source $ZSH/oh-my-zsh.sh; fi
-if [ -f $HOME/.aliases ]; then source $HOME/.aliases; fi
-if [ -f $HOME/.local_envs ]; then source $HOME/.local_envs; fi
-
-# Add Gnome Keyring as the SSH auth if we are in i3
-if [ $DESKTOP_SESSION = "i3" ]; then
-    eval $(gnome-keyring-daemon --start)
-    export SSH_AUTH_SOCK GPG_AGENT_INFO GNOME_KEYRING_CONTROL GNOME_KEYRING_PID
-    export SSH_AGENT_PID=$GNOME_KEYRING_PID
-fi
 
 # Stop zsh making it rename folder into variables!
 unsetopt auto_name_dirs
-
-function src() { cd ~/Source/$1; }
-_src() { _files -W ~/Source; }
-compdef _src src 
 
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
@@ -70,29 +51,5 @@ setopt nomatch
 unsetopt appendhistory autocd beep extendedglob notify
 bindkey -e
 
-##### Example leftovers
-
-# # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-export EDITOR="vim"
-export VISUAL="vim"
-
-export WORKON_HOME=~/.virtualenvs
-if [ -f /etc/bash_completion.d/virtualenvwrapper ]; then
-    source /etc/bash_completion.d/virtualenvwrapper
-fi
-
-if [ -f $HOME/.canonistack/novarc ]; then source $HOME/.canonistack/novarc; fi
-
-export PATH="$PATH:$HOME/.npm-packages/bin"
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-export PATH="$PATH:$HOME/.rvm/bin"
-
+# MOTD for the terminal
 login-motd

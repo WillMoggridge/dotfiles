@@ -1,31 +1,4 @@
-#Automatically load aliases from this file
-
-alias ack='ack-grep'
-if hash hub 2>/dev/null; then alias git=hub; fi
-
-alias restartadb='adb kill-server && adb start-server'
-alias logcat='adb logcat'
-alias logcate='adb -e logcat'
-alias logcatd='adb -d logcat'
-
-alias reloadenvs="source ~/.local_envs"
-
-# Server stuff
-alias server-env='source env/bin/activate'
-
-alias darkxdragon='cd ~/Source/websites/darkxdragon && source env/bin/activate'
-alias willmoggridge='cd ~/Source/websites/willmoggridge && source env/bin/activate'
-alias wm-site='cd ~/Source/websites/willmoggridge-site && source env/bin/activate'
-
-alias darkxdragon-runserver='darkxdragon && ./manage.py runserver 8010'
-alias willmoggridge-runserver='willmoggridge && ./manage.py runserver 8020'
-alias wm-site-runserver='wm-site && ./manage.py runserver 8020'
-
-# Programs
-alias ipn="ipython notebook --notebook-dir=~/Source/notebooks --gui gtk"
-alias ff="firefox -P DarkXDragon"
-alias ff-wm="firefox -P WillMoggridge -no-remote"
-alias kp="keepass2"
+# Automatically load aliases from this file
 
 is_ssh() {
     if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
@@ -54,12 +27,15 @@ venv_cd () {
 check_virtualenv
 alias cd="venv_cd"
 
+
 # Fix the last command...
 eval "$(thefuck --alias fuck)"
-eval "$(thefuck --alias ugh)"
+alias ugh='fuck'
 # Colemak homerow spam
-eval "$(thefuck --alias arst)"
-eval "$(thefuck --alias oien)"
+alias arst='fuck'; alias oien='fuck'
 # Qwerty homerow spam
-eval "$(thefuck --alias asdf)"
-eval "$(thefuck --alias lkj)"
+alias asdf='fuck'; alias lkj='fuck'
+
+
+alias ack='ack-grep'
+if hash hub 2>/dev/null; then alias git=hub; fi
