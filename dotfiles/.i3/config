@@ -108,23 +108,20 @@ bindsym $mod+space            focus mode_toggle
 #################### Workspaces
 ####################
 
-# TODO: Can now set scratchpad to sticky!
-
 #####
 ##### Switch workspaces
 #####
 
-# Switch to workspace and load scratchpad window unfocused (Useful for playing videos!)
-bindsym $mod+1                exec "i3-msg workspace  1; i3-msg scratchpad show; i3-msg focus mode_toggle"
-bindsym $mod+2                exec "i3-msg workspace  2; i3-msg scratchpad show; i3-msg focus mode_toggle"
-bindsym $mod+3                exec "i3-msg workspace  3; i3-msg scratchpad show; i3-msg focus mode_toggle"
-bindsym $mod+4                exec "i3-msg workspace  4; i3-msg scratchpad show; i3-msg focus mode_toggle"
-bindsym $mod+5                exec "i3-msg workspace  5; i3-msg scratchpad show; i3-msg focus mode_toggle"
-bindsym $mod+6                exec "i3-msg workspace  6; i3-msg scratchpad show; i3-msg focus mode_toggle"
-bindsym $mod+7                exec "i3-msg workspace  7; i3-msg scratchpad show; i3-msg focus mode_toggle"
-bindsym $mod+8                exec "i3-msg workspace  8; i3-msg scratchpad show; i3-msg focus mode_toggle"
-bindsym $mod+9                exec "i3-msg workspace  9; i3-msg scratchpad show; i3-msg focus mode_toggle"
-bindsym $mod+0                exec "i3-msg workspace 10; i3-msg scratchpad show; i3-msg focus mode_toggle"
+bindsym $mod+1                exec "i3-msg workspace  1"
+bindsym $mod+2                exec "i3-msg workspace  2"
+bindsym $mod+3                exec "i3-msg workspace  3"
+bindsym $mod+4                exec "i3-msg workspace  4"
+bindsym $mod+5                exec "i3-msg workspace  5"
+bindsym $mod+6                exec "i3-msg workspace  6"
+bindsym $mod+7                exec "i3-msg workspace  7"
+bindsym $mod+8                exec "i3-msg workspace  8"
+bindsym $mod+9                exec "i3-msg workspace  9"
+bindsym $mod+0                exec "i3-msg workspace 10"
 
 
 #####
@@ -230,6 +227,9 @@ bindsym $mod+Shift+minus      move scratchpad
 
 # Toggle scratchpad
 bindsym $mod+minus            scratchpad show
+
+# Toggle sticky scratchpad (broken)
+bindsym $mod+Ctrl+minus       for_window [instance="^scratchpad$"] sticky disable
 
 # Toggle tiling / floating
 bindsym $mod+Shift+space      floating toggle
