@@ -29,8 +29,7 @@ alias cd="venv_cd"
 
 
 # Fix the last command...
-eval "$(thefuck --alias fuck)"
-alias ugh='fuck'
+eval "$(thefuck --alias fuck)"; alias ugh='fuck'
 # Colemak homerow spam
 alias arst='fuck'; alias oien='fuck'
 # Qwerty homerow spam
