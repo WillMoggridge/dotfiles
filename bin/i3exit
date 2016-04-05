@@ -1,6 +1,8 @@
 #!/bin/sh
 lock() {
-    i3lock --dpms -c 000000
+    killall -SIGUSR1 dunst # Pause notifications
+    i3lock --nofork --dpms -c 000000
+    killall -SIGUSR2 dunst # Resume notifications
     # gnome-screensaver-command -l
 }
 
