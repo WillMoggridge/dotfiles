@@ -301,16 +301,6 @@ bindsym $mod+Return           exec i3-sensible-terminal
 
 
 ####################
-#################### Rules
-####################
-
-# Firefox / Pushbullet popups
-# Move to primary output
-#for_window [class="Firefox" window_role="alert"] floating enable
-
-
-
-####################
 #################### Startup apps
 ####################
 
@@ -329,3 +319,15 @@ exec --no-startup-id "/usr/lib/policykit-1-gnome/polkit-gnome-authentication-age
 # Autostart programs using dex (https://github.com/jceb/dex)
 # Autostart config: https://standards.freedesktop.org/menu-spec/latest/ar01s03.html
 exec --no-startup-id "dex --autostart --environment i3"
+
+
+
+####################
+#################### Rules
+####################
+
+### General pop-up catch all
+for_window [window_role="pop-up"] floating enable
+
+### Float update manager
+for_window [class="update-manager"] floating enable
