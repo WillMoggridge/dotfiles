@@ -151,6 +151,13 @@ bindsym $mod+Shift+$alt+Down  move workspace to output down
 bindsym $mod+Shift+$alt+Up    move workspace to output up
 bindsym $mod+Shift+$alt+Right move workspace to output right
 
+#####
+##### Other
+#####
+
+# Rename workspace
+bindsym $mod+m                exec i3-input -F 'Rename workspace to %s' -P 'New name: '
+
 
 
 ####################
