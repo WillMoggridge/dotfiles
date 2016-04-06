@@ -323,8 +323,8 @@ bindsym $mod+Return           exec i3-sensible-terminal
 # Comtpon composite manager to fix screen tearing
 exec --no-startup-id "compton -CGb --config ~/.config/compton.conf"
 
-# Autostart programs using dex (https://github.com/jceb/dex)
-# exec --no-startup-id "dex -ae i3"
-
 # Gnome security policies and privilege escalation
 exec --no-startup-id "/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &"
+
+# Autostart programs using dex (https://github.com/jceb/dex)
+exec --no-startup-id "dex -ae i3"
