@@ -1,5 +1,7 @@
 # Automatically load aliases from this file
 
+alias is_env=is_env
+
 is_env() {
     if [[ `hostname` = "will-$1" ]]; then
       return 0

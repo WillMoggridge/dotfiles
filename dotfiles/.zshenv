@@ -1,3 +1,5 @@
+WORKON_HOME=~/.virtualenvs
+
 # Add extra paths
 if [ -d $HOME/bin ]; then export PATH=$HOME/bin:$PATH; fi
 if [ -d $HOME/.dotfiles/bin ]; then export PATH=$HOME/.dotfiles/bin:$PATH; fi

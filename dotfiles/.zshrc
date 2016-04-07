@@ -35,10 +35,34 @@ DISABLE_AUTO_TITLE="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git)
-
-# Source files
-if [ -f $ZSH/oh-my-zsh.sh ]; then source $ZSH/oh-my-zsh.sh; fi
+plugins=(
+    autojump
+    catimg
+    colorize
+    cp
+    dircycle
+    django
+    docker
+    gem
+    git
+    httpie
+    hub
+    mosh
+    node
+    npm
+    nvm
+    per-directory-history
+    pip
+    rvm
+    systemd
+    taskwarrior
+    tmux
+    tmuxinator
+    urltools
+    vagrant
+    virtualenv
+    virtualenvwrapper
+)
 
 # Stop zsh making it rename folder into variables!
 unsetopt auto_name_dirs
@@ -58,3 +82,6 @@ compdef _src src
 
 # MOTD for the terminal
 login-motd
+
+# Oh my ZSH
+if [ -f $ZSH/oh-my-zsh.sh ]; then source $ZSH/oh-my-zsh.sh; fi
