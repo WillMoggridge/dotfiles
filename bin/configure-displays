@@ -9,10 +9,7 @@
 # Count monitors
 MONITORS=`xrandr | grep connected | grep -v disconnected | wc -l`
 
-# Get hostname
-HOSTNAME=`hostname`
-
-if [[ "$HOSTNAME" = "will-desktop" ]]; then
+if is_env desktop; then
 	if [ "$MONITORS" -gt 1 ]; then
 		xrandr --output DP-4 --primary       --mode 1920x1080 -r 144.00
 		xrandr --output DP-0 --left-of  DP-4 --mode 1920x1080 -r 119.98
@@ -20,7 +17,7 @@ if [[ "$HOSTNAME" = "will-desktop" ]]; then
 	fi
 fi
 
-if [[ "$HOSTNAME" = "will-laptop" ]]; then
+if is_env laptop; then
 	if [[ "$MONITORS" -gt 1 ]]; then
 		xrandr --output DP1 --above eDP1
 		xrandr --output HDMI1 --above eDP1

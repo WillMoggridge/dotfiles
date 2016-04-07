@@ -1,5 +1,13 @@
 # Automatically load aliases from this file
 
+is_env() {
+    if [[ `hostname` = "will-$1" ]]; then
+      return 0
+    else
+      return 1
+    fi
+}
+
 is_ssh() {
     if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
       return 0
