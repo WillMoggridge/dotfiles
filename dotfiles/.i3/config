@@ -6,6 +6,12 @@
 set $mod Mod4
 set $alt Mod1
 
+# vim keys (colemak)
+set $vim_left  n
+set $vim_down  e
+set $vim_up    i
+set $vim_right o
+
 bar {
     font pango:roboto bold 10
     position top
@@ -80,23 +86,21 @@ bindsym $mod+$alt+minus       exec "xrandr --output eDP1 --mode 1920x1080"
 #################### Navigation / Change focus
 ####################
 
-# vim keys
-bindsym $mod+j                focus left
-bindsym $mod+k                focus down
-bindsym $mod+l                focus up
-bindsym $mod+semicolon        focus right
-
-# Arrow keys
+# Navigate panes
+bindsym $mod+$vim_left        focus left
+bindsym $mod+$vim_down        focus down
+bindsym $mod+$vim_up          focus up
+bindsym $mod+$vim_right       focus right
 bindsym $mod+Left             focus left
 bindsym $mod+Down             focus down
 bindsym $mod+Up               focus up
 bindsym $mod+Right            focus right
 
 # Navigate to output
-bindsym $mod+Ctrl+$alt+j      focus output left
-bindsym $mod+Ctrl+$alt+k      focus output down
-bindsym $mod+Ctrl+$alt+l      focus output up
-bindsym $mod+Ctrl+$alt+;      focus output right
+bindsym $mod+Ctrl+$alt+$vim_left      focus output left
+bindsym $mod+Ctrl+$alt+$vim_down      focus output down
+bindsym $mod+Ctrl+$alt+$vim_up        focus output up
+bindsym $mod+Ctrl+$alt+$vim_right     focus output right
 bindsym $mod+Ctrl+$alt+Left   focus output left
 bindsym $mod+Ctrl+$alt+Down   focus output down
 bindsym $mod+Ctrl+$alt+Up     focus output up
@@ -138,11 +142,9 @@ bindsym $mod+0                workspace number 10
 ##### Navigate workspaces
 #####
 
-# vim keys
-bindsym $mod+Ctrl+j                workspace prev_on_output
-bindsym $mod+Ctrl+semicolon        workspace next_on_output
-
-# Arrow keys
+# Navigate workspaces on output
+bindsym $mod+Ctrl+$vim_left        workspace prev_on_output
+bindsym $mod+Ctrl+$vim_right       workspace next_on_output
 bindsym $mod+Ctrl+Left             workspace prev_on_output
 bindsym $mod+Ctrl+Right            workspace next_on_output
 
@@ -156,6 +158,10 @@ bindsym $mod+z                     workspace back_and_forth
 #####
 
 # Move workspace to output
+bindsym $mod+Shift+$alt+$vim_left  move workspace to output left
+bindsym $mod+Shift+$alt+$vim_down  move workspace to output down
+bindsym $mod+Shift+$alt+$vim_up    move workspace to output up
+bindsym $mod+Shift+$alt+$vim_right move workspace to output right
 bindsym $mod+Shift+$alt+Left  move workspace to output left
 bindsym $mod+Shift+$alt+Down  move workspace to output down
 bindsym $mod+Shift+$alt+Up    move workspace to output up
@@ -187,21 +193,18 @@ bindsym $mod+v                split v
 
 # Change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s                layout stacking
-bindsym $mod+w                layout tabbed
-bindsym $mod+e                layout toggle split
+bindsym $mod+t                layout tabbed
+bindsym $mod+w                layout toggle split
 
 
 #####
 ##### Move containers
 #####
 
-# vim keys
-bindsym $mod+Shift+j          move left
-bindsym $mod+Shift+k          move down
-bindsym $mod+Shift+l          move up
-bindsym $mod+Shift+semicolon  move right
-
-# Arrow keys
+bindsym $mod+Shift+$vim_left  move left
+bindsym $mod+Shift+$vim_down  move down
+bindsym $mod+Shift+$vim_up    move up
+bindsym $mod+Shift+$vim_right move right
 bindsym $mod+Shift+Left       move left
 bindsym $mod+Shift+Down       move down
 bindsym $mod+Shift+Up         move up
@@ -220,6 +223,10 @@ bindsym $mod+Shift+9          move container to workspace number  9; workspace n
 bindsym $mod+Shift+0          move container to workspace number 10; workspace number 10
 
 # Move container to output
+bindsym $mod+$alt+$vim_left   move container to output left;  focus output left
+bindsym $mod+$alt+$vim_down   move container to output down;  focus output down
+bindsym $mod+$alt+$vim_up     move container to output up;    focus output up
+bindsym $mod+$alt+$vim_right  move container to output right; focus output right
 bindsym $mod+$alt+Left        move container to output left;  focus output left
 bindsym $mod+$alt+Down        move container to output down;  focus output down
 bindsym $mod+$alt+Up          move container to output up;    focus output up
@@ -263,25 +270,23 @@ bindsym $mod+Shift+space      floating toggle
 #####
 
 mode "resize" {
-    # vim keys
-    bindsym j                 resize shrink width  10 px or 10 ppt
-    bindsym k                 resize grow   height 10 px or 10 ppt
-    bindsym l                 resize shrink height 10 px or 10 ppt
-    bindsym semicolon         resize grow   width  10 px or 10 ppt
-    bindsym Shift+j           resize shrink width   5 px or  5 ppt
-    bindsym Shift+k           resize grow   height  5 px or  5 ppt
-    bindsym Shift+l           resize shrink height  5 px or  5 ppt
-    bindsym Shift+semicolon   resize grow   width   5 px or  5 ppt
-
-    # Arrow keys
+    bindsym $vim_left         resize shrink width  10 px or 10 ppt
+    bindsym $vim_down         resize grow   height 10 px or 10 ppt
+    bindsym $vim_up           resize shrink height 10 px or 10 ppt
+    bindsym $vim_right        resize grow   width  10 px or 10 ppt
     bindsym Left              resize shrink width  10 px or 10 ppt
     bindsym Down              resize grow   height 10 px or 10 ppt
     bindsym Up                resize shrink height 10 px or 10 ppt
     bindsym Right             resize grow   width  10 px or 10 ppt
+
     bindsym Shift+Left        resize shrink width   5 px or  5 ppt
     bindsym Shift+Down        resize grow   height  5 px or  5 ppt
     bindsym Shift+Up          resize shrink height  5 px or  5 ppt
     bindsym Shift+Right       resize grow   width   5 px or  5 ppt
+    bindsym Shift+$vim_left   resize shrink width   5 px or  5 ppt
+    bindsym Shift+$vim_down   resize grow   height  5 px or  5 ppt
+    bindsym Shift+$vim_up     resize shrink height  5 px or  5 ppt
+    bindsym Shift+$vim_right  resize grow   width   5 px or  5 ppt
 
     # Exit mode
     bindsym Return mode "default"
