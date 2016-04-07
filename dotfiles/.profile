@@ -31,6 +31,8 @@ export PATH="$PATH:$HOME/.rvm/bin"
 
 if [ -f $HOME/.aliases ]; then source $HOME/.aliases; fi
 if [ -f $HOME/.canonistack/novarc ]; then source $HOME/.canonistack/novarc; fi
+if [ -f $HOME/.torch/install/bin/torch-activate ]; \
+    then source $HOME/.torch/install/bin/torch-activate; fi
 
 # Keyboard options
 setxkbmap gb
