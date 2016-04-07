@@ -350,8 +350,14 @@ exec --no-startup-id "dex --autostart --environment i3"
 #################### Rules
 ####################
 
+# The command you are looking for is xprop, future-Will.
+
 ### General pop-up catch all
-for_window [window_role="pop-up"] floating enable
+for_window [window_role="pop-up"]       floating enable
 
 ### Float update manager
-for_window [class="update-manager"] floating enable
+for_window [class="update-manager"]     floating enable
+
+### Borderless windows
+for_window [class="atom"]               border none
+for_window [class="google-chrome"]      border none
