@@ -92,8 +92,18 @@ bindsym $mod+Down             focus down
 bindsym $mod+Up               focus up
 bindsym $mod+Right            focus right
 
+# Navigate to output
+bindsym $mod+Ctrl+$alt+j      focus output left
+bindsym $mod+Ctrl+$alt+k      focus output down
+bindsym $mod+Ctrl+$alt+l      focus output up
+bindsym $mod+Ctrl+$alt+;      focus output right
+bindsym $mod+Ctrl+$alt+Left   focus output left
+bindsym $mod+Ctrl+$alt+Down   focus output down
+bindsym $mod+Ctrl+$alt+Up     focus output up
+bindsym $mod+Ctrl+$alt+Right  focus output right
+
 # Parent / child
-bindsym $mod+a                focus parent
+bindsym $mod+p                focus parent
 bindsym $mod+c                focus child
 
 # Jump to urgent window
