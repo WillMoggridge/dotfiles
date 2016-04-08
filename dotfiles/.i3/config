@@ -318,8 +318,7 @@ mode "resize" {
 ##### System bar (lock/logout/power)
 #####
 
-set $system_functions System \
-    (l) lock, (s) suspend, (Shift+e) logout, (Shift+r) reboot, (Shift+s) shutdown
+set $system_functions System (l) lock, (s) suspend, (Shift+e) logout, (Shift+r) reboot, (Shift+s) shutdown
 mode "$system_functions" {
     bindsym l                     exec --no-startup-id i3exit lock,      mode "default"
     bindsym Shift+e               exec --no-startup-id i3exit logout,    mode "default"
@@ -357,8 +356,7 @@ bindsym $mod+Return           exec i3-sensible-terminal
 exec --no-startup-id "compton -CGb --config ~/.config/compton.conf"
 
 # Gnome security policies and privilege escalation
-exec --no-startup-id \
-    "/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &"
+exec --no-startup-id "/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &"
 
 # Autostart programs using dex (https://github.com/jceb/dex)
 # Autostart config: https://standards.freedesktop.org/menu-spec/latest/ar01s03.html
