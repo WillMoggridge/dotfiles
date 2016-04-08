@@ -169,7 +169,7 @@
     close = ctrl+grave
 
     # Close all notifications.
-    close_all = ctrl+shift+space
+    close_all = ctrl+shift+grave
 
     # Redisplay last message(s).
     # On the US keyboard layout "grave" is normally above TAB and left
@@ -220,6 +220,11 @@
     appname = Firefox
     summary = "* — *"
     format = "<b>%s</b>"
+
+[irccloud-webteam]
+    appname = Firefox
+    summary = "@webteam"
+    format = "<b>%s</b>\n%b"
 
 #[espeak]
 #    summary = "*"
