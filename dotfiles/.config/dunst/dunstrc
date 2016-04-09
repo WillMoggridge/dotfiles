@@ -216,15 +216,20 @@
 # NOTE: It might be helpful to run dunst -print in a terminal in order
 # to find fitting options for rules.
 
-[irccloud]
+[irccloud-ff]
     appname = Firefox
     summary = "* — *"
     format = "<b>%s</b>"
 
-[irccloud-webteam]
+[irccloud-ff-webteam]
     appname = Firefox
     summary = "@webteam"
     format = "<b>%s</b>\n%b"
+
+[mumble]
+    appname = Mumble
+    allow_markup = no
+    plain_text = yes
 
 #[espeak]
 #    summary = "*"
