@@ -374,7 +374,7 @@ exec --no-startup-id "dex --autostart --environment i3"
 for_window [window_role="pop-up"]       floating enable
 
 ### Float update manager
-for_window [class="update-manager"]     floating enable
+for_window [class="Update-manager"]     floating enable
 
 ### Borderless windows
 for_window [class="atom"]               border none
