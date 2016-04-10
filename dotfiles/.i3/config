@@ -350,13 +350,13 @@ bindsym $mod+Return           exec i3-sensible-terminal
 # exec --no-startup-id unity-settings-daemon
 
 # Auto screen lock
-# exec --no-startup-id "xautolock -time 15 -locker 'i3exit lock' &"
+# exec --no-startup-id "xautolock -time 15 -locker 'i3exit lock'"
 
 # Comtpon composite manager to fix screen tearing
 exec --no-startup-id "compton -CG --config ~/.config/compton.conf"
 
 # Gnome security policies and privilege escalation
-exec --no-startup-id "/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &"
+exec --no-startup-id "/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1"
 
 # Autostart programs using dex (https://github.com/jceb/dex)
 # Autostart config: https://standards.freedesktop.org/menu-spec/latest/ar01s03.html
