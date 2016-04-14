@@ -318,13 +318,13 @@ mode "resize" {
 ##### System bar (lock/logout/power)
 #####
 
-set $system_functions System (l) lock, (s) suspend, (Shift+e) logout, (Shift+r) reboot, (Shift+s) shutdown
+set $system_functions System (l) lock, (s) suspend, (Shift+e) logout, (Shift+r) reboot, (Shift+x) shutdown
 mode "$system_functions" {
     bindsym l                     exec --no-startup-id i3exit lock,      mode "default"
     bindsym Shift+e               exec --no-startup-id i3exit logout,    mode "default"
     bindsym s                     exec --no-startup-id i3exit suspend,   mode "default"
     bindsym Shift+r               exec --no-startup-id i3exit reboot,    mode "default"
-    bindsym Shift+s               exec --no-startup-id i3exit shutdown,  mode "default"
+    bindsym Shift+x               exec --no-startup-id i3exit shutdown,  mode "default"
 
     # Exit mode
     bindsym Return mode "default"
