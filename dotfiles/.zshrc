@@ -45,8 +45,8 @@ plugins=(
     docker
     gem
     git
+    github
     httpie
-    hub
     mosh
     node
     npm
