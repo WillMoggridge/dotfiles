@@ -2,6 +2,7 @@ ack-grep
 autojump
 compton
 feh
+git-extras
 i3
 pipsi
 xautolock
