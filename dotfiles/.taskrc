@@ -16,18 +16,29 @@ data.location=~/.task
 # Sync credentials
 include ~/.task/credentials
 
-# Color theme (uncomment one to use)
-#include /usr/share/doc/task/rc/light-16.theme
-#include /usr/share/doc/task/rc/light-256.theme
-#include /usr/share/doc/task/rc/dark-16.theme
-#include /usr/share/doc/task/rc/dark-256.theme
-#include /usr/share/doc/task/rc/dark-red-256.theme
-#include /usr/share/doc/task/rc/dark-green-256.theme
-#include /usr/share/doc/task/rc/dark-blue-256.theme
-#include /usr/share/doc/task/rc/dark-violets-256.theme
-#include /usr/share/doc/task/rc/dark-yellow-green.theme
-#include /usr/share/doc/task/rc/dark-gray-256.theme
-#include /usr/share/doc/task/rc/dark-gray-blue-256.theme
-#include /usr/share/doc/task/rc/solarized-dark-256.theme
-#include /usr/share/doc/task/rc/solarized-light-256.theme
-#include /usr/share/doc/task/rc/no-color.theme
+# Color theme
+#include /usr/share/task/dark-256.theme
+
+
+calendar.holidays=full
+color=on
+
+
+report.list.description=Lists all tasks matching the specified criteria
+report.list.columns=id,project,priority,due,depends,recur,tags,description
+report.list.labels=ID,Project,Pri,Due,Depends,Recur,Tags,Description & Annotation
+report.list.sort=urgency-
+# report.list.sort=due+,priority-,project+
+report.list.filter=status:pending
+report.list.dateformat=Y b.D H:M
+
+report.long.columns=id,project,priority,entry,start,due,recur,due.countdown,entry.age,depends,tags,description
+report.long.labels=ID,Project,Pri,Added,Started,Due,Recur,Countdown,Age,Deps,Tags,Description
+
+report.next.columns=id,project,priority,due,start.active,entry.age,due.countdown,description
+report.next.labels=ID,Project,Pri,Due,A,Age,Countdown,Description
+
+alias.a=add
+alias.ls=list
+
+default.command=list
