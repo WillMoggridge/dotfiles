@@ -13,17 +13,17 @@ set $vim_up    i
 set $vim_right o
 
 bar {
-    font pango:roboto bold 10
+    font pango: M+ roboto, fontawesome bold 10
     position top
-    status_command i3status --config ~/.i3/i3status.conf
+    #status_command i3status --config ~/.i3/i3status.conf
     #status_command i3status-extended
-    #status_command i3blocks -c ~/.i3/i3blocks.conf
+    status_command i3blocks -c ~/.i3/i3blocks.conf
     #status_command ~/.i3/conky
     tray_output primary
 }
 
 focus_follows_mouse no
-font pango:roboto normal 8
+font pango: M+ roboto, fontawesome normal 8
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
