@@ -5,5 +5,7 @@ feh
 git-extras
 i3
 pipsi
+taskwarrior
+taskd
 xautolock
 xbacklight
