@@ -1,0 +1,19 @@
+[Desktop Entry]
+Comment[en_US]=webapp for IRCCloud
+Comment=webapp for ICCloud
+Exec=webapp-container --name=IRCCloud --webappUrlPatterns=https//www.irccloud.com/* --homepage=https://www.irccloud.com/ %u
+GenericName[en_US]=
+GenericName=
+Icon=/home/CORP.INSTRUCTURE.COM/banderson/Pictures/WorkFlowy.png
+MimeType=
+Name=IRCCloud
+Path=
+StartupNotify=true
+Terminal=false
+TerminalOptions=
+Type=Application
+X-DBUS-ServiceName=
+X-DBUS-StartupType=
+X-KDE-SubstituteUID=false
+X-KDE-Username=
+# X-Ubuntu-Touch=true

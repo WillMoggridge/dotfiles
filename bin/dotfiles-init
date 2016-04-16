@@ -1,4 +1,9 @@
 #!/bin/sh
+if [ ! -d ~/.local/share/applications/dotfiles ]; then
+    mkdir -p ~/.local/share/applications
+    ln -s ~/.dotfiles/applications ~/.local/share/applications/dotfiles
+fi
+
 mkdir -p ~/.config
 
 ln -s ~/.dotfiles/dotfiles/.config/dunst ~/.config/
