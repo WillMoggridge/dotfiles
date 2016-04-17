@@ -1,22 +1,6 @@
 # Automatically load aliases from this file
 
-alias is_env=is_env
-
-is_env() {
-    if [[ `hostname` = "will-$1" ]]; then
-      return 0
-    else
-      return 1
-    fi
-}
-
-is_ssh() {
-    if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
-      return 0
-    else
-      return 1
-    fi
-}
+source $HOME/.dotfiles/libs/common
 
 # Call virtualenvwrapper's "workon" if .venv exists.
 # http://justinlilly.com/python/virtualenv_wrapper_helper.html
@@ -39,7 +23,7 @@ alias cd="venv_cd"
 
 
 # Fix the last command...
-if hash thefuck 2>/dev/null; then 
+if cmd_exists thefuck; then 
     eval "$(thefuck --alias fuck)";
     alias ugh='fuck'
     # Colemak homerow spam
@@ -50,4 +34,4 @@ fi
 
 
 alias ack='ack-grep'
-if hash hub 2>/dev/null; then alias git=hub; fi
+if cmd_exists hub; then alias git=hub; fi

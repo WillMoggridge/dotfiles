@@ -1,3 +1,5 @@
+source $HOME/.dotfiles/libs/common
+
 WORKON_HOME=~/.virtualenvs
 
 # Add extra paths
@@ -19,7 +21,7 @@ if [ -f $HOME/.local_envs ]; then source $HOME/.local_envs; fi
 if [ -f $HOME/.torch/install/bin/torch-activate ]; \
     then source $HOME/.torch/install/bin/torch-activate; fi
 
-if hash nvim 2>/dev/null; then
+if cmd_exists nvim; then
   export EDITOR='nvim'
   export VISUAL='nvim'
 else

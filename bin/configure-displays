@@ -6,14 +6,16 @@
 # TODO: Try and use auto randr or similar
 #
 
+source $HOME/.dotfiles/libs/common
+
 # Count monitors
 MONITORS=`xrandr | grep connected | grep -v disconnected | wc -l`
 
 if is_env desktop; then
 	if [ "$MONITORS" -gt 1 ]; then
 		xrandr --output DP-4 --primary       --mode 1920x1080 -r 144.00
-		xrandr --output DP-0 --left-of  DP-4 --mode 1920x1080 -r 119.98
-		xrandr --output DP-2 --right-of DP-4 --mode 1920x1080 -r 119.98
+		xrandr --output DP-0 --left-of  DP-4 --mode 1920x1080 -r 120
+		xrandr --output DP-2 --right-of DP-4 --mode 1920x1080 -r 120
 	fi
 fi
 
