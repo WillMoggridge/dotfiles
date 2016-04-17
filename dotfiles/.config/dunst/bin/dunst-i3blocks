@@ -25,9 +25,10 @@
 #    signal=12
 #    align=right
 
-CACHE=~/.cache/i3blocks/notifications/notification
-CACHE_CURRENT=~/.cache/i3blocks/notifications/current
-LOGROTATE_CONFIG=~/.cache/i3blocks/notifications/logrotate
+ROOT_DIR=/dev/shm/i3blocks/notifications
+CACHE="$ROOT_DIR/notification"
+CACHE_CURRENT="$ROOT_DIR/current"
+LOGROTATE_CONFIG="$ROOT_DIR/logrotate"
 CURRENT=
 HIST_MIN=0
 HIST_MAX=30
@@ -35,7 +36,7 @@ HIST_MAX=30
 create_logrotation_config() {
     test -f $LOGROTATE_CONFIG && return
     cat << EOL > $LOGROTATE_CONFIG
-~/.cache/i3blocks/notifications/notification {
+$CACHE {
     rotate 30
     start 1
     nocompress
