@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+DUNST_BIN=$HOME/.config/dunst/bin
+
+$DUNST_BIN/dunst-i3blocks "$@" &
+$DUNST_BIN/dunst-sound "$@" &

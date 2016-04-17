@@ -1,82 +1,155 @@
 #!/bin/sh
 #
 # i3blocks integration with dunst.
-# Author: Vivien Didelot <vivien.didelot@gmail.com>
+# Original Author: Vivien Didelot <vivien.didelot@gmail.com>
+# Author: Will Moggridge <will@moggridge.com>
 #
-# dunst caches a notification and signals i3blocks.
+# dunst caches notification and signals i3blocks.
 # i3blocks catches the signal and prints the cached notification.
+#
+# Doing some weird stuff with logrotate to keep a nice history to scroll.
+# notification.0 is always empty. Create a notification and roll it to .1.
 #
 # Put this rule at the end of your ~/.config/dunst/dunstrc:
 #
-#     [i3blocks]
-#         summary = "*"
-#         script = FULL_PATH_OF_THIS_SCRIPT
+#    [i3blocks]
+#        summary = "*"
+#        script = FULL_PATH_OF_THIS_SCRIPT
 #
 # Add this block in your ~/.i3blocks.conf:
 #
-#     [dunst]
-#     command=THIS_SCRIPT
-#     signal=12
+#    [dunst]
+#    label=N:
+#    command=THIS_SCRIPT
+#    interval=once
+#    signal=12
+#    align=right
 
-CACHE=~/.cache/i3blocks/notification
+CACHE=~/.cache/i3blocks/notifications/notification
+CACHE_CURRENT=~/.cache/i3blocks/notifications/current
+LOGROTATE_CONFIG=~/.cache/i3blocks/notifications/logrotate
+CURRENT=
+HIST_MIN=0
+HIST_MAX=30
 
-# Ensure the cache exists
-mkdir -p `dirname $CACHE`
-touch $CACHE
+create_logrotation_config() {
+    test -f $LOGROTATE_CONFIG && return
+    cat << EOL > $LOGROTATE_CONFIG
+~/.cache/i3blocks/notifications/notification {
+    rotate 30
+    start 1
+    nocompress
+    notifempty
+}
+EOL
+}
 
-if env | grep -q BLOCK_
-then # called by i3blocks
+display_no_notification() {
+    echo "Have a great day! :)"
+    echo ""
+    echo "#444444"
+    exit
+}
 
-  # clear notification on click
-  test $BLOCK_BUTTON -ne 0 && cp /dev/null $CACHE
+display_notification() {
+    test -e $CURRENT && CURRENT=`cat $CACHE_CURRENT`
 
-  # source the notification
-  . $CACHE
+    # source the notification
+    . "$CACHE.$CURRENT"
 
-  FULL_TEXT="$SUMMARY $BODY"
-  SHORT_TEXT="$SUMMARY"
+    FULL_TEXT="($TIME) $SUMMARY $BODY"
+    SHORT_TEXT="$SUMMARY"
 
-  case $URGENCY in
-    LOW)
-      COLOR=#FFFFFF
-      CODE=0
-      ;;
-    NORMAL)
-      COLOR=#00FF00
-      CODE=0
-      ;;
-    CRITICAL)
-      COLOR=#FF0000
-      CODE=33
-      ;;
-    *)
-      # unknown urgency, certainly empty notification
-      exit 0
-      ;;
-  esac
+    case $URGENCY in
+        LOW)
+            COLOR=#FFFFFF
+            CODE=0
+            ;;
+        NORMAL)
+            COLOR=#00FF00
+            CODE=0
+            ;;
+        CRITICAL)
+            COLOR=#FF0000
+            CODE=33
+            ;;
+        *)
+            # unknown urgency, certainly empty notification
+            exit 0
+            ;;
+    esac
 
-  # Output the status block
-  echo $FULL_TEXT
-  echo $SHORT_TEXT
-  echo $COLOR
-  exit $CODE
+    # Output the status block
+    echo $FULL_TEXT
+    echo $SHORT_TEXT
+    echo $COLOR
+    exit $CODE
+}
 
-else # called by dunst
+is_dunst() {
+    test -z $5 && exit
 
-  # store the notification
-  cat << dunst > $CACHE
+    echo "1" > $CACHE_CURRENT
+
+    # store the notification
+    cat << EOL > $CACHE
+DATE="$(date +'%Y-%d-%m')"
+TIME="$(date +%T)"
 APPNAME="$1"
 SUMMARY="$2"
 BODY="$3"
 ICON="$4"
 URGENCY="$5"
-dunst
+EOL
 
-  # signal i3blocks that there is a new notification
-  pkill -RTMIN+12 i3blocks
-  mpv ~/Music/not.mp3
-  exit
+    logrotate -f $LOGROTATE_CONFIG
 
+    # signal i3blocks that there is a new notification
+    pkill -RTMIN+12 i3blocks
+    exit
+}
+
+is_i3blocks() {
+    # Load current notification if it is set.
+    CURRENT=`cat $CACHE_CURRENT`
+    if [ -z $CURRENT ]; then
+        CURRENT=0
+    fi
+
+    # Scroll up
+    if [ $BLOCK_BUTTON -eq 4 ]; then
+        NEXT=$(( $CURRENT - 1 ))
+        test -f "$CACHE.$NEXT" && CURRENT=$NEXT
+
+    # Scroll down
+    elif [ $BLOCK_BUTTON -eq 5 ]; then
+        NEXT=$(( $CURRENT + 1 ))
+        test -f "$CACHE.$NEXT" && CURRENT=$NEXT
+
+    # Clear notification on click
+    elif [ $BLOCK_BUTTON -ne 0 ]; then
+        # Set current notification to empty
+        CURRENT=0
+    fi
+
+    echo "$CURRENT" > $CACHE_CURRENT
+
+    # echo "$CURRENT"
+
+    test $CURRENT -eq 0 && display_no_notification
+    display_notification
+
+}
+
+# Ensure the cache exists
+mkdir -p `dirname $CACHE`
+touch $CACHE
+touch "$CACHE.0"
+touch $CACHE_CURRENT
+create_logrotation_config
+
+if env | grep -q BLOCK_; then
+    is_i3blocks "$@"
+else
+    is_dunst "$@"
 fi
-
-# vim: ts=2 sw=2 et
