@@ -22,8 +22,15 @@ check_virtualenv
 alias cd="venv_cd"
 
 
+ack-syn() {
+    echo $@
+    FILE=$1 && shift
+    less $FILE|ack --color -C 3 $@|less
+}
+
+
 # Fix the last command...
-if cmd_exists thefuck; then 
+if cmd_exists thefuck; then
     eval "$(thefuck --alias fuck)";
     alias ugh='fuck'
     # Colemak homerow spam
@@ -33,5 +40,7 @@ if cmd_exists thefuck; then
 fi
 
 
-alias ack='ack-grep'
+alias ack='ack-grep --color'
+alias grep='grep --color=always'
+alias less='less -R'
 if cmd_exists hub; then alias git=hub; fi

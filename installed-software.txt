@@ -6,6 +6,7 @@ git-extras
 i3
 pipsi
 rofi
+source-highlight
 taskwarrior
 taskd
 xautolock

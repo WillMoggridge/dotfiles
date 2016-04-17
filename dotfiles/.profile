@@ -36,5 +36,8 @@ if [ -f $HOME/.canonistack/novarc ]; then source $HOME/.canonistack/novarc; fi
 if [ -f $HOME/.torch/install/bin/torch-activate ]; \
     then source $HOME/.torch/install/bin/torch-activate; fi
 
+if [ -f /usr/share/source-highlight/src-hilite-lesspipe.sh ]; then \
+    export LESSOPEN="| /usr/share/source-highlight/src-hilite-lesspipe.sh %s"; fi
+
 # Keyboard options
 setxkbmap gb
