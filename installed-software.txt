@@ -5,6 +5,7 @@ feh
 git-extras
 i3
 pipsi
+rofi
 taskwarrior
 taskd
 xautolock

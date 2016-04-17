@@ -23,6 +23,7 @@ ln -s ~/.dotfiles/dotfiles/.profile ~/
 ln -s ~/.dotfiles/dotfiles/.taskrc ~/
 ln -s ~/.dotfiles/dotfiles/.tmux.conf ~/
 ln -s ~/.dotfiles/dotfiles/.Xmodmap ~/
+ln -s ~/.dotfiles/dotfiles/.Xresources ~/
 ln -s ~/.dotfiles/dotfiles/.xprofile ~/
 ln -s ~/.dotfiles/dotfiles/.zsh-theme ~/
 ln -s ~/.dotfiles/dotfiles/.zshenv ~/

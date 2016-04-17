@@ -1,3 +1,6 @@
+# XDG
+export XDG_DATA_DIRS=~/.dotfiles:$XDG_DATA_DIRS
+
 ####################
 #################### Keyboard
 ####################

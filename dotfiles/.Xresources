@@ -1,0 +1,31 @@
+/* Rofi */
+#define r_bg   #1d2021
+#define r_hlbg #444444
+#define r_fg   #ffffff
+#define r_hlfg #d65d0e
+
+! States: bg, fg, bgalt, hlbg, hlfg
+rofi.color-enabled: true
+rofi.color-normal: r_bg,r_fg,#282828,r_hlbg,r_hlfg
+rofi.color-urgent: r_bg,#fb4934,#282828,r_hlbg,r_hlfg
+rofi.color-active: r_bg,r_fg,#282828,r_hlbg,#fe8019
+! states: background, border
+rofi.color-window: r_bg,#d5c4a1
+
+
+rofi.separator-style: solid
+rofi.menu_bw: 1
+rofi.fake-transparency: false
+rofi.opacity: 100
+rofi.sidebar-mode: true
+
+rofi.columns: 1
+rofi.lines: 20
+rofi.location: 0
+rofi.padding: 16
+rofi.width: 50
+rofi.yoffset: 0
+
+rofi.font: pango: M+ roboto, fontawesome 10
+rofi.fuzzy: true
+rofi.modi = "window,run,ssh"

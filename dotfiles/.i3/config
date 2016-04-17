@@ -46,9 +46,10 @@ bindsym $mod+Escape           mode "$system_functions"
 # i3 command input
 bindsym $mod+period           exec --no-startup-id i3-input
 
-# dmenu and i3-dmenu-desktop (.desktop files) program launchers
-bindsym $mod+d                exec dmenu_run
-bindsym $mod+Shift+d          exec --no-startup-id i3-dmenu-desktop
+# dmenu and launchers
+bindsym $mod+d                exec rofi -show run
+bindsym $mod+Shift+d          exec --no-startup-id i3-dmenu-desktop --dmenu='rofi -dmenu'
+bindsym $alt+Tab              exec rofi -show window
 
 # Pulse Audio controls
 #bindsym XF86AudioRaiseVolume  exec --no-startup-id ctl-volume raise
