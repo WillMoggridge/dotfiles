@@ -38,6 +38,3 @@ if [ -f $HOME/.torch/install/bin/torch-activate ]; \
 
 if [ -f /usr/share/source-highlight/src-hilite-lesspipe.sh ]; then \
     export LESSOPEN="| /usr/share/source-highlight/src-hilite-lesspipe.sh %s"; fi
-
-# Keyboard options
-setxkbmap gb
