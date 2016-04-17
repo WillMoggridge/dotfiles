@@ -236,8 +236,9 @@
     format = "<b>%s</b>\n%b"
 
 [kdeconnect]
+    # Android green: #A4C639
     appname = KDE Connect
-    background = "#285577"
+    background = "#738a28"
     foreground = "#ffffff"
 
 [mumble]
