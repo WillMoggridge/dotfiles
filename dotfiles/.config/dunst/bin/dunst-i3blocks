@@ -102,7 +102,7 @@ ICON="$4"
 URGENCY="$5"
 EOL
 
-    logrotate -f $LOGROTATE_CONFIG
+    logrotate -f $LOGROTATE_CONFIG 2> /dev/null || true
 
     # signal i3blocks that there is a new notification
     pkill -RTMIN+12 i3blocks
