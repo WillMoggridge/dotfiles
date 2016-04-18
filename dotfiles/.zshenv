@@ -33,7 +33,7 @@ else
 fi
 
 # Add Gnome Keyring as the SSH auth if we are in i3
-if [ $DESKTOP_SESSION = "i3" ]; then
+if [[ $DESKTOP_SESSION = "i3" ]]; then
     eval $(gnome-keyring-daemon --start)
     export SSH_AUTH_SOCK GPG_AGENT_INFO GNOME_KEYRING_CONTROL GNOME_KEYRING_PID
     export SSH_AGENT_PID=$GNOME_KEYRING_PID

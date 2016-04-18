@@ -1,7 +1,7 @@
 source $HOME/.dotfiles/libs/common
 
 # XDG
-export XDG_DATA_DIRS=~/.dotfiles:$XDG_DATA_DIRS
+#export XDG_DATA_DIRS=~/.dotfiles:$XDG_DATA_DIRS
 
 ####################
 #################### Keyboard
