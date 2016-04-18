@@ -34,6 +34,9 @@ if [ ! -d ~/.config/sublime-text-3/Packages/User ]; then
     ln -s ~/.dotfiles/dotfiles/sublime-text-3-preferences ~/.config/sublime-text-3/Packages/User
 fi
 
+if [ ! -d ~/.i3-contrib ]; then
+    git clone https://github.com/vivien/i3blocks-contrib.git ~/.i3-contrib
+fi
 if [ ! -d ~/.oh-my-zsh ]; then
     git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 fi
