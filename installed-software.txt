@@ -1,6 +1,7 @@
 ack-grep
 autojump
 compton
+devscripts
 feh
 git-extras
 i3
