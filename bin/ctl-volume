@@ -20,9 +20,11 @@ pactl = '/usr/bin/pactl'
 
 if action == 'lower':
     call([pactl, 'set-sink-volume', '1', '-5%'])
+    call([pactl, 'set-sink-mute', '1', '0'])
 
 if action == 'raise':
     call([pactl, 'set-sink-volume', '1', '+5%'])
+    call([pactl, 'set-sink-mute', '1', '0'])
 
 if action == 'mute':
     call([pactl, 'set-sink-mute', '1', 'toggle'])
