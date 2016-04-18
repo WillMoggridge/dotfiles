@@ -1,13 +1,15 @@
 #!/usr/bin/python3
 
 import argparse
-from math import floor
-from subprocess import call, check_output
+from subprocess import call
+
 
 def get_arguments():
     parser = argparse.ArgumentParser(description='change volume')
-    parser.add_argument('action', type=str, choices=['raise', 'lower', 'mute'],
-                       help='lower, raise, or mute')
+    parser.add_argument(
+        'action', type=str, choices=['raise', 'lower', 'mute'],
+        help='lower, raise, or mute'
+    )
     return parser.parse_args()
 
 args = get_arguments()
@@ -17,11 +19,12 @@ pactl = '/usr/bin/pactl'
 
 
 if action == 'lower':
-    call([pactl, 'set-sink-volume', '--', '1', '-5%'])
+    call([pactl, 'set-sink-volume', '1', '-5%'])
 
 if action == 'raise':
-    call([pactl, 'set-sink-volume', '--', '1', '+5%'])
+    call([pactl, 'set-sink-volume', '1', '+5%'])
 
 if action == 'mute':
     call([pactl, 'set-sink-mute', '1', 'toggle'])
 
+call(['pkill', '-RTMIN+10', 'i3blocks'])

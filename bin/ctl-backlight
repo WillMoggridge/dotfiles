@@ -4,10 +4,10 @@ import argparse
 from math import floor
 from subprocess import call, check_output
 
+
 def get_arguments():
     parser = argparse.ArgumentParser(description='change backlight level')
-    parser.add_argument('action', type=str, choices=['+', '-'],
-                       help='+ or -')
+    parser.add_argument('action', type=str, choices=['+', '-'], help='+ or -')
     return parser.parse_args()
 
 args = get_arguments()

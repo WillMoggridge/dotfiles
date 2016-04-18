@@ -52,13 +52,13 @@ bindsym $mod+Shift+d          exec --no-startup-id i3-dmenu-desktop --dmenu='rof
 bindsym $alt+Tab              exec rofi -show window
 
 # Pulse Audio controls
-#bindsym XF86AudioRaiseVolume  exec --no-startup-id ctl-volume raise
-#bindsym XF86AudioLowerVolume  exec --no-startup-id ctl-volume lower
-#bindsym XF86AudioMute         exec --no-startup-id ctl-volume mute
+bindsym XF86AudioRaiseVolume  exec --no-startup-id ctl-volume raise
+bindsym XF86AudioLowerVolume  exec --no-startup-id ctl-volume lower
+bindsym XF86AudioMute         exec --no-startup-id ctl-volume mute
 
 # Sreen brightness controls
-#bindsym XF86MonBrightnessUp   exec --no-startup-id ctl-backlight +
-#bindsym XF86MonBrightnessDown exec --no-startup-id ctl-backlight -
+bindsym XF86MonBrightnessUp   exec --no-startup-id ctl-backlight +
+bindsym XF86MonBrightnessDown exec --no-startup-id ctl-backlight -
 
 # Touchpad controls
 #bindsym XF86TouchpadToggle    exec /some/path/toggletouchpad.sh # toggle touchpad
