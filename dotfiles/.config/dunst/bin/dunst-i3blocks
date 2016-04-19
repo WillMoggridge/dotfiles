@@ -58,7 +58,7 @@ display_notification() {
     # source the notification
     . "$CACHE.$CURRENT"
 
-    FULL_TEXT="($TIME) $SUMMARY $BODY"
+    FULL_TEXT="($TIME) $SUMMARY"
     SHORT_TEXT="$SUMMARY"
 
     case $URGENCY in
