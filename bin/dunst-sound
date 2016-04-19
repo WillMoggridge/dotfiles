@@ -1,17 +1,30 @@
 #!/usr/bin/env bash
 
-NORMAL_SOUND="--volume 0.3 $HOME/Dropbox/Sync/sounds/notifications/Knock.wav"
-CRITICAL_SOUND="--volume 0.5 $HOME/Dropbox/Sync/sounds/notifications/Hojus.ogg"
-
 APPNAME="$1"
 SUMMARY="$2"
 BODY="$3"
 ICON="$4"
 URGENCY="$5"
 
+
+SOUND=${SOUND:-}
+SOUND_NORMAL="$HOME/Dropbox/Sync/sounds/notifications/Knock.wav"
+SOUND_CRITICAL="$HOME/Dropbox/Sync/sounds/notifications/Hojus.ogg"
+
+VOLUME="1"
+VOLUME_NORMAL="0.3"
+VOLUME_CRITICAL="0.5"
+
+
 if [ $URGENCY = "NORMAL" ]; then
-    play -q $NORMAL_SOUND &
+    SOUND="$SOUND_NORMAL"
+    VOLUME="$VOLUME_NORMAL"
 fi
 if [ $URGENCY = "CRITICAL" ]; then
-    play -q $CRITICAL_SOUND &
+    SOUND="$SOUND_CRITICAL"
+    VOLUME="$VOLUME_CRITICAL"
+fi
+
+if [ -n "$SOUND" ]; then
+    play -q --volume "$VOLUME" "$SOUND" &
 fi
