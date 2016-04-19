@@ -6,14 +6,17 @@ BODY="$3"
 ICON="$4"
 URGENCY="$5"
 
+CURRENT_VOLUME=`pa-getvol`
+
 
 SOUND=${SOUND:-}
 SOUND_NORMAL="$HOME/Dropbox/Sync/sounds/notifications/Knock.wav"
 SOUND_CRITICAL="$HOME/Dropbox/Sync/sounds/notifications/Hojus.ogg"
 
 VOLUME="1"
-VOLUME_NORMAL="0.3"
-VOLUME_CRITICAL="0.5"
+VOLUME_NORMAL="0.4"
+VOLUME_CRITICAL="0.6"
+VOLUME_QUIETTIME="0.1"
 
 
 if [ $URGENCY = "NORMAL" ]; then
@@ -23,6 +26,11 @@ fi
 if [ $URGENCY = "CRITICAL" ]; then
     SOUND="$SOUND_CRITICAL"
     VOLUME="$VOLUME_CRITICAL"
+fi
+
+# Chances are, if my volume is high, I don't need a deafening notification
+if [ $CURRENT_VOLUME -gt 70 ]; then
+    VOLUME="$VOLUME_QUIETTIME"
 fi
 
 if [ -n "$SOUND" ]; then
