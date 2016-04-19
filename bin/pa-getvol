@@ -6,7 +6,13 @@
 is_env desktop && SINK_NAME="alsa_output.pci-0000_09_04.0.analog-stereo"
 is_env laptop && SINK_NAME="alsa_output.pci-0000_00_1b.0.analog-stereo"
 
-VOL_NOW=`pacmd dump | grep -P "^set-sink-volume $SINK_NAME\s+" | perl -p -e 's/.+\s(.x.+)$/$1/'`
+RAW_HEX=`pacmd dump | grep -P "^set-sink-volume $SINK_NAME\s+" | perl -p -e 's/.+\s(.x.+)$/$1/'`
+HEX=`echo "$RAW_HEX" | cut -c 3-`
+DEC=$((16#$HEX))
+PERCENT=$(($DEC * 100 / 65536))
 
-echo $VOL_NOW
+# Round it up 1, if not 0
+test $PERCENT -gt 0 && PERCENT=$(($PERCENT + 1))
+
+echo "$PERCENT"
 exit
