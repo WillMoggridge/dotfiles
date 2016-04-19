@@ -218,7 +218,7 @@
 
 [extra-rules]
     summary = "*"
-    script = .config/dunst/bin/dunst-rules
+    script = dunst-rules
 
 [firefox-download]
     appname = Firefox
@@ -229,6 +229,7 @@
     appname = Firefox
     summary = "* — *"
     format = "<b>%s</b>"
+    script = NOSOUND= dunst-rules
 
 [irccloud-ff-webteam]
     appname = Firefox

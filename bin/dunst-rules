@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+test -z $NOI3BLOCKS && I3BLOCKS=${I3BLOCKS:-true}
+test -z $NOSOUND && SOUND=${SOUND:-true}
+
+if [ "$I3BLOCKS" = true ]; then
+    dunst-i3blocks "$@" &
+fi
+
+if [ "$SOUND" = true ]; then
+    dunst-sound "$@" &
+fi
