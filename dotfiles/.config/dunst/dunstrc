@@ -225,15 +225,20 @@
     summary = "Download complete"
     urgency = low
 
+[googleplaymusic]
+    appname = Electron
+    body = "* - *"
+    urgency = low
+
 [irccloud-ff]
     appname = Firefox
     summary = "* — *"
     format = "<b>%s</b>"
     script = NOSOUND= dunst-rules
 
-[irccloud-ff-webteam]
+[irccloud-ff-channel]
     appname = Firefox
-    summary = "@webteam"
+    summary = "* — #*"
     format = "<b>%s</b>\n%b"
 
 [kdeconnect]
