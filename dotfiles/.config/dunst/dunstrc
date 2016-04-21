@@ -230,6 +230,17 @@
     body = "* - *"
     urgency = low
 
+[irccloud-desktop]
+    appname = Electron
+    summary = "* — *"
+    format = "<b>%s</b>"
+    script = NOSOUND= dunst-rules
+
+[irccloud-ff-desktop]
+    appname = Electron
+    summary = "* — #*"
+    format = "<b>%s</b>\n%b"
+
 [irccloud-ff]
     appname = Firefox
     summary = "* — *"
