@@ -1,15 +1,17 @@
-[user]
-    name = Will Moggridge
-    email = will@willmoggridge.com
-[push]
-    default = simple
+[alias]
+    rr = !git remote rename origin upstream && git remote rename WillMoggridge origin
+[branch]
+    autosetuprebase = always
 [color]
     ui = auto
 [core]
     excludesfile = ~/.gitignore_global
-[branch]
-    autosetuprebase = always
+[fetch]
+	prune = true
+[push]
+    default = simple
+[user]
+    email = will@moggridge.com
+    name = Will Moggridge
 [include]
     path = ~/.gitconfig_local
-[alias]
-    rr = !git remote rename origin upstream && git remote rename WillMoggridge origin
