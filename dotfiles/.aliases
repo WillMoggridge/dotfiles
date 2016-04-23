@@ -43,4 +43,5 @@ fi
 alias ack='ack-grep --color'
 alias grep='grep --color=always'
 alias less='less -R'
+alias vim=nvim
 if cmd_exists hub; then alias git=hub; fi
