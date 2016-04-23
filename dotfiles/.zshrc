@@ -45,6 +45,7 @@ plugins=(
     docker
     gem
     git
+    git-prompt
     github
     httpie
     mosh
@@ -79,6 +80,23 @@ bindkey -e
 function src() { cd ~/Source/$1; }
 _src() { _files -W ~/Source; }
 compdef _src src
+
+# Bullet-train theme settings
+BULLETTRAIN_PROMPT_ORDER=(
+    time
+    custom
+    context
+    dir
+    virtualenv
+    ruby
+    nvm
+    go
+    git
+    hg
+    cmd_exec_time
+)
+BULLETTRAIN_PROMPT_CHAR='➜'
+BULLETTRAIN_CONTEXT_DEFAULT_USER='will'
 
 # MOTD for the terminal
 login-motd
