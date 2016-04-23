@@ -1,4 +1,5 @@
 [alias]
+    rm-merged = !git branch --merged master | grep -v 'master$' | xargs git branch -d
     rr = !git remote rename origin upstream && git remote rename WillMoggridge origin
 [branch]
     autosetuprebase = always
