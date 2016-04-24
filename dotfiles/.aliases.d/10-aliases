@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # Automatically load aliases from this file
 
 source $HOME/.dotfiles/libs/common

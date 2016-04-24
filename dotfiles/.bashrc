@@ -113,4 +113,9 @@ export NVM_DIR="$HOME/.nvm"
 export PATH="$PATH:$HOME/.rvm/bin"
 
 if [ -f $HOME/.aliases ]; then source $HOME/.aliases; fi
+if [ -d $HOME/.aliases.d ]; then
+    for f in $HOME/.aliases.d/*; do
+        . $f
+    done
+fi
 if [ -f $HOME/.canonistack/novarc ]; then source $HOME/.canonistack/novarc; fi

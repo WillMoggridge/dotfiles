@@ -11,12 +11,12 @@ ln -s ~/.dotfiles/dotfiles/.config/nvim ~/.config/
 
 ln -s ~/.dotfiles/dotfiles/.config/compton.conf ~/.config/
 
+ln -s ~/.dotfiles/dotfiles/.aliases.d ~/
 ln -s ~/.dotfiles/dotfiles/.bash ~/
 ln -s ~/.dotfiles/dotfiles/.i3 ~/
 ln -s ~/.dotfiles/dotfiles/.tmux ~/
 ln -s ~/.dotfiles/dotfiles/.zsh ~/
 
-ln -s ~/.dotfiles/dotfiles/.aliases ~/
 ln -s ~/.dotfiles/dotfiles/.bashrc ~/
 ln -s ~/.dotfiles/dotfiles/.gitconfig ~/
 ln -s ~/.dotfiles/dotfiles/.gitignore_global ~/
