@@ -61,7 +61,6 @@ plugins=(
     tmuxinator
     urltools
     vagrant
-    virtualenv
     virtualenvwrapper
 )
 
