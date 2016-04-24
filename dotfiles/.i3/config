@@ -38,6 +38,17 @@ bindsym $mod+Shift+r          restart
 bindsym $mod+Pause            mode "$system_functions"
 bindsym $mod+Escape           mode "$system_functions"
 
+######
+###### Mouse actions
+######
+
+# The middle button over a titlebar kills the window
+bindsym --release             button2 kill
+bindsym --whole-window        $mod+button2 kill
+
+# The right button toggles floating
+bindsym --release             button3 floating toggle
+bindsym --whole-window        $mod+button3 floating toggle
 
 ######
 ###### Launchers and command input
