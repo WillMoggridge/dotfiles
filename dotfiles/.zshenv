@@ -1,4 +1,4 @@
-source $HOME/.dotfiles/libs/common
+. $HOME/.dotfiles/libs/common
 
 WORKON_HOME=~/.virtualenvs
 
@@ -40,7 +40,7 @@ export NVM_DIR="$HOME/.nvm"
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+cmd_exists pyenv && eval "$(pyenv init -)"
 # If you don't put RVM last, YOU GET A WARNING. >=(
 [ -s "$HOME/.rvm/scripts/rvm" ] && source "$HOME/.rvm/scripts/rvm"
 export PATH="$HOME/.rvm/bin:$PATH"
