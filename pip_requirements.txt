@@ -1,1 +1,4 @@
+docker-compose
+httpie
+powerline-status
 thefuck
