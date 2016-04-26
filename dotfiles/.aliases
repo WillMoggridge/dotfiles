@@ -1,0 +1,10 @@
+#!/usr/bin.env bash
+
+alias resrc='. $HOME/.aliases'
+
+# Source files from .aliases.d
+if [ -d $HOME/.aliases.d ]; then
+    for f in $HOME/.aliases.d/*; do
+        . $f
+    done
+fi

@@ -17,6 +17,7 @@ ln -s ~/.dotfiles/dotfiles/.i3 ~/
 ln -s ~/.dotfiles/dotfiles/.tmux ~/
 ln -s ~/.dotfiles/dotfiles/.zsh ~/
 
+ln -s ~/.dotfiles/dotfiles/.aliases ~/
 ln -s ~/.dotfiles/dotfiles/.bashrc ~/
 ln -s ~/.dotfiles/dotfiles/.gitconfig ~/
 ln -s ~/.dotfiles/dotfiles/.gitignore_global ~/

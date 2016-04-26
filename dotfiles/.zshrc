@@ -97,3 +97,6 @@ login-motd
 
 # Oh my ZSH
 if [ -f $ZSH/oh-my-zsh.sh ]; then source $ZSH/oh-my-zsh.sh; fi
+
+# Load up env settings and aliases
+if [ -f $HOME/.aliases ]; then source $HOME/.aliases; fi
