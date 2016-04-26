@@ -75,11 +75,6 @@ setopt nomatch
 unsetopt appendhistory autocd beep extendedglob notify
 bindkey -e
 
-# Shortcut src function, with completion
-function src() { cd ~/Source/$1; }
-_src() { _files -W ~/Source; }
-compdef _src src
-
 # Bullet-train theme settings
 BULLETTRAIN_PROMPT_ORDER=(
     time

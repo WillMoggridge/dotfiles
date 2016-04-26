@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+# Can create alternative list like:
+# alias habit="task rc.data.location=~/.habit"
