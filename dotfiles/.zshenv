@@ -8,6 +8,8 @@ if [ -d $HOME/.dotfiles/bin ]; then export PATH=$HOME/.dotfiles/bin:$PATH; fi
 if [ -d $HOME/.local/bin ]; then export PATH=$HOME/.local/bin:$PATH; fi
 if [ -d $HOME/.tmuxifier/bin ]; then export PATH=$HOME/.tmuxifier/bin:$PATH; fi
 
+# Load up env settings and aliases
+if [ -f $HOME/.aliases ]; then source $HOME/.aliases; fi
 if [ -f $HOME/.canonistack/novarc ]; then source $HOME/.canonistack/novarc; fi
 if [ -f $HOME/.local_envs ]; then source $HOME/.local_envs; fi
 if [ -f $HOME/.torch/install/bin/torch-activate ]; \

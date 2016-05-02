@@ -362,7 +362,7 @@ bindsym $mod+Return           exec i3-sensible-terminal
 # exec --no-startup-id unity-settings-daemon
 
 # Auto screen lock
-exec --no-startup-id "xautolock -time 10 -notify 30 -notifier 'notify-send -u low --expire-time=30 \"Locking screen in 30 seconds\"' -locker 'i3exit lock'"
+exec --no-startup-id "xautolock"
 
 # Comtpon composite manager to fix screen tearing
 exec --no-startup-id "compton -CG --config ~/.config/compton.conf"

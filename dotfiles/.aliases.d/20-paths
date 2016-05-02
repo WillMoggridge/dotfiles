@@ -7,11 +7,11 @@ src=$dev/src
 # Dev path commands
 _dev_completion() { _files -W $dev; }
 dev() { cd $dev/$1; }
-compdef _dev_completion dev
+# type compdef 2>/dev/null && compdef _dev_completion dev
 
 _src_completion() { _files -W $src; }
 src() { cd $src/$1; }
-compdef _src_completion src
+# type compdef 2>/dev/null && compdef _src_completion src
 
 # Misc paths
 dotfiles=$HOME/.dotfiles
