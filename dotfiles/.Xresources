@@ -31,7 +31,6 @@ rofi.fuzzy: true
 rofi.modi: window,run
 
 
-
 ! ###################
 ! #### xautolock
 ! ####
@@ -40,3 +39,13 @@ Xautolock.locker: /usr/bin/i3exit lock
 Xautolock.notify: 30
 Xautolock.notifier: /usr/bin/notify-send -u low --expire-time=30 "Locking screen in 30 seconds"
 Xautolock.time: 10
+
+
+! ###################
+! #### X
+! ####
+
+Xcursor.size:   24
+Xcursor.theme:  DMZ-White
+
+Xft.dpi: 96
