@@ -236,21 +236,11 @@
     format = "<b>%s</b>"
     script = NOSOUND= dunst-rules
 
-[irccloud-ff-desktop]
-    appname = Electron
-    summary = "* — #*"
-    format = "<b>%s</b>\n%b"
-
 [irccloud-ff]
     appname = Firefox
     summary = "* — *"
     format = "<b>%s</b>"
     script = NOSOUND= dunst-rules
-
-[irccloud-ff-channel]
-    appname = Firefox
-    summary = "* — #*"
-    format = "<b>%s</b>\n%b"
 
 [kdeconnect]
     # Android green: #A4C639
