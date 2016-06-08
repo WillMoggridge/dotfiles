@@ -1,0 +1,30 @@
+def configure_caching(config)
+  if Vagrant.has_plugin?('vagrant-cachier')
+    config.cache.enable_nfs = true
+    config.cache.enable :apt
+    config.cache.enable :gem
+    config.cache.enable :npm
+    config.cache.enable :pip
+  end
+end
+
+Vagrant.configure('2') do |config|
+  config.vm.provider :virtualbox do |vbox, override|
+    configure_caching(override)
+    vbox.memory = 512
+  end
+
+  config.vm.provider :vmware_fusion do |fusion, override|
+    configure_caching(override)
+    fusion.vmx['memsize'] = 512
+  end
+
+  config.vm.provider :lxc do |fusion, override|
+    configure_caching(override)
+    fusion.vmx['memsize'] = 512
+  end
+
+  config.vm.provision "shell" do |s|
+    s.path "provision/personal.sh"
+  end
+end
