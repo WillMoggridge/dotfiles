@@ -5,3 +5,7 @@
 if [ -f ~/.Xmodmap ]; then
  xmodmap ~/.Xmodmap
 fi
+
+
+ #DEVICE="$(xinput -list | grep "TrulyErgonomic.com" | awk -F'=' '{print $2}' | cut -c 1-2 | head -1)"
+ #setxkbmap -device $DEVICE us -variant colemak 
