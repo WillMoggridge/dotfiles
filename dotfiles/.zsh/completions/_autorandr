@@ -1,0 +1,29 @@
+#compdef autorandr
+
+# autorandr/auto-disper completion by Maciej 'macieks' Sitarz <macieks@freesco.pl>
+
+local profiles ret=1
+typeset -A opt_args
+
+_arguments -C \
+	'(-c --change)'{-c,--change}'[reload current setup.]' \
+	'(-s --save)'{-s,--save}'[save your current setup to profile <profile>.]: :->profiles' \
+	'(-l --load)'{-l,--load}'[load profile <profile>.]: :->profiles' \
+	'(-d --default)'{-d,--default}'[make profile <profile> the default profile.]: :->profiles' \
+	'(-h --help)'{-h,--help}'[get this small help.]' \
+	'--force[force[(re)loading of a profile.]' \
+	'--fingerprint[fingerprint your current hardware setup.]' \
+	'--config[dump your current xrandr setup.]' \
+	&& ret=0
+	# '*: :->args' \
+
+case $state in
+	profiles)
+		_profiles="`find ~/.autorandr/* -maxdepth 1 -type d -printf '%f\n' 2>/dev/null`"
+		if [[ $_profiles != "" ]]; then
+			_values 'profiles' $_profiles && ret=0
+		fi
+		;;
+esac
+
+return ret
