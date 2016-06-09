@@ -27,7 +27,7 @@ DISABLE_AUTO_TITLE="true"
 # much faster.
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-# Uncomment following line if you want to  shown in the command execution time stamp 
+# Uncomment following line if you want to  shown in the command execution time stamp
 # in the history command output. The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|
 # yyyy-mm-dd
 # HIST_STAMPS="mm/dd/yyyy"
@@ -92,8 +92,8 @@ BULLETTRAIN_PROMPT_ORDER=(
 BULLETTRAIN_PROMPT_CHAR='➜'
 BULLETTRAIN_CONTEXT_DEFAULT_USER='will'
 
-# MOTD for the terminal
-login-motd
-
 # Oh my ZSH
 if [ -f $ZSH/oh-my-zsh.sh ]; then source $ZSH/oh-my-zsh.sh; fi
+
+# MOTD for the terminal
+login-motd

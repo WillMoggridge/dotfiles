@@ -5,13 +5,13 @@ dev=$HOME/dev
 src=$dev/src
 
 # Dev path commands
-_dev_completion() { _files -W $dev; }
+_dev() { _files -W $dev; }
 dev() { cd $dev/$1; }
-# type compdef 2>/dev/null && compdef _dev_completion dev
+# type compdef &>/dev/null && compdef _dev dev
 
-_src_completion() { _files -W $src; }
+_src() { _files -W $src; }
 src() { cd $src/$1; }
-# type compdef 2>/dev/null && compdef _src_completion src
+# type compdef &>/dev/null && compdef _src src
 
 # Misc paths
 dotfiles=$HOME/.dotfiles
