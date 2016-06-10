@@ -2,7 +2,7 @@
 
 # autorandr/auto-disper completion by Maciej 'macieks' Sitarz <macieks@freesco.pl>
 
-local profiles ret=1
+local ret=1
 typeset -A opt_args
 
 _arguments -C \
@@ -19,9 +19,14 @@ _arguments -C \
 
 case $state in
 	profiles)
-		_profiles="`find ~/.autorandr/* -maxdepth 1 -type d -printf '%f\n' 2>/dev/null`"
-		if [[ $_profiles != "" ]]; then
-			_values 'profiles' $_profiles && ret=0
+		local -a _directories=($HOME/.autorandr/*)
+		local -a _profiles=()
+		if [[ $_directories != "" ]]; then
+			for file in $_directories; do
+				_profiles+=("`basename $file`")
+			done
+			_values 'profiles' $_profiles
+			ret=0
 		fi
 		;;
 esac
