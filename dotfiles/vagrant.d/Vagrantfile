@@ -24,6 +24,7 @@ Vagrant.configure('2') do |config|
     fusion.vmx['memsize'] = 512
   end
 
+  # Need to mount host folders for provision
   config.vm.provision "shell" do |s|
     s.path "provision/personal.sh"
   end
