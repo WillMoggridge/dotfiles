@@ -14,15 +14,14 @@ if [ -n "$BASH_VERSION" ]; then
     fi
 fi
 
-# Add user bin
-if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$PATH"
-fi
 
-# Add dotfiles bin
-if [ -d "$HOME/.dotfiles/bin" ] ; then
-    PATH="$HOME/.dotfiles/bin:$PATH"
-fi
+# Add extra paths
+if [ -d $HOME/bin ]; then export PATH=$HOME/bin:$PATH; fi
+if [ -d $HOME/.dotfiles/bin ]; then export PATH=$HOME/.dotfiles/bin:$PATH; fi
+if [ -d $HOME/.local/bin ]; then export PATH=$HOME/.local/bin:$PATH; fi
+if [ -d $HOME/.local/share/umake/bin ]; then export PATH=$HOME/.local/share/umake/bin:$PATH; fi
+if [ -d $HOME/.tmuxifier/bin ]; then export PATH=$HOME/.tmuxifier/bin:$PATH; fi
+
 
 # Node/Ruby Version Manager
 export PATH="$PATH:$HOME/.npm-packages/bin"
