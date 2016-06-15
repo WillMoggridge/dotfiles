@@ -45,6 +45,7 @@ fi
 alias ack='ack-grep --color'
 alias a='autorandr'
 alias ara='autorandr'
+alias d-c='docker-compose'
 alias grep='grep --color=always'
 alias less='less -R'
 alias rm='rm -I'
