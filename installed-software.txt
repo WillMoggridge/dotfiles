@@ -12,4 +12,5 @@ sox
 taskwarrior
 taskd
 xautolock
-xbacklight
+
+fonts-emojione-svginot ppa:eosrei/fontsxbacklight
