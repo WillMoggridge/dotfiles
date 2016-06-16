@@ -8,6 +8,7 @@ export PATH="$HOME/.npm-packages/bin:$PATH"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 # pyenv
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 if cmd_exists pyenv; then
@@ -16,7 +17,7 @@ if cmd_exists pyenv; then
     # initialize pyenv virtualenv
     eval "$(pyenv virtualenv-init -)"
 fi
-rvm_silence_path_mismatch_check_flag=1
+export rvm_silence_path_mismatch_check_flag=1
 [ -s "$HOME/.rvm/scripts/rvm" ] && source "$HOME/.rvm/scripts/rvm"
 export PATH="$HOME/.rvm/bin:$PATH"
 
