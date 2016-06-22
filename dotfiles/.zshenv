@@ -2,25 +2,6 @@
 
 WORKON_HOME=~/.virtualenvs
 
-# Node/Ruby/Python Version Manager
-# nvm
-export PATH="$HOME/.npm-packages/bin:$PATH"
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-# pyenv
-export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-if cmd_exists pyenv; then
-    # initialize pyenv
-    eval "$(pyenv init -)"
-    # initialize pyenv virtualenv
-    eval "$(pyenv virtualenv-init -)"
-fi
-export rvm_silence_path_mismatch_check_flag=1
-[ -s "$HOME/.rvm/scripts/rvm" ] && source "$HOME/.rvm/scripts/rvm"
-export PATH="$HOME/.rvm/bin:$PATH"
-
 # Add extra paths
 if [ -d $HOME/bin ]; then export PATH=$HOME/bin:$PATH; fi
 if [ -d $HOME/.dotfiles/bin ]; then export PATH=$HOME/.dotfiles/bin:$PATH; fi
@@ -55,3 +36,22 @@ if [[ $DESKTOP_SESSION = "i3" ]]; then
     export SSH_AUTH_SOCK GPG_AGENT_INFO GNOME_KEYRING_CONTROL GNOME_KEYRING_PID
     export SSH_AGENT_PID=$GNOME_KEYRING_PID
 fi
+
+# Node/Ruby/Python Version Manager
+# nvm
+export PATH="$HOME/.npm-packages/bin:$PATH"
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+# pyenv
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+if cmd_exists pyenv; then
+    # initialize pyenv
+    eval "$(pyenv init -)"
+    # initialize pyenv virtualenv
+    eval "$(pyenv virtualenv-init -)"
+fi
+export rvm_silence_path_mismatch_check_flag=1
+[ -s "$HOME/.rvm/scripts/rvm" ] && source "$HOME/.rvm/scripts/rvm"
+export PATH="$HOME/.rvm/bin:$PATH"
