@@ -12,5 +12,6 @@ sox
 taskwarrior
 taskd
 xautolock
+zsh-syntax-highlighting
 
 fonts-emojione-svginot ppa:eosrei/fontsxbacklight
