@@ -4,25 +4,6 @@
 
 source $HOME/.dotfiles/libs/common
 
-# Call virtualenvwrapper's "workon" if .venv exists.
-# http://justinlilly.com/python/virtualenv_wrapper_helper.html
-# https://gist.github.com/cjerdonek/7583644
-check_virtualenv() {
-    if [ -e .venv ]; then
-        env=`cat .venv`
-        if [ "$env" != "${VIRTUAL_ENV##*/}" ]; then
-            echo "Found .venv in directory. Calling: workon ${env}"
-            workon $env
-        fi
-    fi
-}
-venv_cd () {
-    builtin cd "$@" && check_virtualenv
-}
-# Check new shell instances
-check_virtualenv
-alias cd="venv_cd"
-
 
 ack-syn() {
     echo $@
