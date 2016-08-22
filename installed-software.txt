@@ -15,3 +15,5 @@ xautolock
 zsh-syntax-highlighting
 
 fonts-emojione-svginot ppa:eosrei/fontsxbacklight
+
+Google Noto Fonts https://www.google.com/get/noto/
