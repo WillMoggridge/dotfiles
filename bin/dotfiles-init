@@ -19,6 +19,7 @@ ln -s ~/.dotfiles/dotfiles/.zsh ~/
 
 ln -s ~/.dotfiles/dotfiles/.aliases ~/
 ln -s ~/.dotfiles/dotfiles/.bashrc ~/
+ln -s ~/.dotfiles/dotfiles/.fonts.conf ~/
 ln -s ~/.dotfiles/dotfiles/.gitconfig ~/
 ln -s ~/.dotfiles/dotfiles/.gitignore_global ~/
 ln -s ~/.dotfiles/dotfiles/.lessfilter ~/
