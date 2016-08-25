@@ -18,3 +18,9 @@ zsh-syntax-highlighting
 fonts-emojione-svginot ppa:eosrei/fontsxbacklight
 
 Google Noto Fonts https://www.google.com/get/noto/
+
+# Look into theming with these
+gtk-chtheme
+lxappearance
+qt4-qtconfig
+nitrogen
