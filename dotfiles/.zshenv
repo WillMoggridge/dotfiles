@@ -55,3 +55,8 @@ fi
 export rvm_silence_path_mismatch_check_flag=1
 [ -s "$HOME/.rvm/scripts/rvm" ] && source "$HOME/.rvm/scripts/rvm"
 export PATH="$HOME/.rvm/bin:$PATH"
+
+# Load directory .envrc with direnv
+if cmd_exists direnv; then
+    eval "$(direnv hook zsh)"
+fi
