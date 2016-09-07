@@ -1,0 +1,9 @@
+#! /usr/bin/env bash
+
+npm() {
+    if [[ $1 == "search" ]]; then
+        cowsay -f cower "Maybe you should use the website instead, $USER..."
+    else
+        command npm "$@"
+    fi
+}
