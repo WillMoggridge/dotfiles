@@ -1,0 +1,2 @@
+alias docker-delete-all-containers='docker rm $(docker ps -a -q)'
+alias docker-delete-all-images='docker rmi $(docker images -q)'
