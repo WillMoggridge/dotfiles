@@ -12,6 +12,12 @@ set $vim_down  e
 set $vim_up    i
 set $vim_right o
 
+set $border_width 4
+
+set $orange  #E95420
+set $orange_dark #d44615
+set $white #ffffff
+
 bar {
     font pango: M+ roboto, fontawesome bold 10
     position top
@@ -25,6 +31,15 @@ bar {
 focus_follows_mouse no
 mouse_warping none
 font pango: M+ roboto, fontawesome normal 8
+
+# Border settings
+client.focused          $orange $orange_dark $white $white
+client.focused_inactive #333333 #5F676A #ffffff #484e50
+client.unfocused        #333333 #424242 #888888 #292d2e
+client.urgent           #C10004 #900000 #ffffff #900000
+#hide_edge_borders both
+new_float normal $border_width
+new_window pixel $border_width
 
 # Hide borders for single windows... Some time soon. :(
 #hide_edge_borders smart
@@ -281,6 +296,7 @@ bindsym $mod+f                fullscreen
 
 # Border toggle
 bindsym $mod+b                border toggle
+bindsym $mod+Shift+b          border pixel $border_width
 
 # Move container to scratchpad
 bindsym $mod+Shift+minus      move scratchpad
