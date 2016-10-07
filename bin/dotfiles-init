@@ -8,6 +8,7 @@ mkdir -p ~/.config
 
 ln -s ~/.dotfiles/dotfiles/.config/dunst ~/.config/
 ln -s ~/.dotfiles/dotfiles/.config/nvim ~/.config/
+ln -s ~/.dotfiles/dotfiles/.config/fontconfig ~/.config/
 
 ln -s ~/.dotfiles/dotfiles/.config/compton.conf ~/.config/
 
@@ -19,7 +20,6 @@ ln -s ~/.dotfiles/dotfiles/.zsh ~/
 
 ln -s ~/.dotfiles/dotfiles/.aliases ~/
 ln -s ~/.dotfiles/dotfiles/.bashrc ~/
-ln -s ~/.dotfiles/dotfiles/.fonts.conf ~/
 ln -s ~/.dotfiles/dotfiles/.gitconfig ~/
 ln -s ~/.dotfiles/dotfiles/.gitignore_global ~/
 ln -s ~/.dotfiles/dotfiles/.lessfilter ~/
