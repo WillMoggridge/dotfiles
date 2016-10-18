@@ -36,6 +36,7 @@ DISABLE_AUTO_TITLE="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(
+    adb
     autojump
     catimg
     colorize
@@ -48,6 +49,8 @@ plugins=(
     git
     git-prompt
     github
+    gulp
+    heroku
     httpie
     mosh
     node
