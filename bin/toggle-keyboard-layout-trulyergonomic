@@ -1,0 +1,8 @@
+#!/bin/bash
+
+keyboard_id="$(xinput -list | grep "TrulyErgonomic.com" | awk -F'=' '{print $2}' | cut -c 1-2)"
+keyboard_layout="${1:-toggle}"
+
+if [ -n "${keyboard_id}" ]; then
+    $HOME/.dotfiles/bin/toggle-keyboard-layout "${keyboard_layout}" "${keyboard_id}"
+fi

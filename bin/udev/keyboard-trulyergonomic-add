@@ -1,0 +1,10 @@
+#!/bin/bash
+# sleep 1
+DISPLAY=":0.0"
+HOME=/home/will
+XAUTHORITY=$HOME/.Xauthority
+export DISPLAY XAUTHORITY HOME
+
+# gsettings set org.gnome.settings-daemon.plugins.keyboard active false &
+# sleep 2
+$HOME/.dotfiles/bin/toggle-keyboard-layout-trulyergonomic "colemak" &

@@ -1,11 +1,34 @@
 #!/bin/bash
 
-(setxkbmap -query | grep -q "layout:\s\+us") && setxkbmap gb || setxkbmap us -variant "colemak"
+keyboard_layout="${1:-toggle}"
+keyboard_id="${2}"
+
+# Lookup main keyboard device ID if needed
+if [ -z "${keyboard_id}" ]; then
+    keyboard_id="$(xinput -list | grep -i "Virtual core keyboard" | awk -F'=' '{print $2}' | cut -c 1-2)"
+fi
+
+# Decide on keyboard layout options if needed
+if [ "${keyboard_layout}" == "toggle" ] || [ "${keyboard_layout}" == "cycle" ]; then
+    if setxkbmap -query | grep -q "variant:\s\+colemak"; then
+        layout_arguments="gb"
+    else
+        layout_arguments="us -variant colemak"
+    fi
+elif [ "${keyboard_layout}" == "colemak" ]; then
+    layout_arguments="us -variant colemak"
+else
+    layout_arguments="${keyboard_layout}"
+fi
+
+# Loop through keyboard_id as an array. Some keyboards seem to set multiple.
+for id in ${keyboard_id[*]}; do
+    setxkbmap -device "${id}" ${layout_arguments}
+done
 
 if [ -f ~/.Xmodmap ]; then
  xmodmap ~/.Xmodmap
 fi
 
-
- #DEVICE="$(xinput -list | grep "TrulyErgonomic.com" | awk -F'=' '{print $2}' | cut -c 1-2 | head -1)"
- #setxkbmap -device $DEVICE us -variant colemak 
+# signal i3blocks that the layout changed
+pkill -RTMIN+11 i3blocks

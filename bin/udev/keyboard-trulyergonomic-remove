@@ -1,0 +1,11 @@
+#!/bin/bash
+# sleep 1
+DISPLAY=":0.0"
+HOME=/home/will
+XAUTHORITY=$HOME/.Xauthority
+export DISPLAY XAUTHORITY HOME
+
+# gsettings set org.gnome.settings-daemon.plugins.keyboard active true &
+
+# signal i3blocks that the layout changed
+pkill -RTMIN+11 i3blocks &
