@@ -106,6 +106,7 @@ bindsym XF86MonBrightnessDown exec --no-startup-id ctl-backlight -
 
 # Toggle keyboard layout
 bindsym ctrl+$alt+space       exec --no-startup-id "toggle-keyboard-layout"
+bindsym ctrl+$alt+Shift+space exec --no-startup-id "toggle-keyboard-layout-trulyergonomic"
 
 # Quick fix resolution shortcut for laptop to remove later
 bindsym $mod+$alt+equal       exec "xrandr --output eDP1 --mode 2560x1440"
