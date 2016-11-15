@@ -56,7 +56,7 @@ then
 fi
 
 # Load display settingss
-~/.dotfiles/bin/configure-displays
+#~/.dotfiles/bin/configure-displays
 
 # Add Gnome Keyring as the SSH auth if we are in i3
 if [[ $DESKTOP_SESSION = "i3" ]]; then
