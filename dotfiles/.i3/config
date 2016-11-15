@@ -79,7 +79,7 @@ bindsym $mod+period           exec --no-startup-id i3-input
 # dmenu and launchers
 bindsym $mod+d                exec rofi -show run
 bindsym $mod+Shift+d          exec --no-startup-id i3-dmenu-desktop --dmenu='rofi -dmenu'
-bindsym $alt+Tab              exec rofi -show window
+bindsym $mod+Tab              exec rofi -show window
 bindsym $mod+a                exec i3-hud-menu
 
 # Pulse Audio controls
@@ -148,6 +148,9 @@ bindsym $mod+x                [urgent=latest] focus
 
 # Change focus between tiling / floating windows
 bindsym $mod+space            focus mode_toggle
+
+# Change focus to last
+bindsym $alt+space            exec "i3-focus-last --switch"
 
 
 

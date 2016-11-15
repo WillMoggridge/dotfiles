@@ -1,5 +1,6 @@
 docker-compose
 httpie
+i3ipc
 powerline-status
 ptpython
 thefuck
