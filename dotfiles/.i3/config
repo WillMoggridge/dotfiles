@@ -80,6 +80,7 @@ bindsym $mod+period           exec --no-startup-id i3-input
 bindsym $mod+d                exec rofi -show run
 bindsym $mod+Shift+d          exec --no-startup-id i3-dmenu-desktop --dmenu='rofi -dmenu'
 bindsym $alt+Tab              exec rofi -show window
+bindsym $mod+a                exec i3-hud-menu
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume  exec --no-startup-id ctl-volume raise
@@ -397,6 +398,9 @@ exec --no-startup-id "kdeconnect-cli --refresh"
 # Autostart programs using dex (https://github.com/jceb/dex)
 # Autostart config: https://standards.freedesktop.org/menu-spec/latest/ar01s03.html
 exec --no-startup-id "dex --autostart --environment i3"
+
+# Service for i3-hud-menu
+exec --no-startup-id "i3-appmenu-service"
 
 
 
