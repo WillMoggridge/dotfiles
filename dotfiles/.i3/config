@@ -41,8 +41,8 @@ client.urgent           #C10004 #900000 #ffffff #900000
 new_float normal $border_width
 new_window pixel $border_width
 
-# Hide borders for single windows... Some time soon. :(
-#hide_edge_borders smart
+# Hide borders for single windows in a workspace
+hide_edge_borders smart
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
