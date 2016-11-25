@@ -79,6 +79,6 @@ if [[ $DESKTOP_SESSION = "i3" ]]; then
 fi
 
 # Load up monitor to switch between last window in i3
-if [[ $DESKTOP_SESSION = "i3" ]]; then
-    i3-focus-last
-fi
+#if [[ $DESKTOP_SESSION = "i3" ]]; then
+#    i3-focus-last
+#fi
