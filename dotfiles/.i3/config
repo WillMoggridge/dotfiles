@@ -150,7 +150,7 @@ bindsym $mod+x                [urgent=latest] focus
 bindsym $mod+space            focus mode_toggle
 
 # Change focus to last
-bindsym $alt+space            exec "i3-focus-last --switch"
+bindsym $alt+tab              exec "i3-focus-last --switch"
 
 
 
