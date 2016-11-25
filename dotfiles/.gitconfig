@@ -1,4 +1,6 @@
 [alias]
+    create-empty-branch = !git checkout --orphan empty-branch && git reset --hard
+    create-empty-master = !git create-empty-branch && echo "Please refer to the upstream repository, as the master branch on this fork is not kept up to date." >> README.md && git add README.md && git commit -m 'Emptying master of fork' && git branch -m empty-master
     rm-merged = !git branch --merged master | grep -v 'master$' | xargs git branch -d
     rr = !git remote rename origin upstream && git remote rename WillMoggridge origin
 [branch]
