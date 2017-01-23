@@ -3,12 +3,12 @@
 WORKON_HOME=~/.virtualenvs
 
 # Add extra paths
-if [ -d $HOME/bin ]; then export PATH=$HOME/bin:$PATH; fi
-if [ -d $HOME/.dotfiles/bin ]; then export PATH=$HOME/.dotfiles/bin:$PATH; fi
-if [ -d $HOME/.local/bin ]; then export PATH=$HOME/.local/bin:$PATH; fi
+if [ -d $HOME/.cargo/bin ]; then export PATH=$HOME/.cargo/bin:$PATH; fi
 if [ -d $HOME/.local/share/umake/bin ]; then export PATH=$HOME/.local/share/umake/bin:$PATH; fi
 if [ -d $HOME/.tmuxifier/bin ]; then export PATH=$HOME/.tmuxifier/bin:$PATH; fi
-
+if [ -d $HOME/.dotfiles/bin ]; then export PATH=$HOME/.dotfiles/bin:$PATH; fi
+if [ -d $HOME/bin ]; then export PATH=$HOME/bin:$PATH; fi
+if [ -d $HOME/.local/bin ]; then export PATH=$HOME/.local/bin:$PATH; fi
 
 # Load up env settings and aliases
 autoload -U compinit && compinit
