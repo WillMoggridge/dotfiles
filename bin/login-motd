@@ -2,10 +2,12 @@
 
 source $HOME/.dotfiles/libs/common
 
+# Cache for 20 hours
+REQUEST_EXPIRY=72000
+
 # I love some fun messages on login:
-# Can the remote request have a little cache?
 if cmd_exists cowsay; then
-    whatisonfire=`dig +tries=1 +time=1 +short txt istheinternetonfire.com | sed 's/^"\(.*\)"$/\1/'`
+    whatisonfire=`cacheme ${REQUEST_EXPIRY} dig +tries=1 +time=1 +short txt istheinternetonfire.com | sed 's/^"\(.*\)"$/\1/'`
 
     saythis="Is the internet on fire?
 

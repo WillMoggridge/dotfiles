@@ -1,0 +1,19 @@
+#!/bin/sh
+
+# Cache output of a command to RAM
+# `cacheme [EXPIRY] command`
+# From http://stackoverflow.com/a/34573844/2335155
+
+VERBOSE=false
+PROG="$(basename $0)"
+DIR="/dev/shm/${PROG}"
+mkdir -p "${DIR}"
+EXPIRY=600 # default to 10 minutes
+# check if first argument is a number, if so use it as expiration (seconds)
+[ "$1" -eq "$1" ] 2>/dev/null && EXPIRY=$1 && shift
+[ "$VERBOSE" = true ] && echo "Using expiration $EXPIRY seconds"
+CMD="$@"
+HASH=$(echo "$CMD" | md5sum | awk '{print $1}')
+CACHE="$DIR/$HASH"
+test -f "${CACHE}" && [ $(expr $(date +%s) - $(date -r "$CACHE" +%s)) -le $EXPIRY ] || eval "$CMD" > "${CACHE}"
+cat "${CACHE}"
