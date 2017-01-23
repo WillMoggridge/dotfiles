@@ -13,6 +13,10 @@
 	prune = true
 [push]
     default = simple
+[url "git+ssh://willmoggridge@git.launchpad.net/"]
+    insteadof = lp:
+[url "git+ssh://willmoggridge@git.launchpad.net/~willmoggridge/+git/"]
+    insteadof = lpme:
 [user]
     email = will@moggridge.com
     name = Will Moggridge
