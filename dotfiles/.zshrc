@@ -68,6 +68,9 @@ plugins=(
     virtualenvwrapper
 )
 
+# Ignore commands that start with a space
+setopt HIST_IGNORE_SPACE
+
 # Stop zsh making it rename folder into variables!
 unsetopt auto_name_dirs
 
