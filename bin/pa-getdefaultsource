@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+pacmd dump | sed -n 's/^set-default-source \(.*\)$/\1/p'

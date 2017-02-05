@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+pacmd dump | sed -n 's/^set-default-sink \(.*\)$/\1/p'
