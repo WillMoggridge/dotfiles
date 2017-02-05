@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 export HOST_DIR=/host
 export DOTFILE_DIR=$HOST_DIR/dotfiles

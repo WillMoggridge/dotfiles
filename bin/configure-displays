@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 #
 # In future, maybe I should make this script a little more advanced to toggle monitors easily.

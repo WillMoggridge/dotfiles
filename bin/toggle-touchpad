@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # toggleTouchpad by Brendon Dugan
 # Toggles a touchpad on or off depending on it's current state or CLI argument

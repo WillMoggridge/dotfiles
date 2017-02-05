@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 synclient RightButtonAreaLeft=3914
 synclient RightButtonAreaTop=3918

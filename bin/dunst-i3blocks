@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 #
 # i3blocks integration with dunst.
 # Original Author: Vivien Didelot <vivien.didelot@gmail.com>

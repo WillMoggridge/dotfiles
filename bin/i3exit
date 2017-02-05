@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 lock() {
     killall -SIGUSR1 dunst # Pause notifications
     xautolock -disable

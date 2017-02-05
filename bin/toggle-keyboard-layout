@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 keyboard_layout="${1:-toggle}"
 keyboard_id="${2}"

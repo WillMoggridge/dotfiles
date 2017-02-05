@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 keyboard_id="$(xinput -list | grep "TrulyErgonomic.com" | awk -F'=' '{print $2}' | cut -c 1-2)"
 keyboard_layout="${1:-toggle}"

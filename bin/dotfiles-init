@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 if [ ! -d ~/.local/share/applications/dotfiles ]; then
     mkdir -p ~/.local/share/applications
     ln -s ~/.dotfiles/applications ~/.local/share/applications/dotfiles

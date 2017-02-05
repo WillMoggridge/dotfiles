@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 
 # file -b -L "$1" | grep -q text && \
 #    /usr/share/source-highlight/src-hilite-lesspipe.sh "$1"
