@@ -51,7 +51,7 @@ current_dir     "%{$fg[cyan]%}%2c "
 git_prompt      '$(git_super_status)'
 # new_line        $'\n'
 root_user       "%(!:%{$fg_bold[yellow]%}⚡ :)"
-return_status   "%(?:%{$fg_bold[green]%}:%{$fg_bold[red]%})➜  "
+return_status   "%(?:%{$fg_bold[green]%}:%{$fg_bold[red]%})➜%{$reset_color%}   "
 final           "%"
 )
 # Build prompt in correct order. Broken down for easy reading.
