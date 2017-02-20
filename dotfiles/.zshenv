@@ -1,8 +1,10 @@
 . $HOME/.dotfiles/libs/common
 
 WORKON_HOME=~/.virtualenvs
+GOPATH="$HOME/.local/share/go"
 
 # Add extra paths
+export PATH=$GOPATH/bin:$PATH
 if [ -d $HOME/.cargo/bin ]; then export PATH=$HOME/.cargo/bin:$PATH; fi
 if [ -d $HOME/.local/share/umake/bin ]; then export PATH=$HOME/.local/share/umake/bin:$PATH; fi
 if [ -d $HOME/.tmuxifier/bin ]; then export PATH=$HOME/.tmuxifier/bin:$PATH; fi
