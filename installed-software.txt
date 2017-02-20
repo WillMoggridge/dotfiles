@@ -3,6 +3,7 @@ autojump
 compton
 devscripts
 direnv
+entr
 feh
 git-extras
 i3
