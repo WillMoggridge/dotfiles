@@ -6,6 +6,7 @@ fi
 
 mkdir -p ~/.config
 
+ln -s ~/.dotfiles/dotfiles/.config/alacritty ~/.config/
 ln -s ~/.dotfiles/dotfiles/.config/dunst ~/.config/
 ln -s ~/.dotfiles/dotfiles/.config/nvim ~/.config/
 ln -s ~/.dotfiles/dotfiles/.config/fontconfig ~/.config/

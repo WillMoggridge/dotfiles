@@ -19,6 +19,8 @@ fonts-emojione-svginot ppa:eosrei/fontsxbacklight
 
 Google Noto Fonts https://www.google.com/get/noto/
 
+alacritty https://github.com/jwilm/alacritty
+
 # Look into theming with these
 gtk-chtheme
 lxappearance
