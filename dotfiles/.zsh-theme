@@ -44,8 +44,8 @@ show_user_prompt() {
 # local -a prompt_array=(
 local -a prompt_array=(
 bg_jobs         "%(1j.%{$fg[red]%} .)"
-time            "⌚ %D{%T} "
-user            "$(show_user_prompt && echo "%{$fg_bold[red]%}%n ")"
+time            "⌚%D{%T} "
+user            "$(show_user_prompt && echo "%{$fg_bold[red]%}%n%{$reset_color%} ")"
 hostname        "$(show_host_prompt && echo "@%{$fg[green]%}%m%{$reset_color%} ")"
 current_dir     "%{$fg[cyan]%}%2c "
 git_prompt      '$(git_super_status)'
