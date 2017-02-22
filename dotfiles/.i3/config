@@ -403,7 +403,7 @@ exec --no-startup-id "kdeconnect-cli --refresh"
 exec --no-startup-id "dex --autostart --environment i3"
 
 # Service for i3-hud-menu
-exec --no-startup-id "i3-appmenu-service"
+# exec --no-startup-id "i3-appmenu-service"
 
 
 
