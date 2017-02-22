@@ -1,7 +1,16 @@
-# Auto load venv file
-.venv
+######################
+# Local env settings
+######################
 
-# OS generated files #
+# direnv
+.envrc
+
+# pyenv
+.python-version
+
+
+######################
+# OS generated files
 ######################
 .DS_Store
 .DS_Store?
