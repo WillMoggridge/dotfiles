@@ -16,6 +16,11 @@ taskd
 xautolock
 zsh-syntax-highlighting
 
+nvm
+pyenv
+pyenv-virtualenv - git clone https://github.com/yyuu/pyenv-virtualenv.git $(pyenv root)/plugins/pyenv-virtualenv
+rvm
+
 fonts-emojione-svginot ppa:eosrei/fontsxbacklight
 
 Google Noto Fonts https://www.google.com/get/noto/
