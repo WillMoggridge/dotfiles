@@ -78,7 +78,7 @@ bindsym $mod+period           exec --no-startup-id i3-input
 
 # dmenu and launchers
 bindsym $mod+d                exec rofi -show run
-bindsym $mod+Shift+d          exec --no-startup-id i3-dmenu-desktop --dmenu='rofi -dmenu'
+bindsym $mod+Shift+d          exec rofi -show drun
 bindsym $mod+Tab              exec rofi -show window
 bindsym $mod+a                exec i3-hud-menu
 

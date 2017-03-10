@@ -28,7 +28,7 @@ rofi.yoffset: 0
 
 rofi.font: pango: M+ roboto, fontawesome 10
 rofi.fuzzy: true
-rofi.modi: window,run
+rofi.modi: window,run,drun
 
 
 ! ###################
