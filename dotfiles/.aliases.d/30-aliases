@@ -31,5 +31,6 @@ alias dropbox-encfs='encfs ~/Dropbox/Sync/Security/encfs ~/Dropbox-encfs'
 alias grep='grep --color=always'
 alias less='less -R'
 alias rm='rm -I'
-alias vim=nvim
+alias watch-files=entr
+if cmd_exists nvim; then alias vim=nvim; fi
 if cmd_exists hub; then alias git=hub; fi
