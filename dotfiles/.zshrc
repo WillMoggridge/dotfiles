@@ -79,7 +79,7 @@ HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
 setopt nomatch
-unsetopt appendhistory autocd beep extendedglob notify
+unsetopt appendhistory auto_cd beep extendedglob notify
 bindkey -e
 
 # Bullet-train theme settings
