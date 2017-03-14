@@ -79,7 +79,7 @@ bindsym $mod+period           exec --no-startup-id i3-input
 # dmenu and launchers
 bindsym $mod+d                exec rofi -show run
 bindsym $mod+Shift+d          exec rofi -show drun
-bindsym $mod+Tab              exec rofi -show window
+bindsym $mod+$alt+Tab         exec rofi -show window
 bindsym $mod+a                exec i3-hud-menu
 
 # Pulse Audio controls
@@ -379,6 +379,10 @@ mode "$system_functions" {
 
 # Terminal
 bindsym $mod+Return           exec i3-sensible-terminal
+
+# Taskwarrior (TODO)
+bindsym $mod+backslash        scratchpad show
+bindsym $mod+Tab              scratchpad show
 
 
 
