@@ -103,7 +103,7 @@ BULLETTRAIN_CONTEXT_DEFAULT_USER='will'
 if [ -f $ZSH/oh-my-zsh.sh ]; then source $ZSH/oh-my-zsh.sh; fi
 
 local ZSH_SYNTAX_HL=/usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-if [ -f $ZSH_SYNTAX_HL ]; then . $ZSH_SYNTAX_HL; fi
+#if [ -f $ZSH_SYNTAX_HL ]; then . $ZSH_SYNTAX_HL; fi
 
 # MOTD for the terminal
 login-motd
