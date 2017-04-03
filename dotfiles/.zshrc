@@ -20,7 +20,7 @@ DISABLE_AUTO_TITLE="true"
 # DISABLE_CORRECTION="true"
 
 # Uncomment following line if you want red dots to be displayed while waiting for completion
-# COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Uncomment following line if you want to disable marking untracked files under
 # VCS as dirty. This makes repository status check for large repositories much,
@@ -68,6 +68,11 @@ plugins=(
     virtualenvwrapper
 )
 
+source <(antibody init)
+antibody bundle <<EOBUNDLE
+  zsh-users/zsh-completions
+EOBUNDLE
+
 # Ignore commands that start with a space
 setopt HIST_IGNORE_SPACE
 
@@ -103,7 +108,7 @@ BULLETTRAIN_CONTEXT_DEFAULT_USER='will'
 if [ -f $ZSH/oh-my-zsh.sh ]; then source $ZSH/oh-my-zsh.sh; fi
 
 local ZSH_SYNTAX_HL=/usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-#if [ -f $ZSH_SYNTAX_HL ]; then . $ZSH_SYNTAX_HL; fi
+if [ -f $ZSH_SYNTAX_HL ]; then . $ZSH_SYNTAX_HL; fi
 
 # MOTD for the terminal
 login-motd

@@ -16,13 +16,15 @@ taskd
 xautolock
 zsh-syntax-highlighting
 
+antibody - https://github.com/getantibody/antibody
+oh-my-zsh
+
 nvm
 pyenv
 pyenv-virtualenv - git clone https://github.com/yyuu/pyenv-virtualenv.git $(pyenv root)/plugins/pyenv-virtualenv
 rvm
 
 fonts-emojione-svginot ppa:eosrei/fontsxbacklight
-
 Google Noto Fonts https://www.google.com/get/noto/
 
 alacritty https://github.com/jwilm/alacritty
