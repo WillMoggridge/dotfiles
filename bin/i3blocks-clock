@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+date '+%H:%M:%S'
+
+if [ -n "${BLOCK_BUTTON}" ]; then
+    gsimplecal
+fi

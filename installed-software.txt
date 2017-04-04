@@ -6,6 +6,7 @@ direnv
 entr
 feh
 git-extras
+gsimplecal
 i3
 pipsi
 rofi
