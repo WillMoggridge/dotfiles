@@ -19,8 +19,9 @@ set $orange_dark #d44615
 set $white #ffffff
 
 bar {
-    font pango: roboto, fontawesome 10
+    font pango: roboto light, fontawesome 11
     position top
+    separator_symbol " • "
     status_command i3blocks -c ~/.i3/i3blocks.conf
     tray_padding 4px
     tray_output primary
