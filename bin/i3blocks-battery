@@ -1,0 +1,85 @@
+#!/usr/bin/env python3
+
+from bisect import bisect_right
+from collections import OrderedDict
+from subprocess import check_output
+import re
+
+
+COLOR_OPTIONS = OrderedDict((
+    (20, '#FF3300'),
+    (30, '#FF6600'),
+    (40, '#FF9900'),
+    (50, '#FFCC00'),
+    (60, '#FFFF00'),
+    (70, '#FFFF33'),
+    (80, '#FFFF66'),
+    (100, '#FFFFFF'),
+))
+ICON_PLUGGED_IN = ''
+ICON_OPTIONS = OrderedDict((
+    (25, ''),
+    (50, ''),
+    (75, ''),
+    (100, ''),
+))
+
+
+def get_battery_status():
+    status_output = check_output(['acpi'], universal_newlines=True)
+    ac_adapter_output = check_output(['acpi', '-a'], universal_newlines=True)
+
+    def _process(status):
+        parsed = re.search(
+            '\w+ (?P<id>\d+)\W*(?P<status>\w+)\D*(?P<percent>\d+).*',
+            status,
+        )
+        battery = {
+            'id': parsed.group('id'),
+            'percent': parsed.group('percent'),
+            'status': parsed.group('status'),
+        }
+        battery['is_plugged_in'] = bool(re.match(
+            'Adapter {id}\: on-line'.format(id=battery['id']),
+            ac_adapter_output,
+        ))
+        return battery
+
+    return [_process(status) for status in status_output.strip().split('\n')]
+
+
+def get_color(percent):
+    option_keys = list(COLOR_OPTIONS.keys())
+    rounded = bisect_right(option_keys, int(percent))
+    return COLOR_OPTIONS[option_keys[rounded]]
+
+
+def get_icon(percent, is_plugged_in=False):
+    if is_plugged_in:
+        return ICON_PLUGGED_IN
+    option_keys = list(ICON_OPTIONS.keys())
+    rounded = bisect_right(option_keys, int(percent))
+    return ICON_OPTIONS[option_keys[rounded]]
+
+
+def battery_block():
+    batteries = get_battery_status()
+    if not batteries:
+        exit()
+
+    for battery in batteries:
+        icon = get_icon(
+            percent=battery['percent'],
+            is_plugged_in=battery['is_plugged_in']
+        )
+        output = '{icon} {percent}%'.format(
+            icon=icon,
+            percent=battery['percent'],
+        )
+        print(output)
+        print(output)
+        print(get_color(battery['percent']))
+
+
+if __name__ == "__main__":
+    battery_block()

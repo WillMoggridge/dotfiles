@@ -19,16 +19,16 @@ set $orange_dark #d44615
 set $white #ffffff
 
 bar {
-    font pango: M+ roboto, fontawesome bold 10
+    font pango: roboto, fontawesome 10
     position top
     status_command i3blocks -c ~/.i3/i3blocks.conf
-    tray_padding 2px
+    tray_padding 4px
     tray_output primary
 }
 
 focus_follows_mouse no
 mouse_warping none
-font pango: M+ roboto, fontawesome normal 8
+font pango: roboto, fontawesome normal 8
 
 # Border settings
 client.focused          $orange $orange_dark $white $white
