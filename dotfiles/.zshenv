@@ -1,5 +1,7 @@
 . $HOME/.dotfiles/libs/common
 
+export LC_ALL="en_GB.UTF-8"
+
 WORKON_HOME=~/.virtualenvs
 GOPATH="$HOME/.local/share/go"
 
