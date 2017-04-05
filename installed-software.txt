@@ -15,6 +15,7 @@ sox
 taskwarrior
 taskd
 xautolock
+zenity
 zsh-syntax-highlighting
 
 antibody - https://github.com/getantibody/antibody
