@@ -14,7 +14,7 @@ COLOR_OPTIONS = OrderedDict((
     (60, '#FFFF00'),
     (70, '#FFFF33'),
     (80, '#FFFF66'),
-    (100, '#FFFFFF'),
+    (101, '#FFFFFF'),
 ))
 ICON_PLUGGED_IN = ''
 ICON_OPTIONS = OrderedDict((
@@ -22,7 +22,7 @@ ICON_OPTIONS = OrderedDict((
     (25, ''),
     (50, ''),
     (75, ''),
-    (100, ''),
+    (101, ''),
 ))
 
 
