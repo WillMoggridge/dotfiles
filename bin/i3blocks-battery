@@ -68,18 +68,38 @@ def battery_block():
     if not batteries:
         exit()
 
+    total_battery_percent = 0
     for battery in batteries:
+        percent = int(battery['percent'])
+        total_battery_percent += percent
+
+        color = get_color(battery['percent'])
         icon = get_icon(
-            percent=battery['percent'],
+            percent=percent,
             is_plugged_in=battery['is_plugged_in']
         )
-        output = '{icon} {percent}%'.format(
-            icon=icon,
-            percent=battery['percent'],
+        percent_output = (
+            '{percent}%'.format(percent=battery['percent'])
         )
-        print(output)
-        print(output)
-        print(get_color(battery['percent']))
+        output = '{icon} {percent}'.format(
+            icon=icon,
+            percent=percent_output,
+        )
+
+        print(
+            (
+                "{long}\n"
+                "{short}\n"
+                "{color}"
+            ).format(
+                long=output,
+                short=output,
+                color=color
+            )
+        )
+
+    if total_battery_percent < 20:
+        exit(33)
 
 
 if __name__ == "__main__":
