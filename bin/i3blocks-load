@@ -1,0 +1,66 @@
+#!/usr/bin/env python3
+
+from bisect import bisect_right
+from collections import OrderedDict
+import multiprocessing
+
+
+class i3block:
+    COLOR_OPTIONS = OrderedDict((
+        (40, '#FFFFFF'),
+        (50, '#FFFF66'),
+        (60, '#FFFF00'),
+        (70, '#FFCC00'),
+        (80, '#FF9900'),
+        (90, '#FF6600'),
+        (101, '#FF3300'),
+    ))
+    ICON_LOAD = ''
+
+    def __init__(self):
+        self.load, self.load_percent = self._get_load()
+
+    def _color(self, percent):
+        percent = round(percent)
+        option_keys = list(self.COLOR_OPTIONS.keys())
+        key_index = bisect_right(option_keys, percent)
+        return self.COLOR_OPTIONS[option_keys[key_index]]
+
+    def _format_output(self, long, short, color):
+        formatted = (
+            "{long}\n"
+            "{short}\n"
+            "{color}"
+        ).format(
+            long=long,
+            short=short,
+            color=color,
+        )
+        return formatted
+
+    def _get_load(self):
+        thread_count = multiprocessing.cpu_count()
+        load = None
+        with open('/proc/loadavg', 'r') as loadavg:
+            load = float(loadavg.readline().split(' ')[0])
+        percent = load / thread_count * 100
+        return load, percent
+
+    def generate(self):
+        color = self._color(self.load_percent)
+        icon = self.ICON_LOAD
+        return self._format_output(
+            long=icon,
+            short=icon,
+            color=color,
+        )
+
+    def is_urgent(self):
+        return self.load_percent > 90
+
+
+if __name__ == "__main__":
+    block = i3block()
+    print(block.generate())
+    if block.is_urgent():
+        exit(33)
