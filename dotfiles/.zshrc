@@ -70,6 +70,7 @@ plugins=(
 
 source <(antibody init)
 antibody bundle <<EOBUNDLE
+  larkery/zsh-histdb
   zsh-users/zsh-completions
 EOBUNDLE
 
