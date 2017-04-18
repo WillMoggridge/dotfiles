@@ -8,6 +8,7 @@ feh
 git-extras
 gsimplecal
 i3
+jq
 pipsi
 rofi
 source-highlight
@@ -15,6 +16,7 @@ sox
 taskwarrior
 taskd
 xautolock
+yabar
 zenity
 zsh-syntax-highlighting
 
