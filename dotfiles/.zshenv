@@ -34,6 +34,9 @@ else
   export VISUAL='vim'
 fi
 
+# Set default Juju location for dev
+export JUJU_REPOSITORY=$HOME/dev/juju-charms
+
 # Add Gnome Keyring as the SSH auth if we are in i3
 if [[ $DESKTOP_SESSION = "i3" ]]; then
     eval $(gnome-keyring-daemon --start)
