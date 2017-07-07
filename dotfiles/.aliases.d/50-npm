@@ -7,3 +7,6 @@ npm() {
         command npm "$@"
     fi
 }
+
+# This may just get annoying...
+#alias npm=yarn

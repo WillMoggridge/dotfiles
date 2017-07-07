@@ -1,0 +1,12 @@
+# -*- grammar-ext: bash -*-
+
+# Weird hack to fix yarn global install but maybe they will actually fix it...
+# https://github.com/yarnpkg/yarn/issues/1027
+# yarn() {
+#     if [[ $1 == "global" ]]; then
+#         yarn global --global-folder="`yarn global bin`" ${@:2}
+#     fi
+# }
+
+alias yga='yarn global add'
+alias ygr='yarn global remove'

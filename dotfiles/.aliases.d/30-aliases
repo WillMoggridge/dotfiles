@@ -23,7 +23,7 @@ if cmd_exists thefuck; then
 fi
 
 
-alias ack='ack-grep --color'
+alias ack='ack --color'
 alias a='autorandr'
 alias ara='autorandr'
 alias d-c='docker-compose'
