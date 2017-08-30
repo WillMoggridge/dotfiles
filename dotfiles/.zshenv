@@ -23,6 +23,9 @@ if [ -f $HOME/.local_envs ]; then source $HOME/.local_envs; fi
 if [ -f $HOME/.torch/install/bin/torch-activate ]; \
     then source $HOME/.torch/install/bin/torch-activate; fi
 
+if cmd_exists kubeadm; then . <(kubectl completion adm); fi
+if cmd_exists kubectl; then . <(kubectl completion zsh); fi
+
 if [ -f /usr/share/source-highlight/src-hilite-lesspipe.sh ]; then \
     export LESSOPEN="| /usr/share/source-highlight/src-hilite-lesspipe.sh %s"; fi
 
