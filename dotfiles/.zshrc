@@ -70,7 +70,11 @@ plugins=(
 
 source <(antibody init)
 antibody bundle <<EOBUNDLE
+  Arlon1/Snappy_zsh_autocompletion
   larkery/zsh-histdb
+  supercrabtree/k
+  unixorn/docker-helpers.zshplugin
+  webyneter/docker-aliases
   zsh-users/zsh-completions
 EOBUNDLE
 
