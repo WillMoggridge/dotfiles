@@ -50,9 +50,12 @@ fi
 
 # Node/Ruby/Python Version Manager
 # nvm
-export PATH="$HOME/.npm-packages/bin:$PATH"
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+# export PATH="$HOME/.npm-packages/bin:$PATH"
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+source <(antibody init)
+export NVM_LAZY_LOAD=true
+antibody bundle lukechilds/zsh-nvm
 # pyenv
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 export PYENV_ROOT="$HOME/.pyenv"
