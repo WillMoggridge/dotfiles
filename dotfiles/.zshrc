@@ -56,7 +56,6 @@ plugins=(
     node
     npm
     nvm
-    per-directory-history
     pip
     rvm
     systemd
@@ -71,6 +70,7 @@ plugins=(
 source <(antibody init)
 antibody bundle <<EOBUNDLE
   Arlon1/Snappy_zsh_autocompletion
+  jimhester/per-directory-history
   larkery/zsh-histdb
   supercrabtree/k
   unixorn/docker-helpers.zshplugin
