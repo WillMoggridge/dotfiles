@@ -25,8 +25,8 @@ color=on
 
 
 report.list.description=Lists all tasks matching the specified criteria
-report.list.columns=id,project,priority,due,depends,recur,tags,description
-report.list.labels=ID,Project,Pri,Due,Depends,Recur,Tags,Description & Annotation
+#report.list.columns=id,project,priority,due,depends,recur,tags,description
+#report.list.labels=ID,Project,Pri,Due,Depends,Recur,Tags,Description & Annotation
 report.list.sort=urgency-
 # report.list.sort=due+,priority-,project+
 report.list.filter=status:pending
@@ -39,6 +39,6 @@ report.next.columns=id,project,priority,due,start.active,entry.age,due.countdown
 report.next.labels=ID,Project,Pri,Due,A,Age,Countdown,Description
 
 alias.a=add
-alias.ls=list
+alias.l=list
 
 default.command=list
