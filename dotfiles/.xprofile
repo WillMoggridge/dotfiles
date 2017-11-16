@@ -29,44 +29,40 @@ fi
 #################### Mouse
 ####################
 
-# Use a better mouse pointer
-xsetroot -cursor_name left_ptr
+if [[ $DESKTOP_SESSION = "i3" ]]; then
+    # Use a better mouse pointer
+    xsetroot -cursor_name left_ptr
 
-# Try and get rid of mouse acceleration
-#xinput set-prop pointer:"ROCCAT ROCCAT Kone[+]" 'Device Accel Profile' 0
-#xinput set-prop pointer:"ROCCAT ROCCAT Kone[+]" 'Device Accel Velocity Scaling' 1
-
-# Mouse sensitivity, not best method
-#is_env desktop && xset m 0.5 0.5
-is_env desktop && xinput --set-prop "pointer:ROCCAT ROCCAT Tyon Black" 'Coordinate Transformation Matrix' 1.0 0.0 0.0  0.0 1.0 0.0  0.0 0.0 2.0
-is_env laptop && xset m 2 1
-
-
+    # Mouse sensitivity, not best method
+    is_env desktop && xset m 0.5 0.5
+    is_env desktop && xinput --set-prop "pointer:ROCCAT ROCCAT Tyon Black" 'Coordinate Transformation Matrix' 1.0 0.0 0.0  0.0 1.0 0.0  0.0 0.0 2.0
+    is_env laptop && xset m 2 1
+fi
 
 ####################
 #################### Other
 ####################
 
-# Check for a default screen layout from arandr
-if [ -x $HOME/.screenlayout/default ]
-then
-    $HOME/.screenlayout/default
-fi
-
-# Set wallpaper (Checking for existence)
-if [ -f ~/.wallpaper.png ]
-then
-   feh --bg-scale ~/.wallpaper.png
-elif [ -f ~/.wallpaper.jpg ]
-then
-   feh --bg-scale ~/.wallpaper.jpg
-fi
-
-# Load display settingss
-#~/.dotfiles/bin/configure-displays
-
-# Add Gnome Keyring as the SSH auth if we are in i3
 if [[ $DESKTOP_SESSION = "i3" ]]; then
+    # Check for a default screen layout from arandr
+    if [ -x $HOME/.screenlayout/default ]
+    then
+        $HOME/.screenlayout/default
+    fi
+
+    # Set wallpaper (Checking for existence)
+    if [ -f ~/.wallpaper.png ]
+    then
+       feh --bg-scale ~/.wallpaper.png
+    elif [ -f ~/.wallpaper.jpg ]
+    then
+       feh --bg-scale ~/.wallpaper.jpg
+    fi
+
+    # Load display settingss
+    #~/.dotfiles/bin/configure-displays
+
+    # Add Gnome Keyring as the SSH auth if we are in i3
     eval $(gnome-keyring-daemon --start)
     export SSH_AUTH_SOCK GPG_AGENT_INFO GNOME_KEYRING_CONTROL GNOME_KEYRING_PID
     export SSH_AGENT_PID=$GNOME_KEYRING_PID
