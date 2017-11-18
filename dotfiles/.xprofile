@@ -66,6 +66,9 @@ if [[ $DESKTOP_SESSION = "i3" ]]; then
     eval $(gnome-keyring-daemon --start)
     export SSH_AUTH_SOCK GPG_AGENT_INFO GNOME_KEYRING_CONTROL GNOME_KEYRING_PID
     export SSH_AGENT_PID=$GNOME_KEYRING_PID
+
+    # Load up local X DB settings
+    xrdb ~/.Xresources
 fi
 
 # Load up settings to use i3-hud-menu
