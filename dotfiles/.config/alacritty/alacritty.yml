@@ -25,8 +25,8 @@ font:
     style: Italic
   size: 12.0
   offset:
-    x: 2.0
-    y: -8.0
+    x: 0.0
+    y: 0.0
 
 # Should display the render timer
 render_timer: false
