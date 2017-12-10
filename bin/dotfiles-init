@@ -12,6 +12,7 @@ ln -s ~/.dotfiles/dotfiles/.config/gsimplecal ~/.config/
 ln -s ~/.dotfiles/dotfiles/.config/nvim ~/.config/
 ln -s ~/.dotfiles/dotfiles/.config/fontconfig ~/.config/
 ln -s ~/.dotfiles/dotfiles/.config/polybar ~/.config/
+ln -s ~/.dotfiles/dotfiles/.config/rofi ~/.config/
 ln -s ~/.dotfiles/dotfiles/.config/yabar ~/.config/
 
 ln -s ~/.dotfiles/dotfiles/.config/compton.conf ~/.config/
