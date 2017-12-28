@@ -1,5 +1,6 @@
 dotfiles/sublime-text-3-preferences/Package Control.*-ca-bundle
 tmp/*
+.vscode/
 TODO.md
 
 dotfiles/.tmux/plugins
