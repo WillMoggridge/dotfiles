@@ -371,6 +371,25 @@ mode "$system_functions" {
 }
 
 
+#####
+##### Screenshot bar
+#####
+
+set $shutter killall shutter && shutter --remove_cursor
+set $screenshot Screenshot:
+mode "$screenshot" {
+    bindsym a                     exec $shutter --window,  mode "default" # Select a window to capture
+    bindsym b                     exec $shutter --full,  mode "default" # Capture a entire screen
+    bindsym c                     exec $shutter --active,  mode "default" # Capture the current active window
+    bindsym d                     exec $shutter --section,  mode "default" # Capture a section
+    bindsym e                     exec $shutter --redo,  mode "default" # Redo last screenshot
+
+    # Exit mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+
 
 ####################
 #################### App shortcuts
@@ -378,6 +397,12 @@ mode "$system_functions" {
 
 # Terminal
 bindsym $mod+Return           exec i3-sensible-terminal
+
+# Screenshots
+bindsym $mod+Print            mode "$screenshot"
+bindsym ctrl+Print            exec "$shutter -s" # Select area
+bindsym ctrl+Shift+Print      exec "$shutter --redo"
+bindsym Shift+Print           exec "$shutter --active"
 
 # Taskwarrior (TODO)
 bindsym $mod+backslash        scratchpad show
