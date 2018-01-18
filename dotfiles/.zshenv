@@ -25,7 +25,7 @@ if [ -f $HOME/.torch/install/bin/torch-activate ]; \
 
 if cmd_exists kubeadm; then . <(kubeadm completion zsh); fi
 if cmd_exists kubectl; then . <(kubectl completion zsh); fi
-#if cmd_exists minikube; then . <(minikube completion zsh); fi
+if cmd_exists minikube; then . <(minikube completion zsh); fi
 
 if [ -f /usr/share/source-highlight/src-hilite-lesspipe.sh ]; then \
     export LESSOPEN="| /usr/share/source-highlight/src-hilite-lesspipe.sh %s"; fi
