@@ -1,5 +1,3 @@
-#!/usr/bin/env bash
-
 # Dev paths
 dev=$HOME/dev
 src=$dev/src
