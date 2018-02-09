@@ -1,58 +1,64 @@
 #!/usr/bin/env bash
-if [ ! -d ~/.local/share/applications/dotfiles ]; then
-    mkdir -p ~/.local/share/applications
-    ln -s ~/.dotfiles/applications ~/.local/share/applications/dotfiles
+if [ ! -d $HOME/.local/share/applications/dotfiles ]; then
+    mkdir -p $HOME/.local/share/applications
+    ln -s $HOME/.dotfiles/applications $HOME/.local/share/applications/dotfiles
 fi
 
-mkdir -p ~/.config
+mkdir -p $HOME/.config
 
-ln -s ~/.dotfiles/dotfiles/.config/alacritty ~/.config/
-ln -s ~/.dotfiles/dotfiles/.config/dunst ~/.config/
-ln -s ~/.dotfiles/dotfiles/.config/gsimplecal ~/.config/
-ln -s ~/.dotfiles/dotfiles/.config/nvim ~/.config/
-ln -s ~/.dotfiles/dotfiles/.config/fontconfig ~/.config/
-ln -s ~/.dotfiles/dotfiles/.config/polybar ~/.config/
-ln -s ~/.dotfiles/dotfiles/.config/rofi ~/.config/
-ln -s ~/.dotfiles/dotfiles/.config/yabar ~/.config/
+ln -s $HOME/.dotfiles/dotfiles/.config/alacritty $HOME/.config/
+ln -s $HOME/.dotfiles/dotfiles/.config/dunst $HOME/.config/
+ln -s $HOME/.dotfiles/dotfiles/.config/gsimplecal $HOME/.config/
+ln -s $HOME/.dotfiles/dotfiles/.config/nvim $HOME/.config/
+ln -s $HOME/.dotfiles/dotfiles/.config/fontconfig $HOME/.config/
+ln -s $HOME/.dotfiles/dotfiles/.config/polybar $HOME/.config/
+ln -s $HOME/.dotfiles/dotfiles/.config/rofi $HOME/.config/
+ln -s $HOME/.dotfiles/dotfiles/.config/yabar $HOME/.config/
 
-ln -s ~/.dotfiles/dotfiles/.config/compton.conf ~/.config/
+ln -s $HOME/.dotfiles/dotfiles/.config/compton.conf $HOME/.config/
 
-ln -s ~/.dotfiles/dotfiles/.aliases.d ~/
-ln -s ~/.dotfiles/dotfiles/.bash ~/
-ln -s ~/.dotfiles/dotfiles/.i3 ~/
-ln -s ~/.dotfiles/dotfiles/.tmux ~/
-ln -s ~/.dotfiles/dotfiles/.zsh ~/
+ln -s $HOME/.dotfiles/dotfiles/.aliases.d $HOME/
+ln -s $HOME/.dotfiles/dotfiles/.bash $HOME/
+ln -s $HOME/.dotfiles/dotfiles/.i3 $HOME/
+ln -s $HOME/.dotfiles/dotfiles/.tmux $HOME/
+ln -s $HOME/.dotfiles/dotfiles/.zsh $HOME/
 
-ln -s ~/.dotfiles/dotfiles/.aliases ~/
-ln -s ~/.dotfiles/dotfiles/.bashrc ~/
-ln -s ~/.dotfiles/dotfiles/.gitconfig ~/
-ln -s ~/.dotfiles/dotfiles/.gitignore_global ~/
-ln -s ~/.dotfiles/dotfiles/.lessfilter ~/
-ln -s ~/.dotfiles/dotfiles/.profile ~/
-ln -s ~/.dotfiles/dotfiles/.taskrc ~/
-ln -s ~/.dotfiles/dotfiles/.tmux.conf ~/
-ln -s ~/.dotfiles/dotfiles/.Xmodmap ~/
-ln -s ~/.dotfiles/dotfiles/.Xresources ~/
-ln -s ~/.dotfiles/dotfiles/.xserverrc ~/
-ln -s ~/.dotfiles/dotfiles/.xprofile ~/
-ln -s ~/.dotfiles/dotfiles/.zsh-theme ~/
-ln -s ~/.dotfiles/dotfiles/.bullet-train.zsh-theme ~/
-ln -s ~/.dotfiles/dotfiles/.zshenv ~/
-ln -s ~/.dotfiles/dotfiles/.zshrc ~/
+ln -s $HOME/.dotfiles/dotfiles/.aliases $HOME/
+ln -s $HOME/.dotfiles/dotfiles/.bashrc $HOME/
+ln -s $HOME/.dotfiles/dotfiles/.gitconfig $HOME/
+ln -s $HOME/.dotfiles/dotfiles/.gitignore_global $HOME/
+ln -s $HOME/.dotfiles/dotfiles/.lessfilter $HOME/
+ln -s $HOME/.dotfiles/dotfiles/.profile $HOME/
+ln -s $HOME/.dotfiles/dotfiles/.taskrc $HOME/
+ln -s $HOME/.dotfiles/dotfiles/.tmux.conf $HOME/
+ln -s $HOME/.dotfiles/dotfiles/.Xmodmap $HOME/
+ln -s $HOME/.dotfiles/dotfiles/.Xresources $HOME/
+ln -s $HOME/.dotfiles/dotfiles/.xserverrc $HOME/
+ln -s $HOME/.dotfiles/dotfiles/.xprofile $HOME/
+ln -s $HOME/.dotfiles/dotfiles/.zsh-theme $HOME/
+ln -s $HOME/.dotfiles/dotfiles/.bullet-train.zsh-theme $HOME/
+ln -s $HOME/.dotfiles/dotfiles/.zshenv $HOME/
+ln -s $HOME/.dotfiles/dotfiles/.zshrc $HOME/
 
-if [ ! -d ~/.config/sublime-text-3/Packages/User ]; then
-    ln -s ~/.dotfiles/dotfiles/sublime-text-3-preferences ~/.config/sublime-text-3/Packages/User
+if [ ! -d $HOME/.config/sublime-text-3/Packages/User ]; then
+    ln -s $HOME/.dotfiles/dotfiles/sublime-text-3-preferences $HOME/.config/sublime-text-3/Packages/User
 fi
 
-if [ ! -d ~/.i3-contrib ]; then
-    git clone https://github.com/vivien/i3blocks-contrib.git ~/.i3-contrib
+DEIN_INSTALL_DIR="$HOME/.dein.vim/repos/github.com/Shougo/dein.vim"
+if [ ! -d "${DEIN_INSTALL_DIR}" ]; then
+    mkdir -p "${DEIN_INSTALL_DIR}"
+    git clone https://github.com/Shougo/dein.vim.git "${DEIN_INSTALL_DIR}"
+    echo '### Run in vim -- `:call dein#install()`'
 fi
-if [ ! -d ~/.oh-my-zsh ]; then
-    git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+if [ ! -d $HOME/.i3-contrib ]; then
+    git clone https://github.com/vivien/i3blocks-contrib.git $HOME/.i3-contrib
 fi
-if [ ! -d ~/.tmux/plugins/tpm ]; then
-    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+if [ ! -d $HOME/.oh-my-zsh ]; then
+    git clone https://github.com/robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh
 fi
-if [ ! -d ~/.tmuxifier ]; then
-    git clone https://github.com/jimeh/tmuxifier.git ~/.tmuxifier
+if [ ! -d $HOME/.tmux/plugins/tpm ]; then
+    git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
+fi
+if [ ! -d $HOME/.tmuxifier ]; then
+    git clone https://github.com/jimeh/tmuxifier.git $HOME/.tmuxifier
 fi
