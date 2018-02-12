@@ -1,2 +1,10 @@
 alias docker-delete-all-containers='docker rm $(docker ps -a -q)'
 alias docker-delete-all-images='docker rmi $(docker images -q)'
+
+docker-run-pwd() {
+    docker run -it --rm --name docker-run-pwd --user "$(id -u):$(id -g)" -v "$(pwd)":/srv -w /srv $@
+}
+
+docker-run-pwd-priv() {
+     docker-run-pwd --privileged -v /var/run/docker.sock:/var/run/docker.sock $@
+}
