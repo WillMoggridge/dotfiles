@@ -23,6 +23,8 @@ zsh-syntax-highlighting
 antibody - https://github.com/getantibody/antibody
 oh-my-zsh
 
+flameshot - ppa:nemonein/tailored
+
 nvm
 pyenv
 pyenv-virtualenv - git clone https://github.com/yyuu/pyenv-virtualenv.git $(pyenv root)/plugins/pyenv-virtualenv
