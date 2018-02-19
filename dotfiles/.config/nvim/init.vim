@@ -297,6 +297,10 @@ if dein#load_state('~/.dein.vim')
     call dein#add('roxma/vim-hug-neovim-rpc')
   endif
 
+  call dein#add('matze/vim-move')
+  call dein#add('tpope/vim-commentary')
+  call dein#add('tpope/vim-surround')
+
   call dein#end()
   call dein#save_state()
 endif
