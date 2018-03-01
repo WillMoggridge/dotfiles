@@ -75,6 +75,7 @@ antibody bundle <<EOBUNDLE
   supercrabtree/k
   unixorn/docker-helpers.zshplugin
   webyneter/docker-aliases
+  zsh-users/zsh-autosuggestions
   zsh-users/zsh-completions
 EOBUNDLE
 
@@ -108,6 +109,20 @@ BULLETTRAIN_PROMPT_ORDER=(
 )
 BULLETTRAIN_PROMPT_CHAR='➜'
 BULLETTRAIN_CONTEXT_DEFAULT_USER='will'
+
+# Set autosuggest strategy
+_zsh_autosuggest_strategy_histdb_top_here() {
+    local query="select commands.argv from
+history left join commands on history.command_id = commands.rowid
+left join places on history.place_id = places.rowid
+where places.dir LIKE '$(sql_escape $PWD)%'
+and commands.argv LIKE '$(sql_escape $1)%'
+group by commands.argv order by count(*) desc limit 1"
+    suggestion=$(_histdb_query "$query")
+}
+
+ZSH_AUTOSUGGEST_STRATEGY=histdb_top_here
+ZSH_AUTOSUGGEST_USE_ASYNC=true
 
 # Oh my ZSH
 if [ -f $ZSH/oh-my-zsh.sh ]; then source $ZSH/oh-my-zsh.sh; fi
