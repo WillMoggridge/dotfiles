@@ -434,7 +434,7 @@ exec --no-startup-id "kdeconnect-cli --refresh"
 exec --no-startup-id "dex --autostart --environment i3"
 
 # Mark sure notifications are up
-exec --no-startup-id "killall dunst && dunst"
+exec --no-startup-id dunst
 
 # Service for i3-hud-menu
 # exec --no-startup-id "i3-appmenu-service"
