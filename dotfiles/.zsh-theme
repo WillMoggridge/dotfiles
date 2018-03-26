@@ -56,7 +56,8 @@ final           "%"
 )
 # Build prompt in correct order. Broken down for easy reading.
 local -a rprompt_array=(
-pyenv "%{$FG[$c_grey]%}$(show_pyenv_prompt && echo ' py[$('"${cmd_pyenv_version}"')'])"
+kubectl "%{$FG[$c_grey]%}$(echo '$(if [ -n "${ZSH_KUBECTL_PROMPT:-}" ]; then echo "k8s[${ZSH_KUBECTL_PROMPT}]"; fi)')"
+pyenv   "%{$FG[$c_grey]%}$(show_pyenv_prompt && echo ' py[$('"${cmd_pyenv_version}"')]')"
 #nvm    "%{$FG[$c_grey]%}$(show_nvm_prompt && echo ' node-$(nvm_ls current)')"
 #rvm    "%{$FG[$c_grey]%}$(show_rvm_prompt && echo ' $($HOME/.rvm/bin/rvm-prompt)')"
 return_code     "%(?:: %{$fg_bold[red]%}%?⏎)"

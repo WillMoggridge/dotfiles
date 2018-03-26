@@ -72,6 +72,7 @@ antibody bundle <<EOBUNDLE
   Arlon1/Snappy_zsh_autocompletion
   jimhester/per-directory-history
   larkery/zsh-histdb
+  superbrothers/zsh-kubectl-prompt
   supercrabtree/k
   unixorn/docker-helpers.zshplugin
   webyneter/docker-aliases
