@@ -56,9 +56,9 @@ final           "%"
 )
 # Build prompt in correct order. Broken down for easy reading.
 local -a rprompt_array=(
-nvm    "%{$FG[$c_grey]%}$(show_nvm_prompt && echo ' node-$(nvm_ls current)')"
-python "%{$FG[$c_grey]%}$(show_pyenv_prompt && echo ' python-$('"${cmd_pyenv_version}"')')"
-rvm    "%{$FG[$c_grey]%}$(show_rvm_prompt && echo ' $($HOME/.rvm/bin/rvm-prompt)')"
+pyenv "%{$FG[$c_grey]%}$(show_pyenv_prompt && echo ' py[$('"${cmd_pyenv_version}"')'])"
+#nvm    "%{$FG[$c_grey]%}$(show_nvm_prompt && echo ' node-$(nvm_ls current)')"
+#rvm    "%{$FG[$c_grey]%}$(show_rvm_prompt && echo ' $($HOME/.rvm/bin/rvm-prompt)')"
 return_code     "%(?:: %{$fg_bold[red]%}%?⏎)"
 final           "%"
 )
