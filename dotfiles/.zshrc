@@ -123,7 +123,7 @@ group by commands.argv order by count(*) desc limit 1"
 }
 
 ZSH_AUTOSUGGEST_STRATEGY=histdb_top_here
-ZSH_AUTOSUGGEST_USE_ASYNC=true
+#ZSH_AUTOSUGGEST_USE_ASYNC=true
 
 # Oh my ZSH
 if [ -f $ZSH/oh-my-zsh.sh ]; then source $ZSH/oh-my-zsh.sh; fi
