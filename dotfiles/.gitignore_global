@@ -8,6 +8,9 @@
 # pyenv
 .python-version
 
+# VSCode files
+.vscode
+
 
 ######################
 # OS generated files
