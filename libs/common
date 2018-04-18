@@ -1,6 +1,6 @@
 
 cmd_exists() {
-    hash $1 2>/dev/null
+    type "${1}" &>/dev/null
 }
 
 is_env() {
