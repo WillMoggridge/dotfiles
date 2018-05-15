@@ -38,6 +38,9 @@ else
   export VISUAL='vim'
 fi
 
+# Define terminal for i3
+export TERMINAL=alacritty
+
 # Set default Juju location for dev
 export JUJU_REPOSITORY=$HOME/dev/juju-charms
 
