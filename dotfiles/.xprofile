@@ -47,7 +47,7 @@ if [[ $DESKTOP_SESSION = "i3" ]]; then
     # Check for a default screen layout from arandr
     if [ -x $HOME/.screenlayout/default ]
     then
-        $HOME/.screenlayout/default
+        $HOME/.screenlayout/default || true
     fi
 
     # Set wallpaper (Checking for existence)
