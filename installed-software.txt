@@ -5,11 +5,13 @@ devscripts
 direnv
 entr
 feh
+flake8
 git-extras
 gsimplecal
 i3
 jq
 pipsi
+python3-bashate
 rofi
 source-highlight
 sox
@@ -17,6 +19,7 @@ taskwarrior
 taskd
 xautolock
 yabar
+yamllint
 zenity
 zsh-syntax-highlighting
 
