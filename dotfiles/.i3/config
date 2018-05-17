@@ -408,6 +408,10 @@ bindsym Shift+Print           exec "$shutter --active"
 bindsym $mod+backslash        scratchpad show
 bindsym $mod+Tab              scratchpad show
 
+# ctrl/ctrl+shift q workarounds
+bindsym Ctrl+q exec ctrlq-proxy
+bindsym Ctrl+Shift+q exec ctrlshiftq-proxy
+
 
 
 ####################

@@ -18,6 +18,7 @@ sox
 taskwarrior
 taskd
 xautolock
+xvkbd
 yabar
 yamllint
 zenity
