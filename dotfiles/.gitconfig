@@ -11,6 +11,8 @@
     excludesfile = ~/.gitignore_global
 [fetch]
 	prune = true
+[pull]
+    rebase = true
 [push]
     default = simple
 [url "git+ssh://willmoggridge@git.launchpad.net/"]
