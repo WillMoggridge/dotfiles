@@ -40,9 +40,9 @@ ln -s $HOME/.dotfiles/dotfiles/.bullet-train.zsh-theme $HOME/
 ln -s $HOME/.dotfiles/dotfiles/.zshenv $HOME/
 ln -s $HOME/.dotfiles/dotfiles/.zshrc $HOME/
 
-if [ ! -d $HOME/.config/sublime-text-3/Packages/User ]; then
-    ln -s $HOME/.dotfiles/dotfiles/sublime-text-3-preferences $HOME/.config/sublime-text-3/Packages/User
-fi
+#if [ ! -d $HOME/.config/sublime-text-3/Packages/User ]; then
+#    ln -s $HOME/.dotfiles/dotfiles/sublime-text-3-preferences $HOME/.config/sublime-text-3/Packages/User
+#fi
 
 DEIN_INSTALL_DIR="$HOME/.dein.vim/repos/github.com/Shougo/dein.vim"
 if [ ! -d "${DEIN_INSTALL_DIR}" ]; then
