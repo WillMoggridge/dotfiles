@@ -9,6 +9,7 @@ GOPATH="$HOME/.local/share/go"
 export PATH=$GOPATH/bin:$PATH
 if [ -d $HOME/.cargo/bin ]; then export PATH=$HOME/.cargo/bin:$PATH; fi
 if [ -d $HOME/.local/share/umake/bin ]; then export PATH=$HOME/.local/share/umake/bin:$PATH; fi
+if [ -d $HOME/.SpaceVim/bin ]; then export PATH=$HOME/.SpaceVim/bin:$PATH; fi
 if [ -d $HOME/.tmuxifier/bin ]; then export PATH=$HOME/.tmuxifier/bin:$PATH; fi
 if [ -d $HOME/.dotfiles/bin ]; then export PATH=$HOME/.dotfiles/bin:$PATH; fi
 if [ -d $HOME/bin ]; then export PATH=$HOME/bin:$PATH; fi
@@ -40,6 +41,9 @@ fi
 
 # Define terminal for i3
 export TERMINAL=alacritty
+
+# SpaceVim config directory
+export SPACEVIMDIR="$HOME/.config/SpaceVim.d"
 
 # Set default Juju location for dev
 export JUJU_REPOSITORY=$HOME/dev/juju-charms

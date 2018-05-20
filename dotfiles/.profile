@@ -14,6 +14,9 @@ if [ -n "$BASH_VERSION" ]; then
     fi
 fi
 
+# SpaceVim config directory
+export SPACEVIMDIR="$HOME/.config/SpaceVim.d"
+
 GOPATH="$HOME/.local/share/go"
 
 # Add extra paths
@@ -22,6 +25,7 @@ if [ -d $HOME/bin ]; then export PATH=$HOME/bin:$PATH; fi
 if [ -d $HOME/.dotfiles/bin ]; then export PATH=$HOME/.dotfiles/bin:$PATH; fi
 if [ -d $HOME/.local/bin ]; then export PATH=$HOME/.local/bin:$PATH; fi
 if [ -d $HOME/.local/share/umake/bin ]; then export PATH=$HOME/.local/share/umake/bin:$PATH; fi
+if [ -d $HOME/.SpaceVim/bin ]; then export PATH=$HOME/.SpaceVim/bin:$PATH; fi
 if [ -d $HOME/.tmuxifier/bin ]; then export PATH=$HOME/.tmuxifier/bin:$PATH; fi
 
 

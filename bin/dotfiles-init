@@ -10,6 +10,7 @@ ln -s $HOME/.dotfiles/dotfiles/.config/alacritty $HOME/.config/
 ln -s $HOME/.dotfiles/dotfiles/.config/dunst $HOME/.config/
 ln -s $HOME/.dotfiles/dotfiles/.config/gsimplecal $HOME/.config/
 ln -s $HOME/.dotfiles/dotfiles/.config/nvim $HOME/.config/
+ln -s $HOME/.dotfiles/dotfiles/.config/SpaceVim.d $HOME/.config/
 ln -s $HOME/.dotfiles/dotfiles/.config/fontconfig $HOME/.config/
 ln -s $HOME/.dotfiles/dotfiles/.config/polybar $HOME/.config/
 ln -s $HOME/.dotfiles/dotfiles/.config/rofi $HOME/.config/
