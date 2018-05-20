@@ -1,6 +1,7 @@
 docker-compose
 httpie
 i3ipc
+neovim
 neovim-remote
 powerline-status
 ptpython
