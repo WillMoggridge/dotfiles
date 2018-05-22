@@ -36,9 +36,6 @@ default_position = 'top'
 default_height = 30
 
 [[layers]]
-name = 'autocomplete'
-
-[[layers]]
 name = 'checkers'
 
 [[layers]]
@@ -61,9 +58,6 @@ name = 'editing'
 
 [[layers]]
 name = 'git'
-
-[[layers]]
-name = 'shell'
 
 [[layers]]
 name = 'ui'
