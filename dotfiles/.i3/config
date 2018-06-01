@@ -132,14 +132,14 @@ bindsym $mod+Up               focus up
 bindsym $mod+Right            focus right
 
 # Navigate to output
-bindsym $mod+Ctrl+$alt+$vim_left   focus output left
-bindsym $mod+Ctrl+$alt+$vim_down   focus output down
-bindsym $mod+Ctrl+$alt+$vim_up     focus output up
-bindsym $mod+Ctrl+$alt+$vim_right  focus output right
-bindsym $mod+Ctrl+$alt+Left        focus output left
-bindsym $mod+Ctrl+$alt+Down        focus output down
-bindsym $mod+Ctrl+$alt+Up          focus output up
-bindsym $mod+Ctrl+$alt+Right       focus output right
+bindsym $mod+$alt+$vim_left   focus output left
+bindsym $mod+$alt+$vim_down   focus output down
+bindsym $mod+$alt+$vim_up     focus output up
+bindsym $mod+$alt+$vim_right  focus output right
+bindsym $mod+$alt+Left        focus output left
+bindsym $mod+$alt+Down        focus output down
+bindsym $mod+$alt+Up          focus output up
+bindsym $mod+$alt+Right       focus output right
 
 # Parent / child
 bindsym $mod+p                focus parent
@@ -281,14 +281,14 @@ bindsym $mod+$alt+Shift+9     move container to workspace number 19; workspace n
 bindsym $mod+$alt+Shift+0     move container to workspace number 20; workspace number 20
 
 # Move container to output
-bindsym $mod+$alt+$vim_left   move container to output left;  focus output left
-bindsym $mod+$alt+$vim_down   move container to output down;  focus output down
-bindsym $mod+$alt+$vim_up     move container to output up;    focus output up
-bindsym $mod+$alt+$vim_right  move container to output right; focus output right
-bindsym $mod+$alt+Left        move container to output left;  focus output left
-bindsym $mod+$alt+Down        move container to output down;  focus output down
-bindsym $mod+$alt+Up          move container to output up;    focus output up
-bindsym $mod+$alt+Right       move container to output right; focus output right
+bindsym $mod+Ctrl+$alt+$vim_left   move container to output left;  focus output left
+bindsym $mod+Ctrl+$alt+$vim_down   move container to output down;  focus output down
+bindsym $mod+Ctrl+$alt+$vim_up     move container to output up;    focus output up
+bindsym $mod+Ctrl+$alt+$vim_right  move container to output right; focus output right
+bindsym $mod+Ctrl+$alt+Left        move container to output left;  focus output left
+bindsym $mod+Ctrl+$alt+Down        move container to output down;  focus output down
+bindsym $mod+Ctrl+$alt+Up          move container to output up;    focus output up
+bindsym $mod+Ctrl+$alt+Right       move container to output right; focus output right
 
 
 #####
