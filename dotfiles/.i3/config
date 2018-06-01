@@ -374,9 +374,7 @@ mode "$system_functions" {
 #####
 ##### Screenshot bar
 #####
-
-set $shutter killall shutter && shutter --remove_cursor
-set $screenshot Screenshot:
+set $screenshot Screenshot: [WIP]
 mode "$screenshot" {
     bindsym a                     exec $shutter --window,  mode "default" # Select a window to capture
     bindsym b                     exec $shutter --full,  mode "default" # Capture a entire screen
@@ -400,9 +398,10 @@ bindsym $mod+Return           exec i3-sensible-terminal
 
 # Screenshots
 bindsym $mod+Print            mode "$screenshot"
-bindsym ctrl+Print            exec "$shutter -s" # Select area
-bindsym ctrl+Shift+Print      exec "$shutter --redo"
-bindsym Shift+Print           exec "$shutter --active"
+bindsym ctrl+Print            exec flameshot gui --path ~/Images/Screenshots
+# bindsym Shift+Print            exec flameshot [Active window when available]
+bindsym $alt+Sys_Req          exec flameshot full --path ~/Images/Screenshots
+bindsym $alt+Shift+Sys_Req    exec flameshot full --clipboard
 
 # Taskwarrior (TODO)
 bindsym $mod+backslash        scratchpad show
@@ -437,7 +436,10 @@ exec --no-startup-id "kdeconnect-cli --refresh"
 # Autostart config: https://standards.freedesktop.org/menu-spec/latest/ar01s03.html
 exec --no-startup-id "dex --autostart --environment i3"
 
-# Mark sure notifications are up
+# Flameshot screenshot tool
+exec --no-startup-id flameshot
+
+# Make sure notifications are up
 exec --no-startup-id dunst
 
 # Service for i3-hud-menu

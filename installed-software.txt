@@ -6,6 +6,7 @@ direnv
 entr
 feh
 flake8
+flameshot
 git-extras
 gsimplecal
 i3
@@ -26,8 +27,6 @@ zsh-syntax-highlighting
 
 antibody - https://github.com/getantibody/antibody
 oh-my-zsh
-
-flameshot - ppa:nemonein/tailored
 
 nvm
 pyenv
