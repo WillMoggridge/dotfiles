@@ -461,4 +461,4 @@ for_window [class="Gsimplecal"]         floating enable
 for_window [class="Update-manager"]     floating enable
 
 ### Chrome insists on opening in a non-focused workspace...
-assign [class="(?i)google-chrome"]      current
+#assign [class="(?i)google-chrome"]      current
