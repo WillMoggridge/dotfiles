@@ -33,7 +33,7 @@ def get_battery_status():
         universal_newlines=True,
         stderr=open(os.devnull, 'w'),
     )
-    if status_output.find("No support for device type"):
+    if "no support for device type" in status_output.lower():
         return None
     ac_adapter_output = check_output(['acpi', '-a'], universal_newlines=True)
 
