@@ -1,1 +1,5 @@
 addhl global/ number_lines
+
+def cq %{quit 1}
+def cq_force %{quit! 1}
+alias global cq! cq_force

@@ -31,13 +31,15 @@ if cmd_exists minikube; then . <(minikube completion zsh); fi
 if [ -f /usr/share/source-highlight/src-hilite-lesspipe.sh ]; then \
     export LESSOPEN="| /usr/share/source-highlight/src-hilite-lesspipe.sh %s"; fi
 
-if cmd_exists nvim; then
-  export EDITOR='nvim'
-  export VISUAL='nvim'
-else
-  export EDITOR='vim'
-  export VISUAL='vim'
-fi
+# if cmd_exists nvim; then
+#   export EDITOR='nvim'
+#   export VISUAL='nvim'
+# else
+#   export EDITOR='vim'
+#   export VISUAL='vim'
+# fi
+export EDITOR='kak'
+export VISUAL="$EDITOR"
 
 # Define terminal for i3
 export TERMINAL=alacritty
