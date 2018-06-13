@@ -47,4 +47,4 @@ if [ -f /usr/share/source-highlight/src-hilite-lesspipe.sh ]; then \
 export PATH="$HOME/.cargo/bin:$PATH"
 
 # Define terminal for i3
-export TERMINAL="alacritty"
+export TERMINAL="kitty"

@@ -42,7 +42,7 @@ export EDITOR='kak'
 export VISUAL="$EDITOR"
 
 # Define terminal for i3
-export TERMINAL=alacritty
+export TERMINAL=kitty
 
 # SpaceVim config directory
 export SPACEVIMDIR="$HOME/.config/SpaceVim.d"
