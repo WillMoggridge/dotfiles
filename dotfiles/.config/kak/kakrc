@@ -1,5 +1,54 @@
-addhl global/ number_lines
-
 def cq %{quit 1}
 def cq_force %{quit! 1}
 alias global cq! cq_force
+
+# Exit insert with jj/jk
+hook global InsertChar j %{ try %{
+  exec -draft hH <a-k>jj<ret> d
+  exec <esc>
+}}
+hook global InsertChar k %{ try %{
+  exec -draft hH <a-k>jk<ret> d
+  exec <esc>
+}}
+
+# Playing with custom line flags
+define-command display-flags %{
+  declare-option line-specs my_flags
+  set-face global MyFlags default
+  set-option global my_flags 1486635122:1|Foo:3|{red,yellow+b}Bar
+  add-highlighter global flag_lines MyFlags my_flags
+}
+
+# Line numbers
+hook -group kakrc global WinCreate .* %{
+  add-highlighter global/ number_lines
+}
+
+# add brackets highliting
+hook global WinCreate .* %{addhl show_matching}
+
+
+#
+# User mode - space key
+#
+map global normal <space> , -docstring 'leader'
+map global normal <backspace> <space> -docstring 'remove all sels except main'
+map global normal <a-backspace> <a-space> -docstring 'remove main sel'
+
+# Copy and paste to system clipboard
+map global user y '<a-|> xsel --input --clipboard <ret>'
+map global user p '<a-!>xsel --output --clipboard<ret>'
+map global user P '!xsel --output --clipboard<ret>'
+
+
+#
+# Import kak files
+#
+def import -params 1 %{
+  try %{
+    source %sh{echo $HOME/.config/kak/$1.kak}
+  }
+}
+import reload-kakrc
+
