@@ -124,12 +124,28 @@ group by commands.argv order by count(*) desc limit 1"
 
 ZSH_AUTOSUGGEST_STRATEGY=histdb_top_here
 #ZSH_AUTOSUGGEST_USE_ASYNC=true
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
+bindkey '^ ' autosuggest-accept
 
 # Oh my ZSH
 if [ -f $ZSH/oh-my-zsh.sh ]; then source $ZSH/oh-my-zsh.sh; fi
 
 local ZSH_SYNTAX_HL=/usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-if [ -f $ZSH_SYNTAX_HL ]; then . $ZSH_SYNTAX_HL; fi
+if [ -f $ZSH_SYNTAX_HL ]; then
+    . $ZSH_SYNTAX_HL
+    # 8 = bright black
+    ZSH_HIGHLIGHT_STYLES[comment]='fg=214'
+    ZSH_HIGHLIGHT_HIGHLIGHTERS=(
+        main
+        brackets
+        cursor
+        pattern
+        #regexp
+    )
+    # User patterns
+    ZSH_HIGHLIGHT_PATTERNS+=('rm -rf *' 'fg=white,bold,bg=red')
+    #ZSH_HIGHLIGHT_REGEXP+=('\bsudo\b' fg=123,bold)
+fi
 
 # MOTD for the terminal
 login-motd

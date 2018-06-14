@@ -44,6 +44,9 @@ export VISUAL="$EDITOR"
 # Define terminal for i3
 export TERMINAL=kitty
 
+# Set terminal colours
+export TERM=xterm-256color
+
 # SpaceVim config directory
 export SPACEVIMDIR="$HOME/.config/SpaceVim.d"
 

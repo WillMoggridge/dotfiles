@@ -29,6 +29,10 @@ alias dropbox-encfs='encfs ~/Dropbox/Sync/Security/encfs ~/Dropbox-encfs'
 alias grep='grep --color=always'
 alias less='less -R'
 alias rm='rm -I'
+alias tmux-general="tmux new-session -A -s general"
+alias tmux-home="tmux new-session -A -s general"
+alias tmux-scratch="tmux new-session -A -s scratch"
+alias tmux-work="tmux new-session -A -s work"
 alias watch-files=entr
 if cmd_exists nvim; then alias vim=nvim; fi
 if cmd_exists hub; then alias git=hub; fi
