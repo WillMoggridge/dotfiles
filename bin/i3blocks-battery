@@ -75,6 +75,12 @@ def battery_block():
     if not batteries:
         exit()
 
+    battery_id = os.getenv('BLOCK_INSTANCE')
+    if battery_id:
+        batteries = [
+            battery for battery in batteries if battery['id'] == battery_id
+        ]
+
     total_battery_percent = 0
     for battery in batteries:
         percent = int(battery['percent'])
