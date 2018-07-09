@@ -1,3 +1,4 @@
+black
 docker-compose
 httpie
 i3ipc
