@@ -5,9 +5,9 @@
 W=`xdotool getactivewindow`
 S1=`xprop -id ${W} |awk -F '"' '/WM_CLASS/{print $4}'`
 
-# If on Firefox, send ctrl + q to quit
+# Set ctrl + shift + q as normal, or ctrl + q if on Firefox
 if [ "$S1" != "Firefox" ] && [ "$S1" != "Firefox Developer Edition" ]; then
-	xvkbd -xsendevent -text "\Cq"
+	xvkbd -xsendevent -text "\CQ"
 else
-	xvkbd -xsendevent -text "\C\Sq"
+	xvkbd -xsendevent -text "\Cq"
 fi
