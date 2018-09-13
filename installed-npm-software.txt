@@ -1,2 +1,5 @@
+dockerfilelint
+htmllint-cli
+arkdownlint-cli
 prettier
 @prettier/plugin-python
