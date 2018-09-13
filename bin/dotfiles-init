@@ -20,6 +20,7 @@ ln -s $HOME/.dotfiles/dotfiles/.config/fontconfig $HOME/.config/
 ln -s $HOME/.dotfiles/dotfiles/.config/kitty $HOME/.config/
 ln -s $HOME/.dotfiles/dotfiles/.config/polybar $HOME/.config/
 ln -s $HOME/.dotfiles/dotfiles/.config/rofi $HOME/.config/
+ln -s $HOME/.dotfiles/dotfiles/.config/sway $HOME/.config/
 ln -s $HOME/.dotfiles/dotfiles/.config/yabar $HOME/.config/
 
 ln -s $HOME/.dotfiles/dotfiles/.config/compton.conf $HOME/.config/

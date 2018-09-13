@@ -1,0 +1,464 @@
+####################
+# Please see http://i3wm.org/docs/userguide.html for a complete reference!
+####################
+
+# Mod1 = Alt key, Mod4 = Super / Windows key
+set $mod Mod4
+set $alt Mod1
+
+# vim keys (colemak)
+set $vim_left  n
+set $vim_down  e
+set $vim_up    i
+set $vim_right o
+
+set $border_width 4
+
+set $orange  #E95420
+set $orange_dark #d44615
+set $white #ffffff
+
+bar {
+    font pango: roboto light, fontawesome 11
+    position top
+    separator_symbol " • "
+    status_command i3blocks -c ~/.i3/i3blocks.conf
+    tray_padding 4px
+    tray_output primary
+}
+
+focus_follows_mouse no
+mouse_warping none
+font pango: roboto, fontawesome normal 8
+
+# Border settings
+client.focused          $orange $orange_dark $white $white
+client.focused_inactive #333333 #5F676A #ffffff #484e50
+client.unfocused        #333333 #424242 #888888 #292d2e
+client.urgent           #C10004 #900000 #ffffff #900000
+#hide_edge_borders both
+new_float normal $border_width
+new_window pixel $border_width
+
+# Hide borders for single windows in a workspace
+hide_edge_borders smart
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# Reload the configuration file
+bindsym $mod+Shift+c          reload
+
+# Restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r          restart
+
+# System functions! (lock, lougout, etc)
+bindsym $mod+Pause            mode "$system_functions"
+bindsym $mod+Escape           mode "$system_functions"
+
+######
+###### Mouse actions
+######
+
+# The middle button over a titlebar kills the window
+bindsym --release             button2 kill
+bindsym --whole-window        $mod+button2 kill
+
+# The right button toggles floating
+bindsym --release             button3 floating toggle
+bindsym --whole-window        $mod+button3 floating toggle
+
+######
+###### Launchers and command input
+######
+
+# i3 command input
+bindsym $mod+period           exec --no-startup-id i3-input
+
+# dmenu and launchers
+bindsym $mod+d                exec rofi -show run
+bindsym $mod+Shift+d          exec rofi -show drun
+bindsym $mod+$alt+Tab         exec rofi -show window
+bindsym $mod+a                exec i3-hud-menu
+
+# Pulse Audio controls
+bindsym XF86AudioRaiseVolume  exec --no-startup-id ctl-volume raise
+bindsym XF86AudioLowerVolume  exec --no-startup-id ctl-volume lower
+bindsym XF86AudioMute         exec --no-startup-id ctl-volume mute
+
+# Sreen brightness controls
+bindsym XF86MonBrightnessUp   exec --no-startup-id ctl-backlight +
+bindsym XF86MonBrightnessDown exec --no-startup-id ctl-backlight -
+
+# Touchpad controls
+#bindsym XF86TouchpadToggle    exec /some/path/toggletouchpad.sh # toggle touchpad
+
+# Media player controls
+#bindsym XF86AudioPlay         exec playerctl play
+#bindsym XF86AudioPause        exec playerctl pause
+#bindsym XF86AudioNext         exec playerctl next
+#bindsym XF86AudioPrev         exec playerctl previous
+
+
+######
+###### Other
+######
+
+# Toggle keyboard layout
+bindsym ctrl+$alt+space       exec --no-startup-id "toggle-keyboard-layout"
+bindsym ctrl+$alt+Shift+space exec --no-startup-id "toggle-keyboard-layout-trulyergonomic"
+
+# Quick load layout
+bindsym $mod+grave       exec "autorandr -c"
+
+# Quick fix resolution shortcut for laptop to remove later
+bindsym $mod+$alt+equal       exec "xrandr --output eDP1 --mode 2560x1440"
+bindsym $mod+$alt+minus       exec "xrandr --output eDP1 --mode 1920x1080"
+
+
+
+####################
+#################### Navigation / Change focus
+####################
+
+# Navigate panes
+bindsym $mod+$vim_left        focus left
+bindsym $mod+$vim_down        focus down
+bindsym $mod+$vim_up          focus up
+bindsym $mod+$vim_right       focus right
+bindsym $mod+Left             focus left
+bindsym $mod+Down             focus down
+bindsym $mod+Up               focus up
+bindsym $mod+Right            focus right
+
+# Navigate to output
+bindsym $mod+$alt+$vim_left   focus output left
+bindsym $mod+$alt+$vim_down   focus output down
+bindsym $mod+$alt+$vim_up     focus output up
+bindsym $mod+$alt+$vim_right  focus output right
+bindsym $mod+$alt+Left        focus output left
+bindsym $mod+$alt+Down        focus output down
+bindsym $mod+$alt+Up          focus output up
+bindsym $mod+$alt+Right       focus output right
+
+# Parent / child
+bindsym $mod+p                focus parent
+bindsym $mod+c                focus child
+
+# Jump to urgent window
+bindsym $mod+x                [urgent=latest] focus
+
+# Change focus between tiling / floating windows
+bindsym $mod+space            focus mode_toggle
+
+# Change focus to last
+bindsym $alt+tab              exec "i3-focus-last --switch"
+
+
+
+####################
+#################### Workspaces
+####################
+
+#####
+##### Switch workspaces
+#####
+
+bindsym $mod+1                workspace number  1
+bindsym $mod+2                workspace number  2
+bindsym $mod+3                workspace number  3
+bindsym $mod+4                workspace number  4
+bindsym $mod+5                workspace number  5
+bindsym $mod+6                workspace number  6
+bindsym $mod+7                workspace number  7
+bindsym $mod+8                workspace number  8
+bindsym $mod+9                workspace number  9
+bindsym $mod+0                workspace number 10
+bindsym $mod+$alt+1           workspace number 11
+bindsym $mod+$alt+2           workspace number 12
+bindsym $mod+$alt+3           workspace number 13
+bindsym $mod+$alt+4           workspace number 14
+bindsym $mod+$alt+5           workspace number 15
+bindsym $mod+$alt+6           workspace number 16
+bindsym $mod+$alt+7           workspace number 17
+bindsym $mod+$alt+8           workspace number 18
+bindsym $mod+$alt+9           workspace number 19
+bindsym $mod+$alt+0           workspace number 20
+
+
+#####
+##### Navigate workspaces
+#####
+
+# Navigate workspaces on output
+bindsym $mod+Ctrl+$vim_left   workspace prev_on_output
+bindsym $mod+Ctrl+$vim_right  workspace next_on_output
+bindsym $mod+Ctrl+Left        workspace prev_on_output
+bindsym $mod+Ctrl+Right       workspace next_on_output
+
+# Quick switch!
+bindsym $mod+q                workspace back_and_forth
+bindsym $mod+z                workspace back_and_forth
+
+
+#####
+##### Move workspaces
+#####
+
+# Move workspace to output
+bindsym $mod+Shift+$alt+$vim_left   move workspace to output left
+bindsym $mod+Shift+$alt+$vim_down   move workspace to output down
+bindsym $mod+Shift+$alt+$vim_up     move workspace to output up
+bindsym $mod+Shift+$alt+$vim_right  move workspace to output right
+bindsym $mod+Shift+$alt+Left        move workspace to output left
+bindsym $mod+Shift+$alt+Down        move workspace to output down
+bindsym $mod+Shift+$alt+Up          move workspace to output up
+bindsym $mod+Shift+$alt+Right       move workspace to output right
+
+#####
+##### Other
+#####
+
+# Rename workspace
+bindsym $mod+m                exec i3-input -F 'Rename workspace to %s' -P 'New name: '
+
+
+
+####################
+#################### Containers
+####################
+
+
+#####
+##### Container layouts
+#####
+
+bindsym $mod+r                mode "resize"
+
+# Split pane horizontally/vertically
+bindsym $mod+h                split h
+bindsym $mod+v                split v
+
+# Change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s                layout stacking
+bindsym $mod+t                layout tabbed
+bindsym $mod+w                layout toggle split
+
+
+#####
+##### Move containers
+#####
+
+bindsym $mod+Shift+$vim_left  move left
+bindsym $mod+Shift+$vim_down  move down
+bindsym $mod+Shift+$vim_up    move up
+bindsym $mod+Shift+$vim_right move right
+bindsym $mod+Shift+Left       move left
+bindsym $mod+Shift+Down       move down
+bindsym $mod+Shift+Up         move up
+bindsym $mod+Shift+Right      move right
+
+# Move container to workspace
+bindsym $mod+Shift+1          move container to workspace number  1; workspace number  1
+bindsym $mod+Shift+2          move container to workspace number  2; workspace number  2
+bindsym $mod+Shift+3          move container to workspace number  3; workspace number  3
+bindsym $mod+Shift+4          move container to workspace number  4; workspace number  4
+bindsym $mod+Shift+5          move container to workspace number  5; workspace number  5
+bindsym $mod+Shift+6          move container to workspace number  6; workspace number  6
+bindsym $mod+Shift+7          move container to workspace number  7; workspace number  7
+bindsym $mod+Shift+8          move container to workspace number  8; workspace number  8
+bindsym $mod+Shift+9          move container to workspace number  9; workspace number  9
+bindsym $mod+Shift+0          move container to workspace number 10; workspace number 10
+bindsym $mod+$alt+Shift+1     move container to workspace number 11; workspace number 11
+bindsym $mod+$alt+Shift+2     move container to workspace number 12; workspace number 12
+bindsym $mod+$alt+Shift+3     move container to workspace number 13; workspace number 13
+bindsym $mod+$alt+Shift+4     move container to workspace number 14; workspace number 14
+bindsym $mod+$alt+Shift+5     move container to workspace number 15; workspace number 15
+bindsym $mod+$alt+Shift+6     move container to workspace number 16; workspace number 16
+bindsym $mod+$alt+Shift+7     move container to workspace number 17; workspace number 17
+bindsym $mod+$alt+Shift+8     move container to workspace number 18; workspace number 18
+bindsym $mod+$alt+Shift+9     move container to workspace number 19; workspace number 19
+bindsym $mod+$alt+Shift+0     move container to workspace number 20; workspace number 20
+
+# Move container to output
+bindsym $mod+Ctrl+$alt+$vim_left   move container to output left;  focus output left
+bindsym $mod+Ctrl+$alt+$vim_down   move container to output down;  focus output down
+bindsym $mod+Ctrl+$alt+$vim_up     move container to output up;    focus output up
+bindsym $mod+Ctrl+$alt+$vim_right  move container to output right; focus output right
+bindsym $mod+Ctrl+$alt+Left        move container to output left;  focus output left
+bindsym $mod+Ctrl+$alt+Down        move container to output down;  focus output down
+bindsym $mod+Ctrl+$alt+Up          move container to output up;    focus output up
+bindsym $mod+Ctrl+$alt+Right       move container to output right; focus output right
+
+
+#####
+##### Misc containers
+#####
+
+# Kill focused container
+bindsym $mod+Shift+q          kill
+
+# Enter fullscreen mode for the focused container
+bindsym $mod+f                fullscreen
+
+# Border toggle
+bindsym $mod+b                border toggle
+bindsym $mod+Shift+b          border pixel $border_width
+
+# Move container to scratchpad
+bindsym $mod+Shift+minus      move scratchpad
+
+# Toggle scratchpad
+bindsym $mod+minus            scratchpad show
+
+# Toggle sticky scratchpad (broken)
+bindsym $mod+Ctrl+minus       for_window [instance="^scratchpad$"] sticky disable
+
+# Toggle tiling / floating
+bindsym $mod+Shift+space      floating toggle
+
+
+
+####################
+#################### Modes
+####################
+
+
+#####
+##### Resize the current window
+#####
+
+mode "resize" {
+    bindsym $vim_left             resize shrink width  10 px or 10 ppt
+    bindsym $vim_down             resize grow   height 10 px or 10 ppt
+    bindsym $vim_up               resize shrink height 10 px or 10 ppt
+    bindsym $vim_right            resize grow   width  10 px or 10 ppt
+    bindsym Left                  resize shrink width  10 px or 10 ppt
+    bindsym Down                  resize grow   height 10 px or 10 ppt
+    bindsym Up                    resize shrink height 10 px or 10 ppt
+    bindsym Right                 resize grow   width  10 px or 10 ppt
+
+    bindsym Shift+Left            resize shrink width   5 px or  5 ppt
+    bindsym Shift+Down            resize grow   height  5 px or  5 ppt
+    bindsym Shift+Up              resize shrink height  5 px or  5 ppt
+    bindsym Shift+Right           resize grow   width   5 px or  5 ppt
+    bindsym Shift+$vim_left       resize shrink width   5 px or  5 ppt
+    bindsym Shift+$vim_down       resize grow   height  5 px or  5 ppt
+    bindsym Shift+$vim_up         resize shrink height  5 px or  5 ppt
+    bindsym Shift+$vim_right      resize grow   width   5 px or  5 ppt
+
+    # Exit mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+
+#####
+##### System bar (lock/logout/power)
+#####
+
+set $system_functions System (l) lock, (s) suspend, (Shift+e) logout, (Shift+r) reboot, (Shift+x) shutdown
+mode "$system_functions" {
+    bindsym l                     exec --no-startup-id i3exit lock,      mode "default"
+    bindsym Shift+e               exec --no-startup-id i3exit logout,    mode "default"
+    bindsym s                     exec --no-startup-id i3exit suspend,   mode "default"
+    bindsym Shift+r               exec --no-startup-id i3exit reboot,    mode "default"
+    bindsym Shift+x               exec --no-startup-id i3exit shutdown,  mode "default"
+
+    # Exit mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+
+#####
+##### Screenshot bar
+#####
+set $screenshot Screenshot: [WIP]
+mode "$screenshot" {
+    bindsym a                     exec $shutter --window,  mode "default" # Select a window to capture
+    bindsym b                     exec $shutter --full,  mode "default" # Capture a entire screen
+    bindsym c                     exec $shutter --active,  mode "default" # Capture the current active window
+    bindsym d                     exec $shutter --section,  mode "default" # Capture a section
+    bindsym e                     exec $shutter --redo,  mode "default" # Redo last screenshot
+
+    # Exit mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+
+
+####################
+#################### App shortcuts
+####################
+
+# Terminal
+bindsym $mod+Return           exec i3-sensible-terminal
+
+# Screenshots
+bindsym $mod+Print            mode "$screenshot"
+bindsym ctrl+Print            exec flameshot gui --path ~/Images/Screenshots
+# bindsym Shift+Print            exec flameshot [Active window when available]
+bindsym $alt+Sys_Req          exec flameshot full --path ~/Images/Screenshots
+bindsym $alt+Shift+Sys_Req    exec flameshot full --clipboard
+
+# Taskwarrior (TODO)
+bindsym $mod+backslash        scratchpad show
+bindsym $mod+Tab              scratchpad show
+
+# ctrl/ctrl+shift q workarounds
+bindsym Ctrl+q exec ctrlq-proxy
+bindsym Ctrl+Shift+q exec ctrlshiftq-proxy
+
+
+
+####################
+#################### Startup apps
+####################
+
+# Start gnome-settings-daemon for volume control and other media keys.
+# exec --no-startup-id unity-settings-daemon
+
+# Auto screen lock
+#exec --no-startup-id "xautolock"
+
+# Comtpon composite manager to fix screen tearing
+#exec --no-startup-id "compton -CG --config ~/.config/compton.conf"
+
+# Gnome security policies and privilege escalation
+#exec --no-startup-id "/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1"
+
+# KDE Connect kick start
+#exec --no-startup-id "kdeconnect-cli --refresh"
+
+# Autostart programs using dex (https://github.com/jceb/dex)
+# Autostart config: https://standards.freedesktop.org/menu-spec/latest/ar01s03.html
+#exec --no-startup-id "dex --autostart --environment i3"
+
+# Flameshot screenshot tool
+#exec --no-startup-id flameshot
+
+# Make sure notifications are up
+#exec --no-startup-id dunst
+
+# Service for i3-hud-menu
+# exec --no-startup-id "i3-appmenu-service"
+
+
+
+####################
+#################### Rules
+####################
+
+# The command you are looking for is xprop, future-Will.
+
+### General pop-up catch all
+for_window [window_role="pop-up"]       floating enable
+
+### Float windows
+for_window [class="Gsimplecal"]         floating enable
+for_window [class="Update-manager"]     floating enable
+
+### Chrome insists on opening in a non-focused workspace...
+#assign [class="(?i)google-chrome"]      current
