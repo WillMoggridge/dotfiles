@@ -111,6 +111,9 @@ BULLETTRAIN_PROMPT_ORDER=(
 BULLETTRAIN_PROMPT_CHAR='➜'
 BULLETTRAIN_CONTEXT_DEFAULT_USER='will'
 
+# zsh-histdb permission errer: https://github.com/larkery/zsh-histdb/pull/31
+HISTDB_TABULATE_CMD=(sed -e $'s/\x1f/\t/g')
+
 # Set autosuggest strategy
 _zsh_autosuggest_strategy_histdb_top_here() {
     local query="select commands.argv from
