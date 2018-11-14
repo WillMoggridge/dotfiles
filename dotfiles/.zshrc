@@ -69,7 +69,6 @@ plugins=(
 
 source <(antibody init)
 antibody bundle <<EOBUNDLE
-  Arlon1/Snappy_zsh_autocompletion
   jimhester/per-directory-history
   larkery/zsh-histdb
   superbrothers/zsh-kubectl-prompt
@@ -79,6 +78,7 @@ antibody bundle <<EOBUNDLE
   zsh-users/zsh-autosuggestions
   zsh-users/zsh-completions
 EOBUNDLE
+#Arlon1/Snappy_zsh_autocompletion
 
 # Ignore commands that start with a space
 setopt HIST_IGNORE_SPACE
