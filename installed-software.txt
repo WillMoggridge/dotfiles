@@ -20,6 +20,8 @@ sox
 taskwarrior
 taskd
 xautolock
+xbacklight
+xdotool
 xvkbd
 yabar
 yamllint
@@ -35,7 +37,7 @@ pyenv-update - git clone git://github.com/pyenv/pyenv-update.git ~/.pyenv/plugin
 pyenv-virtualenv - git clone https://github.com/yyuu/pyenv-virtualenv.git $(pyenv root)/plugins/pyenv-virtualenv
 rvm
 
-fonts-emojione-svginot ppa:eosrei/fontsxbacklight
+fonts-emojione-svginot ppa:eosrei/fonts
 Google Noto Fonts https://www.google.com/get/noto/
 
 alacritty https://github.com/jwilm/alacritty

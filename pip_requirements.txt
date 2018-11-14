@@ -2,6 +2,7 @@ black
 docker-compose
 httpie
 i3ipc
+markdown
 neovim
 neovim-remote
 powerline-status
