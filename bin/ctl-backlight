@@ -11,6 +11,8 @@ DEBUG = False
 
 BACKLIGHT_LEVELS = [1, 2, 3, 5, 8, 13, 20, 40, 60, 80, 100]
 INTEL_CMD = 'sudo tee /sys/class/backlight/intel_backlight/brightness'
+# Add to sudo file using `visudo`
+# username ALL=(ALL) NOPASSWD: /usr/bin/tee /sys/class/backlight/intel_backlight/brightness
 INTEL_PATH = '/sys/class/backlight/intel_backlight/brightness'
 INTEL_MAX = 930
 INTEL_MIN = 10
