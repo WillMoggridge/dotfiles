@@ -258,3 +258,7 @@
     format = ""
     urgency = low
     script = ""
+
+[slack]
+    appname = Slack
+    script = NOSOUND= dunst-rules

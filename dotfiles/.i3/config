@@ -19,6 +19,7 @@ set $orange_dark #d44615
 set $white #ffffff
 
 bar {
+    #i3bar_command i3bar -t
     font pango: roboto light, fontawesome 11
     position top
     separator_symbol " • "
@@ -317,6 +318,9 @@ bindsym $mod+Ctrl+minus       for_window [instance="^scratchpad$"] sticky disabl
 # Toggle tiling / floating
 bindsym $mod+Shift+space      floating toggle
 
+# Set sticky window
+bindsym $mod+$alt+space       sticky toggle
+
 
 
 ####################
@@ -462,3 +466,8 @@ for_window [class="Update-manager"]     floating enable
 
 ### Chrome insists on opening in a non-focused workspace...
 #assign [class="(?i)google-chrome"]      current
+
+### Slack
+for_window [title="Slack Call Minipanel"] floating enable
+for_window [title="Slack Call Minipanel"] sticky enable
+for_window [title="Slack Call Minipanel"] move position 800px 0px

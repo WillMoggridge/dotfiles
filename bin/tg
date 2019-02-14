@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+
+### CAN THIS BE MORE GENERIC?
+# A global file sync with file and command configs as yaml or cli flags
+#
+# taskfile:
+#     filename: Taskfile.yml
+#     command: DIRECTORY={{pwd}} tf
+
+# Use and write task files to a sync folder
+# Look up taskfile from
+
+# Get pwd folder of nearest taskfile
+# Strip $HOME?
+# Append to $SYNC_FOLDER/
+
+# Template defaults to including global .config/TaskFile.yml
+
+# TODO LATER:
+
+
+##### Commands
+# sync - Parse commands locally
+# status - Check for updates
+# which - Show
+# download - downoad repo
+# upload - Upload repo
+# new [DIR] - Create Taskfile for this folder from template, with location confirmation
+# edit [DIR] - Edit file (or nearest file with confirmation - maybe number list)
+# template edit [DIR] - Edit template file $SYNC_FOLDER/_TEMPLATES/
+
+
+##### Argument management
+# Check for sync to handle in script, otherwise pass through
+
+
+##### Using syned files
+# taskfile is hardcoded, can a global directory be set?

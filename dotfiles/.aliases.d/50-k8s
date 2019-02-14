@@ -1,0 +1,1 @@
+alias k8s-context="kubectl config use-context"

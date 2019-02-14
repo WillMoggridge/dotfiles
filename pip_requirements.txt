@@ -1,4 +1,5 @@
 black
+CodeIntel
 docker-compose
 httpie
 i3ipc
