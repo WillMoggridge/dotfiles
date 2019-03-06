@@ -468,6 +468,5 @@ for_window [class="Update-manager"]     floating enable
 #assign [class="(?i)google-chrome"]      current
 
 ### Slack
-for_window [title="Slack Call Minipanel"] floating enable
-for_window [title="Slack Call Minipanel"] sticky enable
-for_window [title="Slack Call Minipanel"] move position 800px 0px
+for_window [title="Slack Call Minipanel"] floating enable, sticky enable
+for_window [title="Slack Call Minipanel"] move position 0px 0px, move output right, move right 800px, move up 12px
