@@ -35,10 +35,10 @@ rofi.modi: window,run,drun
 ! #### xautolock
 ! ####
 
-Xautolock.locker: /usr/bin/i3exit lock
-Xautolock.notify: 30
-Xautolock.notifier: /usr/bin/notify-send -u low --expire-time=30 "Locking screen in 30 seconds"
-Xautolock.time: 10
+Xautolock.locker: i3exit lock
+Xautolock.notify: 60
+Xautolock.notifier: /usr/bin/notify-send -u low --expire-time=30 "Locking screen in 60 seconds"
+Xautolock.time: 30
 
 
 ! ###################
