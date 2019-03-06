@@ -3,12 +3,21 @@ Configuration example for ``ptpython``.
 Copy this file to ~/.ptpython/config.py
 """
 from __future__ import unicode_literals
-from prompt_toolkit.filters import ViInsertMode
-from prompt_toolkit.key_binding.key_processor import KeyPress
+from prompt_toolkit.enums import DEFAULT_BUFFER
+from prompt_toolkit.filters import (
+    Condition,
+    emacs_insert_mode,
+    has_focus,
+    has_selection,
+    vi_insert_mode,
+)
+from prompt_toolkit.input.ansi_escape_sequences import ANSI_SEQUENCES
+# from prompt_toolkit.key_binding.key_processor import KeyPress
 from prompt_toolkit.keys import Keys
 from pygments.token import Token
 
 from ptpython.layout import CompletionVisualisation
+from ptpython.utils import document_is_multiline_python
 
 __all__ = (
     'configure',
@@ -28,7 +37,7 @@ def configure(repl):
 
     # Accept when pressing Enter 'n' times.
     # 'None' means that meta-enter is always required.
-    repl.accept_input_on_enter = None
+    repl.accept_input_on_enter = 3
 
     # Show the "[Meta+Enter] Execute" message when pressing [Enter] only
     # inserts a newline instead of executing the code.
@@ -121,6 +130,31 @@ def configure(repl):
     repl.use_ui_colorscheme('my-colorscheme')
     """
 
+    Keys.CtrlEnter = "<ignore>"
+    ANSI_SEQUENCES['\x1b_KrEz\x1b\\'] = Keys.CtrlEnter
+    Keys.ShiftEnter = "<ignore>"
+    ANSI_SEQUENCES['\x1b_KrBz\x1b\\'] = Keys.ShiftEnter
+
+    @Condition
+    def is_multiline():
+        return document_is_multiline_python(repl.default_buffer.document)
+
+    @repl.add_key_binding(Keys.CtrlEnter, filter=has_focus(DEFAULT_BUFFER))
+    @repl.add_key_binding(Keys.ShiftEnter, filter=has_focus(DEFAULT_BUFFER))
+    def _(event):
+        "Shift-Enter accepts line"
+        b = event.cli.current_buffer
+        b.validate_and_handle()
+
+    @repl.add_key_binding('c-m', filter=(
+        ~has_selection & has_focus(DEFAULT_BUFFER) & ~is_multiline &
+        (vi_insert_mode | emacs_insert_mode)
+    ))
+    def _(event):
+        "Enter inserts new line from first line"
+        b = event.cli.current_buffer
+        b.insert_text('\n')
+
     # Add custom key binding for PDB.
     """
     @repl.add_key_binding(Keys.ControlB)
@@ -136,7 +170,6 @@ def configure(repl):
     def _(event):
         event.current_buffer.validate_and_handle()
     """
-
 
     # Typing 'jj' in Vi Insert mode, should send escape. (Go back to navigation
     # mode.)
