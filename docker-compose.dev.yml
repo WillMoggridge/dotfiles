@@ -1,0 +1,21 @@
+---
+version: '3'
+
+# volumes:
+#   hound-data:
+
+services:
+
+  hound:
+    image: etsy/hound
+    volumes:
+      - "$HOME/dev/src/.hound:/data"
+      - "$HOME/dev/src:/repos"
+    ports:
+      - "6080:6080"
+
+  dev:
+    image: rwgrim/docker-noop
+    depends_on: ["hound"]
+
+

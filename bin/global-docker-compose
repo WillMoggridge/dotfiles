@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+cd $HOME/.dotfiles
+
+dcao-include ./docker-compose*.yml | docker-compose -f - $@

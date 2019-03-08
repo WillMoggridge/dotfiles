@@ -1,5 +1,7 @@
+bashate
 black
 CodeIntel
+compose-addons
 docker-compose
 httpie
 i3ipc
@@ -9,3 +11,4 @@ neovim-remote
 powerline-status
 ptpython
 thefuck
+watch-fs
