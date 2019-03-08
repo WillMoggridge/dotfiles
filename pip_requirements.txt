@@ -9,6 +9,7 @@ markdown
 neovim
 neovim-remote
 pipenv
+poetry
 powerline-status
 ptpython
 thefuck
