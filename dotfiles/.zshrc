@@ -153,6 +153,7 @@ fi
 if cmd_exists kubeadm; then . <(kubeadm completion zsh); fi
 if cmd_exists kubectl; then . <(kubectl completion zsh); fi
 if cmd_exists minikube; then . <(minikube completion zsh); fi
+if cmd_exists pipenv; then . <(pipenv --completion); fi
 
 # MOTD for the terminal
 login-motd

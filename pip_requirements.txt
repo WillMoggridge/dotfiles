@@ -8,6 +8,7 @@ i3ipc
 markdown
 neovim
 neovim-remote
+pipenv
 powerline-status
 ptpython
 thefuck
