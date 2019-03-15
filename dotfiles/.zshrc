@@ -90,6 +90,7 @@ unsetopt auto_name_dirs
 HISTFILE=~/.histfile
 HISTSIZE=10000
 SAVEHIST=1000
+setopt histignorespace
 setopt nomatch
 unsetopt appendhistory auto_cd beep extendedglob notify
 bindkey -e
