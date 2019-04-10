@@ -3,9 +3,19 @@
 echo "This script is not finished"
 exit 1
 
-kubectl get po -a --all-namespaces -o json | \
+kubectl get po --all-namespaces -o json | \
 jq  '.items[] | select(.status.reason!=null) | select(.status.reason | contains("Evicted")) |
-"kubectl delete po \(.metadata.name) -n \(.metadata.namespace)"' | xargs -n 1 bash -c
+"kubectl delete po \(.metadata.name) -n \(.metadata.namespace)"' | \
+xargs -n 1 bash -c
+
+# Older than one day
+kubectl get po --all-namespaces -o json | \
+jq  '.items[] |
+select(.status.reason!=null) |
+select(.status.reason | contains("Evicted")) |
+select((.metadata.creationTimestamp | fromdateiso8601) < ((now) - (1 * 86400))) |
+"kubectl delete po \(.metadata.name) -n \(.metadata.namespace)"' | \
+xargs -n 1 bash -c
 
 
 
