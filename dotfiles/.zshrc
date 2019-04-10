@@ -91,8 +91,11 @@ HISTFILE=~/.histfile
 HISTSIZE=10000
 SAVEHIST=1000
 setopt histignorespace
+setopt appendhistory
+setopt sharehistory
+setopt incappendhistory
 setopt nomatch
-unsetopt appendhistory auto_cd beep extendedglob notify
+unsetopt auto_cd beep extendedglob notify
 bindkey -e
 
 # Bullet-train theme settings
