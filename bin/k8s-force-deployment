@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+set -e
+
+deployment_name="${1}"
+current_time="$(date +%s)"
+
+if [ -z "${deployment_name}" ]; then
+    echo "Please provide a deployment name"
+    exit 1
+fi
+shift
+
+kubectl patch deployment "${deployment_name}" -p "{\"spec\":{\"template\":{\"metadata\":{\"annotations\":{\"manual-deployment-rollout/updated-at\":\"${current_time}\"}}}}}" $@
