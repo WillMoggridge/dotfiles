@@ -2,6 +2,6 @@
 
 date '+%H:%M:%S'
 
-if [ -n "${BLOCK_BUTTON}" ]; then
+if [[ "${BLOCK_BUTTON}" -eq  "3" ]]; then
     gsimplecal
 fi
