@@ -35,7 +35,7 @@ if [[ $DESKTOP_SESSION = "i3" ]]; then
 
     # Mouse sensitivity, not best method
     is_env desktop && xset m 0.5 0.5
-    is_env desktop && xinput --set-prop "pointer:ROCCAT ROCCAT Tyon Black" 'Coordinate Transformation Matrix' 1.0 0.0 0.0  0.0 1.0 0.0  0.0 0.0 2.0
+    #is_env desktop && xinput --set-prop "pointer:ROCCAT ROCCAT Tyon Black" 'Coordinate Transformation Matrix' 1.0 0.0 0.0  0.0 1.0 0.0  0.0 0.0 2.0
     is_env laptop && xset m 2 1
 fi
 
