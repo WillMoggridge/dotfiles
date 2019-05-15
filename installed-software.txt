@@ -1,6 +1,7 @@
 ack-grep
 autojump
 compton
+dex
 devscripts
 direnv
 entr
@@ -11,28 +12,39 @@ git-extras
 gsimplecal
 i3
 jq
+kitty
+pasystray
+pavucontrol
 pipsi
 python3-bashate
+redshift-gtk
+ripgrep
 rofi
 shellcheck
 source-highlight
 sox
+sqlite3
 taskwarrior
 taskd
 xautolock
 xbacklight
 xdotool
+xclip
+xsel
 xvkbd
 yabar
 yamllint
 zenity
 zsh-syntax-highlighting
 
-antibody - https://github.com/getantibody/antibody
+# Build tool for Python
+libssl-dev zlib1g-dev libncurses5-dev libncursesw5-dev libreadline-dev libsqlite3-dev libgdbm-dev libdb5.3-dev libbz2-dev libexpat1-dev liblzma-dev libffi-dev
+
+antibody - https://github.com/getantibody/antibody - DOTFILES INIT
 oh-my-zsh
 
-nvm
-pyenv
+nvm - PUT IN DOTFILES INIT
+pyenv - FILL ME AND PUT IN DOTFILES INIT
 pyenv-update - git clone git://github.com/pyenv/pyenv-update.git ~/.pyenv/plugins/pyenv-update
 pyenv-virtualenv - git clone https://github.com/yyuu/pyenv-virtualenv.git $(pyenv root)/plugins/pyenv-virtualenv
 rvm
