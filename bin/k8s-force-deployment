@@ -11,4 +11,16 @@ if [ -z "${deployment_name}" ]; then
 fi
 shift
 
+current_context="$(kubectl config current-context)"
+
+echo "This will force a deployment for: ${deployment_name}"
+echo "On Kubernetes context: ${current_context}"
+read -p "Are you sure you want to run this? [y/N]" -n 1 -r
+echo ""
+
+if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+    [[ "$0" = "${BASH_SOURCE}" ]] && exit 1 || return 1
+fi
+
+echo "Patching deployment..."
 kubectl patch deployment "${deployment_name}" -p "{\"spec\":{\"template\":{\"metadata\":{\"annotations\":{\"manual-deployment-rollout/updated-at\":\"${current_time}\"}}}}}" $@
