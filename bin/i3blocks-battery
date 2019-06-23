@@ -33,7 +33,7 @@ def get_battery_status():
         universal_newlines=True,
         stderr=open(os.devnull, 'w'),
     )
-    if not status_output:
+    if not status_output or "Battery 0: Discharging, 0%" in status_output:
         return None
     ac_adapter_output = check_output(['acpi', '-a'], universal_newlines=True)
 
