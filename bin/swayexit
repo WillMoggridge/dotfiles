@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+lock() {
+    killall -SIGUSR1 dunst # Pause notifications
+    # xautolock -disable
+    # swaylock --nofork --dpms -c 000000
+    swaylock -c 000000
+    # xautolock -enable
+    killall -SIGUSR2 dunst # Resume notifications
+}
+
+case "$1" in
+    lock)
+        lock
+        ;;
+    logout)
+        swaymsg exit
+        ;;
+    suspend)
+        swaylock -f -c 000000
+        systemctl suspend
+        ;;
+    hibernate)
+        swaylock -f -c 000000
+        systemctl hibernate
+        ;;
+    reboot)
+        systemctl reboot
+        ;;
+    shutdown)
+        systemctl poweroff
+        ;;
+    *)
+        echo "Usage: $0 {lock|logout|suspend|hibernate|reboot|shutdown}"
+        exit 2
+esac
+
+exit 0

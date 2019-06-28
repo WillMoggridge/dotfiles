@@ -19,26 +19,30 @@ set $orange_dark #d44615
 set $white #ffffff
 
 bar {
+    #i3bar_command i3bar -t
     font pango: roboto light, fontawesome 11
     position top
     separator_symbol " • "
     status_command i3blocks -c ~/.i3/i3blocks.conf
-    tray_padding 4px
-    tray_output primary
+    #status_command swaybar
+    #tray_padding 4px
+    #tray_output primary
 }
+
+output * bg $HOME/.wallpaper.png fill
 
 focus_follows_mouse no
 mouse_warping none
 font pango: roboto, fontawesome normal 8
 
 # Border settings
-client.focused          $orange $orange_dark $white $white
-client.focused_inactive #333333 #5F676A #ffffff #484e50
-client.unfocused        #333333 #424242 #888888 #292d2e
-client.urgent           #C10004 #900000 #ffffff #900000
-#hide_edge_borders both
-new_float normal $border_width
-new_window pixel $border_width
+#client.focused          $orange $orange_dark $white $white
+#client.focused_inactive #333333 #5F676A #ffffff #484e50
+#client.unfocused        #333333 #424242 #888888 #292d2e
+#client.urgent           #C10004 #900000 #ffffff #900000
+hide_edge_borders both
+default_floating_border normal $border_width
+default_border pixel $border_width
 
 # Hide borders for single windows in a workspace
 hide_edge_borders smart
@@ -61,19 +65,19 @@ bindsym $mod+Escape           mode "$system_functions"
 ######
 
 # The middle button over a titlebar kills the window
-bindsym --release             button2 kill
-bindsym --whole-window        $mod+button2 kill
+bindsym button2               kill
+bindsym --whole-window $mod+button2 kill
 
 # The right button toggles floating
-bindsym --release             button3 floating toggle
-bindsym --whole-window        $mod+button3 floating toggle
+bindsym button3               floating toggle
+bindsym --whole-window $mod+button3 floating toggle
 
 ######
 ###### Launchers and command input
 ######
 
 # i3 command input
-bindsym $mod+period           exec --no-startup-id i3-input
+bindsym $mod+period           exec i3-input
 
 # dmenu and launchers
 bindsym $mod+d                exec rofi -show run
@@ -82,13 +86,13 @@ bindsym $mod+$alt+Tab         exec rofi -show window
 bindsym $mod+a                exec i3-hud-menu
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume  exec --no-startup-id ctl-volume raise
-bindsym XF86AudioLowerVolume  exec --no-startup-id ctl-volume lower
-bindsym XF86AudioMute         exec --no-startup-id ctl-volume mute
+bindsym XF86AudioRaiseVolume  exec ctl-volume raise
+bindsym XF86AudioLowerVolume  exec ctl-volume lower
+bindsym XF86AudioMute         exec ctl-volume mute
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp   exec --no-startup-id ctl-backlight +
-bindsym XF86MonBrightnessDown exec --no-startup-id ctl-backlight -
+bindsym XF86MonBrightnessUp   exec ctl-backlight +
+bindsym XF86MonBrightnessDown exec ctl-backlight -
 
 # Touchpad controls
 #bindsym XF86TouchpadToggle    exec /some/path/toggletouchpad.sh # toggle touchpad
@@ -105,8 +109,8 @@ bindsym XF86MonBrightnessDown exec --no-startup-id ctl-backlight -
 ######
 
 # Toggle keyboard layout
-bindsym ctrl+$alt+space       exec --no-startup-id "toggle-keyboard-layout"
-bindsym ctrl+$alt+Shift+space exec --no-startup-id "toggle-keyboard-layout-trulyergonomic"
+bindsym ctrl+$alt+space       exec "toggle-keyboard-layout"
+bindsym ctrl+$alt+Shift+space exec "toggle-keyboard-layout-trulyergonomic"
 
 # Quick load layout
 bindsym $mod+grave       exec "autorandr -c"
@@ -317,6 +321,9 @@ bindsym $mod+Ctrl+minus       for_window [instance="^scratchpad$"] sticky disabl
 # Toggle tiling / floating
 bindsym $mod+Shift+space      floating toggle
 
+# Set sticky window
+bindsym $mod+$alt+space       sticky toggle
+
 
 
 ####################
@@ -359,11 +366,11 @@ mode "resize" {
 
 set $system_functions System (l) lock, (s) suspend, (Shift+e) logout, (Shift+r) reboot, (Shift+x) shutdown
 mode "$system_functions" {
-    bindsym l                     exec --no-startup-id i3exit lock,      mode "default"
-    bindsym Shift+e               exec --no-startup-id i3exit logout,    mode "default"
-    bindsym s                     exec --no-startup-id i3exit suspend,   mode "default"
-    bindsym Shift+r               exec --no-startup-id i3exit reboot,    mode "default"
-    bindsym Shift+x               exec --no-startup-id i3exit shutdown,  mode "default"
+    bindsym l                     exec swayexit lock,      mode "default"
+    bindsym Shift+e               exec swayexit logout,    mode "default"
+    bindsym s                     exec swayexit suspend,   mode "default"
+    bindsym Shift+r               exec swayexit reboot,    mode "default"
+    bindsym Shift+x               exec swayexit shutdown,  mode "default"
 
     # Exit mode
     bindsym Return mode "default"
@@ -418,32 +425,32 @@ bindsym Ctrl+Shift+q exec ctrlshiftq-proxy
 ####################
 
 # Start gnome-settings-daemon for volume control and other media keys.
-# exec --no-startup-id unity-settings-daemon
+# exec unity-settings-daemon
 
 # Auto screen lock
-#exec --no-startup-id "xautolock"
+exec "xautolock"
 
 # Comtpon composite manager to fix screen tearing
-#exec --no-startup-id "compton -CG --config ~/.config/compton.conf"
+exec "compton -CG --config ~/.config/compton.conf"
 
 # Gnome security policies and privilege escalation
-#exec --no-startup-id "/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1"
+exec "/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1"
 
 # KDE Connect kick start
-#exec --no-startup-id "kdeconnect-cli --refresh"
+exec "kdeconnect-cli --refresh"
 
 # Autostart programs using dex (https://github.com/jceb/dex)
 # Autostart config: https://standards.freedesktop.org/menu-spec/latest/ar01s03.html
-#exec --no-startup-id "dex --autostart --environment i3"
+exec "dex --autostart --environment i3"
 
 # Flameshot screenshot tool
-#exec --no-startup-id flameshot
+exec flameshot
 
 # Make sure notifications are up
-#exec --no-startup-id dunst
+exec dunst
 
 # Service for i3-hud-menu
-# exec --no-startup-id "i3-appmenu-service"
+# exec "i3-appmenu-service"
 
 
 
@@ -462,3 +469,7 @@ for_window [class="Update-manager"]     floating enable
 
 ### Chrome insists on opening in a non-focused workspace...
 #assign [class="(?i)google-chrome"]      current
+
+### Slack
+for_window [title="Slack Call Minipanel"] floating enable, sticky enable
+for_window [title="Slack Call Minipanel"] move position 0px 0px, move output right, move right 800px, move up 12px
