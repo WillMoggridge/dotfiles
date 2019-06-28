@@ -20,19 +20,20 @@
 
 
 ##### Commands
-# sync - Parse commands locally
-# status - Check for updates
-# which - Show
-# download - downoad repo
-# upload - Upload repo
+# sync status - Check for updates
+# sync download - downoad repo
+# sync upload - Upload repo
+# which - Show which file will be used
 # new [DIR] - Create Taskfile for this folder from template, with location confirmation
 # edit [DIR] - Edit file (or nearest file with confirmation - maybe number list)
+# global edit - Edit
 # template edit [DIR] - Edit template file $SYNC_FOLDER/_TEMPLATES/
+# run [TASK] - Run task name
+# [TASK] - Run task implicitly
+# -- - Pass everything else through to tool (this should happen after task name)
 
-
-##### Argument management
-# Check for sync to handle in script, otherwise pass through
-
+# Use as bin `tgs`
+# Create an easy wrapper for `tg`
 
 ##### Using syned files
 # taskfile is hardcoded, can a global directory be set?
