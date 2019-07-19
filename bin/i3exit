@@ -1,11 +1,21 @@
 #!/usr/bin/env bash
-lock() {
+lock-pre() {
     killall -SIGUSR1 dunst # Pause notifications
     xautolock -disable
+}
+lock-command() {
     i3lock --nofork --dpms -c 000000
+}
+lock-post() {
     xautolock -enable
     killall -SIGUSR2 dunst # Resume notifications
 }
+lock() {
+    lock-pre
+    lock-command
+    lock-post
+}
+
 
 case "$1" in
     lock)
@@ -15,12 +25,18 @@ case "$1" in
         i3-msg exit
         ;;
     suspend)
-        lock &
+        lock-pre
+        lock-command &
         systemctl suspend
+        wait
+        lock-post
         ;;
     hibernate)
-        lock &
+        lock-pre
+        lock-command &
         systemctl hibernate
+        wait
+        lock-post
         ;;
     reboot)
         systemctl reboot
