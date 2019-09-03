@@ -368,6 +368,8 @@ mode "$system_functions" {
     bindsym s                     exec --no-startup-id i3exit suspend,   mode "default"
     bindsym Shift+r               exec --no-startup-id i3exit reboot,    mode "default"
     bindsym Shift+x               exec --no-startup-id i3exit shutdown,  mode "default"
+    bindsym a                     exec --no-startup-id i3exit autolock-disable,  mode "default"
+    bindsym Shift+a               exec --no-startup-id i3exit autolock-enable,  mode "default"
 
     # Exit mode
     bindsym Return mode "default"

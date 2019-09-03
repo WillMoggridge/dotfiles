@@ -1,15 +1,46 @@
 #!/usr/bin/env bash
-lock-pre() {
-    killall -SIGUSR1 dunst # Pause notifications
-    xautolock -disable
+
+AUTOLOCK_DISABLED_FILE="/tmp/autolock_disabled"
+
+debug-echo() {
+    if [ "${DEBUG}" = true ]; then
+        echo "${@}"
+    fi
 }
-lock-command() {
-    i3lock --nofork --dpms -c 000000
+
+autolock-disable() {
+    touch "${AUTOLOCK_DISABLED_FILE}"
+    debug-echo "Creating tmp autolock state file"
+    xautolock -disable
+    pkill -RTMIN+15 i3blocks
+}
+autolock-enable() {
+    if [ -e "${AUTOLOCK_DISABLED_FILE}" ]; then
+        debug-echo "Deleting tmp autolock state file"
+        rm "${AUTOLOCK_DISABLED_FILE}"
+    fi
+    xautolock -enable
+    pkill -RTMIN+15 i3blocks
+}
+
+lock-pre() {
+    debug-echo "lock-pre"
+    killall -SIGUSR1 dunst # Pause notifications
+    autolock-disable
+    xset +dpms dpms 0 0 5
 }
 lock-post() {
-    xautolock -enable
+    debug-echo "lock-post"
+    xset dpms 0 0 0
+    autolock-enable
     killall -SIGUSR2 dunst # Resume notifications
 }
+lock-command() {
+    debug-echo "lock"
+    trap lock-post HUP INT TERM
+    i3lock --nofork -c 000000
+}
+
 lock() {
     lock-pre
     lock-command
@@ -26,10 +57,26 @@ case "$1" in
         ;;
     suspend)
         lock-pre
+
+        # Naive fix to stop bluetooth blocking suspend
+        # https://askubuntu.com/questions/1089067/wakes-from-suspend-immediately-when-bluetooth-device-disconnected
+        # Possible bug: https://bugzilla.kernel.org/show_bug.cgi?id=200039
+        RESTORE_BLUETOOTH=false
+        if hcitool dev | grep 'hci' &>/dev/null; then
+            debug-echo "Disabling bluetooth"
+            RESTORE_BLUETOOTH=true
+            rfkill block bluetooth
+        fi
+
         lock-command &
         systemctl suspend
         wait
         lock-post
+
+        if [ "${RESTORE_BLUETOOTH}" = true ]; then
+            debug-echo "Enabling bluetooth"
+            rfkill unblock bluetooth
+        fi
         ;;
     hibernate)
         lock-pre
@@ -44,8 +91,14 @@ case "$1" in
     shutdown)
         systemctl poweroff
         ;;
+    "autolock-disable")
+        autolock-disable
+        ;;
+    "autolock-enable")
+        autolock-enable
+        ;;
     *)
-        echo "Usage: $0 {lock|logout|suspend|hibernate|reboot|shutdown}"
+        debug-echo "Usage: $0 {lock|logout|suspend|hibernate|reboot|shutdown}"
         exit 2
 esac
 
