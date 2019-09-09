@@ -14,9 +14,9 @@ SOUND_NORMAL="$HOME/Dropbox/Sync/sounds/notifications/Knock.wav"
 SOUND_CRITICAL="$HOME/Dropbox/Sync/sounds/notifications/Hojus.ogg"
 
 VOLUME="1"
-VOLUME_NORMAL="0.4"
-VOLUME_CRITICAL="0.6"
-VOLUME_QUIETTIME="0.1"
+VOLUME_NORMAL="0.1"
+VOLUME_CRITICAL="0.2"
+VOLUME_QUIETTIME="0.04"
 
 
 if [ $URGENCY = "NORMAL" ]; then
