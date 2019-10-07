@@ -415,7 +415,7 @@ bindsym $mod+Tab              scratchpad show
 
 # ctrl/ctrl+shift q workarounds
 bindsym Ctrl+q exec ctrlq-proxy
-bindsym Ctrl+Shift+q exec ctrlshiftq-proxy
+#bindsym Ctrl+Shift+q exec ctrlshiftq-proxy
 
 
 

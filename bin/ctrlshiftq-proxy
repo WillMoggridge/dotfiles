@@ -2,12 +2,12 @@
 
 # Inspiration from https://github.com/sasawat/firefox-ctrl-q-workaround
 
-W=`xdotool getactivewindow`
-S1=`xprop -id ${W} |awk -F '"' '/WM_CLASS/{print $4}'`
+W="$(xdotool getactivewindow)"
+S1="$(xprop -id "${W}" |awk -F '"' '/WM_CLASS/{print $4}')"
 
 # Set ctrl + shift + q as normal, or ctrl + q if on Firefox
 if [ "$S1" != "Firefox" ] && [ "$S1" != "Firefox Developer Edition" ]; then
-	xvkbd -xsendevent -text "\CQ"
+    xvkbd -xsendevent -text '\CQ'
 else
-	xvkbd -xsendevent -text "\Cq"
+    xvkbd -xsendevent -text '\Cq'
 fi
