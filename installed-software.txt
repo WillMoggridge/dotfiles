@@ -16,6 +16,7 @@ kitty
 pasystray
 pavucontrol
 pipsi
+policykit-1-gnome
 python3-bashate
 redshift-gtk
 ripgrep
