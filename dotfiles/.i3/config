@@ -86,6 +86,7 @@ bindsym $mod+a                exec i3-hud-menu
 bindsym XF86AudioRaiseVolume  exec --no-startup-id ctl-volume raise
 bindsym XF86AudioLowerVolume  exec --no-startup-id ctl-volume lower
 bindsym XF86AudioMute         exec --no-startup-id ctl-volume mute
+bindsym XF86AudioMicMute      exec "amixer -q -D pulse sset Capture Capture toggle"; exec "pkill -RTMIN+10 i3blocks"
 
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp   exec --no-startup-id ctl-backlight +
