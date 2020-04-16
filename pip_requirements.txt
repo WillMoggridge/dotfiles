@@ -5,6 +5,7 @@ compose-addons
 docker-compose
 httpie
 i3ipc
+isort
 markdown
 neovim
 neovim-remote
