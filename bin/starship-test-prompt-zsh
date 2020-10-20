@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+watch -n 1 --color "/usr/bin/env zsh -c 'print -P \$(starship prompt ${*})'"

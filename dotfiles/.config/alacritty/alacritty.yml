@@ -7,7 +7,6 @@ dpi:
   y: 96.0
 
 # Display tabs using this many cells (changes require restart)
-tabspaces: 4
 selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>"
 
@@ -20,8 +19,13 @@ draw_bold_text_with_bright_colors: false
 # Font configuration (changes require restart)
 font:
   normal:
+    # - "Firacode-Medium"
     family: "Ubuntu Mono derivative Powerline"
     style: Regular
+    # - family: "Ubuntu Mono derivative Powerline"
+    #   style: Regular
+    # - family: "FontAwesome"
+    #   style: Regular
   bold:
     family: "Ubuntu Mono derivative Powerline"
     style: Bold
@@ -39,7 +43,7 @@ visual_bell:
   duration: 0
 
 # Should display the render timer
-render_timer: false
+debug.render_timer: false
 
 # Colors (Tomorrow Night Bright)
 # colors:

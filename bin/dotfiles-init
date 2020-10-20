@@ -24,6 +24,7 @@ ln -s $HOME/.dotfiles/dotfiles/.config/sway $HOME/.config/
 ln -s $HOME/.dotfiles/dotfiles/.config/yabar $HOME/.config/
 
 ln -s $HOME/.dotfiles/dotfiles/.config/compton.conf $HOME/.config/
+ln -s $HOME/.dotfiles/dotfiles/.config/starship.toml $HOME/.config/
 
 ln -s $HOME/.dotfiles/dotfiles/.aliases.d $HOME/
 ln -s $HOME/.dotfiles/dotfiles/.bash $HOME/

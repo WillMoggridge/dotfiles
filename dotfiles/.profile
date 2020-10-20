@@ -21,6 +21,8 @@ GOPATH="$HOME/.local/share/go"
 
 # Add extra paths
 export PATH=$GOPATH/bin:$PATH
+if [ -d $HOME/.cargo/bin ]; then export PATH=$HOME/.cargo/bin:$PATH; fi
+if [ -d $HOME/.yarn/bin ]; then export PATH=$HOME/.yarn/bin:$PATH; fi
 if [ -d $HOME/bin ]; then export PATH=$HOME/bin:$PATH; fi
 if [ -d $HOME/.dotfiles/bin ]; then export PATH=$HOME/.dotfiles/bin:$PATH; fi
 if [ -d $HOME/.local/bin ]; then export PATH=$HOME/.local/bin:$PATH; fi
@@ -43,8 +45,6 @@ if [ -f $HOME/.torch/install/bin/torch-activate ]; \
 
 if [ -f /usr/share/source-highlight/src-hilite-lesspipe.sh ]; then \
     export LESSOPEN="| /usr/share/source-highlight/src-hilite-lesspipe.sh %s"; fi
-
-export PATH="$HOME/.cargo/bin:$PATH"
 
 # Define terminal for i3
 export TERMINAL="kitty"

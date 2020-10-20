@@ -1,0 +1,270 @@
+# format = "\n$all"
+format = """
+$time\
+$username\
+$hostname\
+$kubernetes\
+$package\
+$nodejs\
+$python\
+$env_var\
+$cmd_duration\
+$line_break\
+\
+$directory\
+$git_branch\
+$git_commit\
+$git_state\
+$git_status\
+$line_break\
+\
+$jobs\
+$battery\
+$character\
+\
+\
+\
+$aws\
+$custom\
+$helm\
+$memory_usage\
+$nim\
+$nix_shell\
+$ruby\
+$rust\
+$terraform\
+\
+\
+\
+$cmake\
+$conda\
+$crystal\
+$docker_context\
+$hg_branch\
+$dotnet\
+$elixir\
+$elm\
+$erlang\
+$golang\
+$java\
+$julia\
+$ocaml\
+$php\
+$purescript\
+$zig\
+"""
+
+
+[time]
+disabled = false
+format = '[$time]($style)'
+style = 'dimmed'
+
+[hostname]
+disabled = false
+format =  " [@$hostname]($style)"
+# ssh_only = false
+trim_at = ""
+
+[username]
+disabled = false
+format = " [$user]($style)"
+# show_always = true
+style_user = "white bold"
+style_root = "red bold"
+
+[directory]
+disabled = false
+format = '[$path]($style)[$lock_symbol]($lock_style)'
+style = 'bold cyan'
+read_only_symbol = '🔒'
+read_only_symbol_style = 'red'
+truncation_length = 3
+truncate_to_repo = true
+[directory.substitutions]
+"~/dev/src" = "src"
+
+[jobs]
+disabled = false
+format = ' [$symbol$number]($style)'
+style = 'bold blue'
+symbol = '+'
+threshold = 1
+
+[battery]
+disabled = false
+format = ' [$symbol$percentage]($style)'
+style = 'blue'
+full_symbol = "🔋" # •
+charging_symbol = "⚡️" # ⇡
+discharging_symbol = "⇣"
+[[battery.display]]
+threshold = 10
+style = "bold red"
+[[battery.display]]
+threshold = 20
+style = "bold yellow"
+
+[character]
+disabled = false
+success_symbol = " [➜](bold green) "
+error_symbol = " [✗](bold red) "
+
+[cmd_duration]
+disabled = false
+format = " took [$duration]($style)"
+style = 'red'
+min_time = 5000
+
+[env_var]
+disabled = true
+format = '[DEBUG]($style) '
+# style = 'bold gray dimmed'
+style = 'dimmed'
+variable = 'DEBUG'
+
+[git_branch]
+disabled = false
+format = ' [$symbol$branch]($style)'
+style = 'dimmed yellow'
+symbol = ''
+
+[git_commit]
+disabled = false
+format = '[\($hash\)]($style)'
+style = 'dimmed green'
+
+[git_state]
+disabled = false
+format = '[\($state( $progress_current/$progress_total)\)]($style)'
+style = 'dimmed green'
+
+[git_status]
+disabled = false
+format = '(([\[$all_status$ahead_behind\]]($style)))'
+style = 'dimmed red'
+show_sync_count = true
+
+[helm]
+disabled = false
+format = ' [$symbol$version]($style)'
+style = 'bold white'
+symbol = '⎈'
+
+[kubernetes]
+disabled = false
+format = ' [$symbol$context( \\($namespace\\))]($style)'
+# style = '240'
+style = 'blue'
+# symbol = '☸'
+# symbol = '⛵'
+symbol = ' ' # fontawesome 5
+[kubernetes.context_aliases]
+'prolific-test' = 'p-test'
+'prolific-production' = 'p-prod☠️☠️☠️'
+
+[nodejs]
+disabled = false
+format = ' [$symbol$version]($style)'
+style = 'dimmed purple'
+symbol = '⬢ '
+
+[package]
+disabled = false
+format = ' [$symbol$version]($style)'
+style = 'bold 208'
+# symbol = '📦'
+symbol = ' '
+display_private = 'false'
+
+[python]
+disabled = false
+format = ' [${symbol}${version}]($style)'
+style = 'dimmed yellow'
+symbol = '🐍'
+pyenv_version_name = true
+
+
+# Taskwarrior would be cool
+
+## TODO
+
+[ruby]
+disabled = true
+
+[rust]
+disabled = true
+
+
+## MAYBE
+
+[aws]
+disabled = true
+
+[custom]
+disabled = true
+
+[memory_usage]
+disabled = true
+
+[nim]
+disabled = true
+
+[nix_shell]
+disabled = true
+
+[terraform]
+disabled = true
+
+
+
+## DISABLED
+
+
+[cmake]
+disabled = true
+
+[conda]
+disabled = true
+
+[crystal]
+disabled = true
+
+[docker_context]
+disabled = true
+
+[hg_branch]
+disabled = true
+
+[dotnet]
+disabled = true
+
+[elixir]
+disabled = true
+
+[elm]
+disabled = true
+
+[erlang]
+disabled = true
+
+[golang]
+disabled = true
+
+[java]
+disabled = true
+
+[julia]
+disabled = true
+
+[ocaml]
+disabled = true
+
+[php]
+disabled = true
+
+[purescript]
+disabled = true
+
+[zig]
+disabled = true

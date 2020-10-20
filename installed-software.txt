@@ -1,4 +1,5 @@
 ack-grep
+alacritty
 autojump
 compton
 dex
@@ -8,6 +9,8 @@ entr
 feh
 flake8
 flameshot
+fonts-emojione # renamed to joy pixels
+fonts-font-awesome
 git-extras
 gsimplecal
 i3
