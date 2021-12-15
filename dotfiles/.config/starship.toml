@@ -3,10 +3,12 @@ format = """
 $time\
 $username\
 $hostname\
+$aws\
 $kubernetes\
 $package\
 $nodejs\
 $python\
+$golang\
 $env_var\
 $cmd_duration\
 $line_break\
@@ -24,7 +26,6 @@ $character\
 \
 \
 \
-$aws\
 $custom\
 $helm\
 $memory_usage\
@@ -45,7 +46,6 @@ $dotnet\
 $elixir\
 $elm\
 $erlang\
-$golang\
 $java\
 $julia\
 $ocaml\
@@ -57,28 +57,28 @@ $zig\
 
 [time]
 disabled = false
-format = '[$time]($style)'
+format = '[$time]($style) '
 style = 'dimmed'
 
 [hostname]
 disabled = false
-format =  " [@$hostname]($style)"
+format =  "[@$hostname]($style) "
 # ssh_only = false
 trim_at = ""
 
 [username]
 disabled = false
-format = " [$user]($style)"
+format = "[$user]($style) "
 # show_always = true
 style_user = "white bold"
 style_root = "red bold"
 
 [directory]
 disabled = false
-format = '[$path]($style)[$lock_symbol]($lock_style)'
+format = '[$path]($style)[$lock_symbol]($lock_style) '
 style = 'bold cyan'
-read_only_symbol = '🔒'
-read_only_symbol_style = 'red'
+# read_only_symbol = '🔒'
+# read_only_symbol_style = 'red'
 truncation_length = 3
 truncate_to_repo = true
 [directory.substitutions]
@@ -86,15 +86,15 @@ truncate_to_repo = true
 
 [jobs]
 disabled = false
-format = ' [$symbol$number]($style)'
+format = '[$symbol$number]($style) '
 style = 'bold blue'
 symbol = '+'
 threshold = 1
 
 [battery]
 disabled = false
-format = ' [$symbol$percentage]($style)'
-style = 'blue'
+format = '[$symbol$percentage]($style) '
+# style = 'blue'
 full_symbol = "🔋" # •
 charging_symbol = "⚡️" # ⇡
 discharging_symbol = "⇣"
@@ -107,12 +107,12 @@ style = "bold yellow"
 
 [character]
 disabled = false
-success_symbol = " [➜](bold green) "
-error_symbol = " [✗](bold red) "
+success_symbol = "[➜](bold green) "
+error_symbol = "[✗](bold red) "
 
 [cmd_duration]
 disabled = false
-format = " took [$duration]($style)"
+format = "took [$duration]($style) "
 style = 'red'
 min_time = 5000
 
@@ -125,7 +125,7 @@ variable = 'DEBUG'
 
 [git_branch]
 disabled = false
-format = ' [$symbol$branch]($style)'
+format = '[$symbol$branch]($style)'
 style = 'dimmed yellow'
 symbol = ''
 
@@ -143,20 +143,20 @@ style = 'dimmed green'
 disabled = false
 format = '(([\[$all_status$ahead_behind\]]($style)))'
 style = 'dimmed red'
-show_sync_count = true
+# show_sync_count = true
 
 [helm]
 disabled = false
-format = ' [$symbol$version]($style)'
+format = '[$symbol$version]($style) '
 style = 'bold white'
 symbol = '⎈'
 
 [kubernetes]
 disabled = false
-format = ' [$symbol$context( \\($namespace\\))]($style)'
+format = '[$symbol$context( \\($namespace\\))]($style) '
 # style = '240'
 style = 'blue'
-# symbol = '☸'
+# symbol = '☸ '
 # symbol = '⛵'
 symbol = ' ' # fontawesome 5
 [kubernetes.context_aliases]
@@ -165,29 +165,37 @@ symbol = ' ' # fontawesome 5
 
 [nodejs]
 disabled = false
-format = ' [$symbol$version]($style)'
+format = '[$symbol$version]($style) '
 style = 'dimmed purple'
 symbol = '⬢ '
 
 [package]
 disabled = false
-format = ' [$symbol$version]($style)'
+format = '[$symbol$version]($style) '
 style = 'bold 208'
 # symbol = '📦'
 symbol = ' '
-display_private = 'false'
+# display_private = 'false'
+display_private = 'true'
 
 [python]
 disabled = false
-format = ' [${symbol}${version}]($style)'
+format = '[${symbol}${version}]($style) '
 style = 'dimmed yellow'
-symbol = '🐍'
+symbol = '🐍 '
 pyenv_version_name = true
 
 
 # Taskwarrior would be cool
 
 ## TODO
+
+[aws]
+disabled = false
+
+[golang]
+disabled = false
+symbol = '🐹'
 
 [ruby]
 disabled = true
@@ -197,9 +205,6 @@ disabled = true
 
 
 ## MAYBE
-
-[aws]
-disabled = true
 
 [custom]
 disabled = true
@@ -246,9 +251,6 @@ disabled = true
 disabled = true
 
 [erlang]
-disabled = true
-
-[golang]
 disabled = true
 
 [java]
