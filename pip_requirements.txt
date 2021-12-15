@@ -15,3 +15,4 @@ powerline-status
 ptpython
 thefuck
 watch-fs
+watchdog

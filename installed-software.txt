@@ -1,6 +1,9 @@
 ack-grep
 alacritty
+arandr
 autojump
+autorandr
+blueman
 compton
 dex
 devscripts
@@ -14,12 +17,15 @@ fonts-font-awesome
 git-extras
 gsimplecal
 i3
+i3blocks
 jq
+kakoune
 kitty
 pasystray
 pavucontrol
 pipsi
 policykit-1-gnome
+python-is-python3
 python3-bashate
 redshift-gtk
 ripgrep
@@ -47,11 +53,13 @@ libssl-dev zlib1g-dev libncurses5-dev libncursesw5-dev libreadline-dev libsqlite
 antibody - https://github.com/getantibody/antibody - DOTFILES INIT
 oh-my-zsh
 
+asdf
 nvm - PUT IN DOTFILES INIT
 pyenv - FILL ME AND PUT IN DOTFILES INIT
 pyenv-update - git clone git://github.com/pyenv/pyenv-update.git ~/.pyenv/plugins/pyenv-update
 pyenv-virtualenv - git clone https://github.com/yyuu/pyenv-virtualenv.git $(pyenv root)/plugins/pyenv-virtualenv
 rvm
+
 
 fonts-emojione-svginot ppa:eosrei/fonts
 Google Noto Fonts https://www.google.com/get/noto/
