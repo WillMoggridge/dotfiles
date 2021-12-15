@@ -14,8 +14,8 @@ INTEL_CMD = 'sudo tee /sys/class/backlight/intel_backlight/brightness'
 # Add to sudo file using `visudo`
 # username ALL=(ALL) NOPASSWD: /usr/bin/tee /sys/class/backlight/intel_backlight/brightness
 INTEL_PATH = '/sys/class/backlight/intel_backlight/brightness'
-INTEL_MAX = 930
-INTEL_MIN = 10
+INTEL_MAX = 120000
+INTEL_MIN = 500
 IS_INTEL_BACKLIGHT = os.path.exists(INTEL_PATH)
 XBACKLIGHT_CMD = '/usr/bin/xbacklight'
 
@@ -84,10 +84,10 @@ def main():
     args = get_arguments()
     action = args.action
 
-    if action is '-':
+    if action == '-':
         decrease_backlight()
 
-    if action is '+':
+    if action == '+':
         increase_backlight()
 
 
