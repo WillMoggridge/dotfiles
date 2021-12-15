@@ -4,6 +4,7 @@
 
 # direnv
 .envrc
+.envrc.local*
 
 # pyenv
 .python-version
@@ -18,6 +19,7 @@
 
 # Temporary folder
 .tmp
+docker-compose.local.yml
 
 
 ######################
