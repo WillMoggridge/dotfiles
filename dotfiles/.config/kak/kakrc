@@ -30,17 +30,17 @@ hook global WinCreate .* %{addhl show_matching}
 
 
 #
-# User mode - space key
+# User mode - space key / comma
 #
-map global normal <space> , -docstring 'leader'
+#map global normal <space> , -docstring 'leader'
 map global normal <backspace> <space> -docstring 'remove all sels except main'
 map global normal <a-backspace> <a-space> -docstring 'remove main sel'
 
 # Copy and paste to system clipboard
-map global user y '<a-|> xsel --input --clipboard <ret>'
-map global user p '<a-!>xsel --output --clipboard<ret>'
-map global user P '!xsel --output --clipboard<ret>'
-
+map global user y '<a-|> xsel --input --clipboard <ret>' -docstring 'Copy to system clipboard'
+map global user p '<a-!>xsel --output --clipboard<ret>' -docstring 'Paste clipboard (after)'
+map global user P '!xsel --output --clipboard<ret>' -docstring 'Paste clipboard (before)'
+map global user R '|xsel --output --clipboard<ret>' -docstring 'Paste clipboard (replace)'
 
 #
 # Import kak files
