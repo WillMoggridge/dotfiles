@@ -25,4 +25,4 @@
     email = will@moggridge.com
     name = Will Moggridge
 [include]
-    path = ~/.gitconfig_local
+    path = ~/.gitconfig.local

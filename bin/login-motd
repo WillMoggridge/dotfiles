@@ -6,7 +6,7 @@ source $HOME/.dotfiles/libs/common
 REQUEST_EXPIRY=72000
 
 # I love some fun messages on login:
-if cmd_exists cowsay; then
+if cmd_exists "cowsay"; then
     whatisonfire=`cacheme ${REQUEST_EXPIRY} dig +tries=1 +time=1 +short txt istheinternetonfire.com | sed 's/^"\(.*\)"$/\1/'`
 
     saythis="Is the internet on fire?

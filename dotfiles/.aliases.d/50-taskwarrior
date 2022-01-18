@@ -1,2 +1,5 @@
+alias tw="command task"
+alias taskwarrior="command task"
+
 # Can create alternative list like:
 # alias habit="task rc.data.location=~/.habit"

@@ -3,10 +3,11 @@
 export LC_ALL="en_GB.UTF-8"
 
 WORKON_HOME=~/.virtualenvs
-GOPATH="$HOME/.local/share/go"
+export GOPATH="$HOME/.go"
 
 # Add extra paths
-export PATH=$GOPATH/bin:$PATH
+if [ -d /usr/local/go/bin ]; then export PATH=/usr/local/go/bin:$PATH; fi
+if [ -d $HOME/.go/bin ]; then export PATH=$HOME/.go/bin:$PATH; fi
 if [ -d $HOME/.cargo/bin ]; then export PATH=$HOME/.cargo/bin:$PATH; fi
 if [ -d $HOME/.yarn/bin ]; then export PATH=$HOME/.yarn/bin:$PATH; fi
 if [ -d $HOME/.local/share/umake/bin ]; then export PATH=$HOME/.local/share/umake/bin:$PATH; fi
@@ -15,6 +16,7 @@ if [ -d $HOME/.tmuxifier/bin ]; then export PATH=$HOME/.tmuxifier/bin:$PATH; fi
 if [ -d $HOME/.dotfiles/bin ]; then export PATH=$HOME/.dotfiles/bin:$PATH; fi
 if [ -d $HOME/bin ]; then export PATH=$HOME/bin:$PATH; fi
 if [ -d $HOME/.local/bin ]; then export PATH=$HOME/.local/bin:$PATH; fi
+if [ -d $HOME/.pyenv/shims ]; then export PATH=$HOME/.pyenv/shims:$PATH; fi
 
 # Load up env settings and aliases
 autoload -U compinit && compinit
@@ -25,14 +27,14 @@ if [ -f $HOME/.local_envs ]; then source $HOME/.local_envs; fi
 if [ -f $HOME/.torch/install/bin/torch-activate ]; \
     then source $HOME/.torch/install/bin/torch-activate; fi
 
-if cmd_exists kubeadm; then . <(kubeadm completion zsh); fi
-if cmd_exists kubectl; then . <(kubectl completion zsh); fi
-if cmd_exists minikube; then . <(minikube completion zsh); fi
+if cmd_exists 'kubeadm'; then . <(kubeadm completion zsh); fi
+if cmd_exists 'kubectl'; then . <(kubectl completion zsh); fi
+if cmd_exists 'minikube'; then . <(minikube completion zsh); fi
 
 if [ -f /usr/share/source-highlight/src-hilite-lesspipe.sh ]; then \
     export LESSOPEN="| /usr/share/source-highlight/src-hilite-lesspipe.sh %s"; fi
 
-# if cmd_exists nvim; then
+# if cmd_exists 'nvim'; then
 #   export EDITOR='nvim'
 #   export VISUAL='nvim'
 # else
@@ -61,8 +63,8 @@ fi
 # Node/Ruby/Python Version Manager
 # nvm
 # export PATH="$HOME/.npm-packages/bin:$PATH"
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 source <(antibody init)
 export NVM_LAZY_LOAD=true
 antibody bundle lukechilds/zsh-nvm
@@ -70,17 +72,19 @@ antibody bundle lukechilds/zsh-nvm
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
-if cmd_exists pyenv; then
+if cmd_exists 'pyenv'; then
     # initialize pyenv
     eval "$(pyenv init -)"
     # initialize pyenv virtualenv
     eval "$(pyenv virtualenv-init -)"
 fi
+PIPX_DEFAULT_PYTHON="$(pyenv prefix pipx)/bin/python"
+export PIPX_DEFAULT_PYTHON
 export rvm_silence_path_mismatch_check_flag=1
 [ -s "$HOME/.rvm/scripts/rvm" ] && source "$HOME/.rvm/scripts/rvm"
 export PATH="$HOME/.rvm/bin:$PATH"
 
 # Load directory .envrc with direnv
-if cmd_exists direnv; then
+if cmd_exists 'direnv'; then
     eval "$(direnv hook zsh)"
 fi

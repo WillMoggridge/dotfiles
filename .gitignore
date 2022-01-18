@@ -3,5 +3,7 @@ tmp/*
 .vscode/
 TODO.md
 
+dotfiles/.gitconfig.local
+
 dotfiles/.tmux/plugins
 dotfiles/.tmux/resurrect

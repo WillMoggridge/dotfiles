@@ -35,46 +35,37 @@ DISABLE_AUTO_TITLE="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(
-    adb
-    autojump
-    catimg
-    colorize
-    command-not-found
-    cp
-    dircycle
-    django
-    docker
-    gem
-    git
-    git-prompt
-    github
-    gulp
-    heroku
-    httpie
-    mosh
-    node
-    npm
-    nvm
-    pip
-    rvm
-    systemd
-    taskwarrior
-    tmux
-    tmuxinator
-    urltools
-    vagrant
-    virtualenvwrapper
-)
+# plugins=(
+#     asdf
+#     autojump
+#     docker
+#     git
+#     pip
+#     tmux
+# )
+plugins=()
 
 source <(antibody init)
+# antibody oh-my-zsh <<EOBUNDLE
+#     asdf
+#     autojump
+#     docker
+#     git
+#     pip
+#     tmux
+# EOBUNDLE
+# antibody bundle ohmyzsh/ohmyzsh path:plugins/asdf
+antibody bundle ohmyzsh/ohmyzsh path:plugins/autojump
+antibody bundle ohmyzsh/ohmyzsh path:plugins/docker
+antibody bundle ohmyzsh/ohmyzsh path:plugins/git
+antibody bundle ohmyzsh/ohmyzsh path:plugins/pip
+antibody bundle ohmyzsh/ohmyzsh path:plugins/tmux
 antibody bundle <<EOBUNDLE
   jimhester/per-directory-history
   larkery/zsh-histdb
+  olivierverdier/zsh-git-prompt
   superbrothers/zsh-kubectl-prompt
   supercrabtree/k
-  unixorn/docker-helpers.zshplugin
-  webyneter/docker-aliases
   zsh-users/zsh-autosuggestions
   zsh-users/zsh-completions
 EOBUNDLE
@@ -137,9 +128,21 @@ bindkey '^ ' autosuggest-accept
 # Oh my ZSH
 if [ -f $ZSH/oh-my-zsh.sh ]; then source $ZSH/oh-my-zsh.sh; fi
 
-local ZSH_SYNTAX_HL=/usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-if [ -f $ZSH_SYNTAX_HL ]; then
-    . $ZSH_SYNTAX_HL
+
+if cmd_exists 'kubeadm'; then . <(kubeadm completion zsh); fi
+if cmd_exists 'kubectl'; then . <(kubectl completion zsh); fi
+if cmd_exists 'minikube'; then . <(minikube completion zsh); fi
+if cmd_exists 'pipenv'; then . <(_PIPENV_COMPLETE=zsh_source pipenv); fi
+
+# MOTD for the terminal
+login-motd
+
+# Keep syntax highlighting loading till last
+antibody bundle zsh-users/zsh-syntax-highlighting
+# local ZSH_SYNTAX_HL=/usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# if [ -f $ZSH_SYNTAX_HL ]; then
+#     . $ZSH_SYNTAX_HL
+if [ -n "${ZSH_HIGHLIGHT_STYLES}" ]; then
     # 8 = bright black
     ZSH_HIGHLIGHT_STYLES[comment]='fg=214'
     ZSH_HIGHLIGHT_HIGHLIGHTERS=(
@@ -153,11 +156,3 @@ if [ -f $ZSH_SYNTAX_HL ]; then
     ZSH_HIGHLIGHT_PATTERNS+=('rm -rf *' 'fg=white,bold,bg=red')
     #ZSH_HIGHLIGHT_REGEXP+=('\bsudo\b' fg=123,bold)
 fi
-
-if cmd_exists kubeadm; then . <(kubeadm completion zsh); fi
-if cmd_exists kubectl; then . <(kubectl completion zsh); fi
-if cmd_exists minikube; then . <(minikube completion zsh); fi
-if cmd_exists pipenv; then . <(pipenv --completion); fi
-
-# MOTD for the terminal
-login-motd

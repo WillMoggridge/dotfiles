@@ -6,8 +6,15 @@
 .envrc
 .envrc.local*
 
+# pre-commit
+.pre-commit-config.local.yml
+.pre-commit-config.yaml
+
 # pyenv
 .python-version
+
+# gotask
+Taskfile.local.yml
 
 # VSCode files
 .vscode

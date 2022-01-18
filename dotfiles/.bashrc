@@ -105,12 +105,21 @@ if ! shopt -oq posix; then
 fi
 
 
-# Node/Ruby Version Manager
-export PATH="$PATH:$HOME/.npm-packages/bin"
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-export PATH="$PATH:$HOME/.rvm/bin"
+# # Node/Ruby Version Manager
+# export PATH="$PATH:$HOME/.npm-packages/bin"
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+# # pyenv
+# export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+# export PYENV_ROOT="$HOME/.pyenv"
+# export PATH="$PYENV_ROOT/bin:$PATH"
+# if [ -d "${PYENV_ROOT}/bin" ]; then
+#     # initialize pyenv
+#     eval "$(pyenv init -)"
+#     # initialize pyenv virtualenv
+#     eval "$(pyenv virtualenv-init -)"
+# fi[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+# export PATH="$PATH:$HOME/.rvm/bin"
 
+# Aliases are not inherited
 if [ -f $HOME/.aliases ]; then source $HOME/.aliases; fi
-if [ -f $HOME/.canonistack/novarc ]; then source $HOME/.canonistack/novarc; fi

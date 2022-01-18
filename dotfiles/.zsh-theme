@@ -14,6 +14,7 @@ ZSH_THEME_GIT_PROMPT_BEHIND="%{↓%G%}"
 ZSH_THEME_GIT_PROMPT_AHEAD="%{↑%G%}"
 ZSH_THEME_GIT_PROMPT_UNTRACKED="%{…%G%}"
 ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg_bold[green]%}%{✔%G%}"
+ZSH_THEME_GIT_PROMPT_CACHE=1
 
 local c_grey="237"
 local cmd_pyenv_version='pyenv version | sed -e "s/ (set.*$//" | tr "\n" " " | sed "s/.$//"'
@@ -56,7 +57,7 @@ final           "%"
 )
 # Build prompt in correct order. Broken down for easy reading.
 local -a rprompt_array=(
-kubectl "%{$FG[$c_grey]%}$(echo '$(if [ -n "${ZSH_KUBECTL_PROMPT:-}" ]; then echo "k8s[${ZSH_KUBECTL_PROMPT}]"; fi)')"
+#kubectl "%{$FG[$c_grey]%}$(echo '$(if [ -n "${ZSH_KUBECTL_PROMPT:-}" ]; then echo "k8s[${ZSH_KUBECTL_PROMPT}]"; fi)')"
 pyenv   "%{$FG[$c_grey]%}$(show_pyenv_prompt && echo ' py[$('"${cmd_pyenv_version}"')]')"
 #nvm    "%{$FG[$c_grey]%}$(show_nvm_prompt && echo ' node-$(nvm_ls current)')"
 #rvm    "%{$FG[$c_grey]%}$(show_rvm_prompt && echo ' $($HOME/.rvm/bin/rvm-prompt)')"
@@ -73,8 +74,8 @@ for ((i=0; i < ${#prompt_array[@]}; i++)); do
     fi
 done
 RPROMPT=''
-for ((i=0; i < ${#rprompt_array[@]}; i++)); do
-    if (( $(($i % 2 )) == 0 )); then
-        RPROMPT="${RPROMPT}${rprompt_array[i]}%{$reset_color%}"
-    fi
-done
+# for ((i=0; i < ${#rprompt_array[@]}; i++)); do
+#     if (( $(($i % 2 )) == 0 )); then
+#         RPROMPT="${RPROMPT}${rprompt_array[i]}%{$reset_color%}"
+#     fi
+# done

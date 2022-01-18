@@ -29,22 +29,35 @@ if [ -d $HOME/.local/bin ]; then export PATH=$HOME/.local/bin:$PATH; fi
 if [ -d $HOME/.local/share/umake/bin ]; then export PATH=$HOME/.local/share/umake/bin:$PATH; fi
 if [ -d $HOME/.SpaceVim/bin ]; then export PATH=$HOME/.SpaceVim/bin:$PATH; fi
 if [ -d $HOME/.tmuxifier/bin ]; then export PATH=$HOME/.tmuxifier/bin:$PATH; fi
+if [ -d $HOME/.pyenv/shims ]; then export PATH=$HOME/.pyenv/shims:$PATH; fi
 
 
 # Node/Ruby Version Manager
 export PATH="$PATH:$HOME/.npm-packages/bin"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+# pyenv
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+export PYENV_ROOT="${HOME}/.pyenv"
+export PATH="${PYENV_ROOT}/bin:$PATH"
+if [ -d "${PYENV_ROOT}/bin" ]; then
+    # initialize pyenv
+    eval "$(pyenv init -)"
+    # initialize pyenv virtualenv
+    eval "$(pyenv virtualenv-init -)"
+fi
+# export PIPX_DEFAULT_PYTHON="$HOME/.pyenv/versions/3.8.5/bin/python"
+# export PIPX_DEFAULT_PYTHON="$(pyenv prefix $(pyenv global))/bin/python"
+PIPX_DEFAULT_PYTHON="$(pyenv prefix pipx)/bin/python"
+export PIPX_DEFAULT_PYTHON
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 export PATH="$PATH:$HOME/.rvm/bin"
 
 if [ -f $HOME/.aliases ]; then source $HOME/.aliases; fi
-if [ -f $HOME/.canonistack/novarc ]; then source $HOME/.canonistack/novarc; fi
-if [ -f $HOME/.torch/install/bin/torch-activate ]; \
-    then source $HOME/.torch/install/bin/torch-activate; fi
 
 if [ -f /usr/share/source-highlight/src-hilite-lesspipe.sh ]; then \
-    export LESSOPEN="| /usr/share/source-highlight/src-hilite-lesspipe.sh %s"; fi
+    export LESSOPEN="| /usr/share/source-highlight/src-hilite-lesspipe.sh %s"
+fi
 
 # Define terminal for i3
 export TERMINAL="kitty"

@@ -36,6 +36,8 @@ ln -s $HOME/.dotfiles/dotfiles/.zsh $HOME/
 ln -s $HOME/.dotfiles/dotfiles/.aliases $HOME/
 ln -s $HOME/.dotfiles/dotfiles/.bashrc $HOME/
 ln -s $HOME/.dotfiles/dotfiles/.gitconfig $HOME/
+touch $HOME/.dotfiles/dotfiles/.gitconfig.local
+ln -s $HOME/.dotfiles/dotfiles/.gitconfig.local $HOME/
 ln -s $HOME/.dotfiles/dotfiles/.gitignore_global $HOME/
 ln -s $HOME/.dotfiles/dotfiles/.lessfilter $HOME/
 ln -s $HOME/.dotfiles/dotfiles/.profile $HOME/
