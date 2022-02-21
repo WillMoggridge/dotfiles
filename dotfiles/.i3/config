@@ -18,19 +18,32 @@ set $orange  #E95420
 set $orange_dark #d44615
 set $white #ffffff
 
-bar {
-    #i3bar_command i3bar -t
-    font pango: roboto light, fontawesome 11
-    position top
-    separator_symbol " • "
-    status_command i3blocks -c ~/.i3/i3blocks.conf
-    tray_padding 4px
-    tray_output primary
-}
+#bar {
+#    i3bar_command i3bar
+#    font pango: roboto 11
+#    position top
+#    separator_symbol " • "
+#    status_command i3blocks -c ~/.i3/i3blocks.conf
+#    tray_padding 4px
+#    tray_output primary
+#    workspace_min_width 40
+
+#    colors {
+#        background #000000ff
+#        statusline #ffffffff
+#        separator #666666ff
+
+#        focused_workspace  #4c7899ff #285577ff #ffffffff
+#        active_workspace   #333333ff #5f676aff #ffffffff
+#        inactive_workspace #333333ff #222222ff #888888ff
+#        urgent_workspace   #2f343aff #900000ff #ffffffff
+#        #binding_mode       #2f343a #900000 #ffffff
+#    }
+#}
 
 focus_follows_mouse no
 mouse_warping none
-font pango: roboto, fontawesome normal 8
+font pango: roboto, "Font Awesome" normal 8
 
 # Border settings
 client.focused          $orange $orange_dark $white $white
@@ -111,7 +124,8 @@ bindsym ctrl+$alt+space       exec --no-startup-id "toggle-keyboard-layout"
 bindsym ctrl+$alt+Shift+space exec --no-startup-id "toggle-keyboard-layout-trulyergonomic"
 
 # Quick load layout
-bindsym $mod+grave       exec "autorandr -c"
+bindsym $mod+grave            exec "autorandr --change"
+bindsym $mod+Shift+grave      exec "autorandr --change --force"
 
 # Quick fix resolution shortcut for laptop to remove later
 bindsym $mod+$alt+equal       exec "xrandr --output eDP1 --mode 2560x1440"
@@ -431,8 +445,14 @@ bindsym Ctrl+q exec ctrlq-proxy
 # Auto screen lock
 exec --no-startup-id "xautolock"
 
-# Comtpon composite manager to fix screen tearing
-exec --no-startup-id "compton -CG --config ~/.config/compton.conf"
+# Compton composite manager to fix screen tearing
+#exec --no-startup-id "compton -CG --config ~/.config/compton.conf"
+
+# Polybar
+ exec --no-startup-id "polybar-launch"
+
+# Picom compositor
+ exec --no-startup-id "picom"
 
 # Gnome security policies and privilege escalation
 exec --no-startup-id "/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1"

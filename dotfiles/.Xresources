@@ -26,7 +26,7 @@ rofi.padding: 16
 rofi.width: 50
 rofi.yoffset: 0
 
-rofi.font: pango: M+ roboto, fontawesome 10
+rofi.font: "Jetbrains Mono" 12
 rofi.fuzzy: true
 rofi.modi: window,run,drun
 

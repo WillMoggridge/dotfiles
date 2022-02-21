@@ -23,6 +23,7 @@ kakoune
 kitty
 pasystray
 pavucontrol
+picom
 pipsi
 policykit-1-gnome
 python-is-python3

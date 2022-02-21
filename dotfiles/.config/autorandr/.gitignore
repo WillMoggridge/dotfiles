@@ -1,0 +1,6 @@
+# Ignore profile folders
+**/
+
+# Allow hook directories
+!*.d/
+!*.d.available/

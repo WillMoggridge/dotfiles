@@ -7,12 +7,14 @@ fi
 mkdir -p $HOME/.config
 
 ln -s $HOME/.dotfiles/dotfiles/.config/alacritty $HOME/.config/
+ln -s $HOME/.dotfiles/dotfiles/.config/autorandr $HOME/.config/
 ln -s $HOME/.dotfiles/dotfiles/.config/dunst $HOME/.config/
 ln -s $HOME/.dotfiles/dotfiles/.config/gsimplecal $HOME/.config/
 ln -s $HOME/.dotfiles/dotfiles/.config/kak $HOME/.config/
 ln -s $HOME/.dotfiles/dotfiles/.config/markdownlint $HOME/.config/
 ln -s $HOME/.dotfiles/dotfiles/.config/nvim $HOME/.config/
 ln -s $HOME/.dotfiles/dotfiles/.config/SpaceVim.d $HOME/.config/
+ln -s $HOME/.dotfiles/dotfiles/.config/systemd $HOME/.config/
 if [ ! -d $HOME/.dotfiles/dotfiles/.config/flameshot ]; then
     ln -s $HOME/.dotfiles/dotfiles/.config/flameshot $HOME/.config/Dharkael
 fi
@@ -24,6 +26,7 @@ ln -s $HOME/.dotfiles/dotfiles/.config/sway $HOME/.config/
 ln -s $HOME/.dotfiles/dotfiles/.config/yabar $HOME/.config/
 
 ln -s $HOME/.dotfiles/dotfiles/.config/compton.conf $HOME/.config/
+ln -s $HOME/.dotfiles/dotfiles/.config/picom.conf $HOME/.config/
 ln -s $HOME/.dotfiles/dotfiles/.config/starship.toml $HOME/.config/
 
 ln -s $HOME/.dotfiles/dotfiles/.aliases.d $HOME/

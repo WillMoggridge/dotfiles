@@ -1,3 +1,7 @@
+# autoload -U compinit
+
+# compinit
+
 ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="../../"
 
@@ -128,6 +132,7 @@ bindkey '^ ' autosuggest-accept
 # Oh my ZSH
 if [ -f $ZSH/oh-my-zsh.sh ]; then source $ZSH/oh-my-zsh.sh; fi
 
+eval "$(starship init zsh)"
 
 if cmd_exists 'kubeadm'; then . <(kubeadm completion zsh); fi
 if cmd_exists 'kubectl'; then . <(kubectl completion zsh); fi
@@ -135,7 +140,7 @@ if cmd_exists 'minikube'; then . <(minikube completion zsh); fi
 if cmd_exists 'pipenv'; then . <(_PIPENV_COMPLETE=zsh_source pipenv); fi
 
 # MOTD for the terminal
-login-motd
+#login-motd
 
 # Keep syntax highlighting loading till last
 antibody bundle zsh-users/zsh-syntax-highlighting

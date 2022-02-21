@@ -15,7 +15,7 @@ class i3block:
         (90, '#FF6600'),
         (101, '#FF3300'),
     ))
-    ICON_LOAD = ''
+    ICON_LOAD = ''
 
     def __init__(self):
         self.load, self.load_percent = self._get_load()

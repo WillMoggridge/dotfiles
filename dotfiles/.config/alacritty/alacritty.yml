@@ -19,9 +19,9 @@ draw_bold_text_with_bright_colors: false
 # Font configuration (changes require restart)
 font:
   normal:
-    # - "Firacode-Medium"
     family: "Ubuntu Mono derivative Powerline"
     style: Regular
+    # - "Firacode-Medium"
     # - family: "Ubuntu Mono derivative Powerline"
     #   style: Regular
     # - family: "FontAwesome"

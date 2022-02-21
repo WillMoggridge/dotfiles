@@ -51,7 +51,10 @@ if [[ $DESKTOP_SESSION = "i3" ]]; then
     fi
 
     # Set wallpaper (Checking for existence)
-    if [ -f ~/.wallpaper.png ]
+    if [ -f ~/.fehbg ]
+    then
+       ~/.fehbg &
+    elif [ -f ~/.wallpaper.png ]
     then
        feh --bg-scale ~/.wallpaper.png
     elif [ -f ~/.wallpaper.jpg ]

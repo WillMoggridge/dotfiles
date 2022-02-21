@@ -430,9 +430,6 @@ bindsym Ctrl+Shift+q exec ctrlshiftq-proxy
 # Auto screen lock
 exec "xautolock"
 
-# Comtpon composite manager to fix screen tearing
-exec "compton -CG --config ~/.config/compton.conf"
-
 # Gnome security policies and privilege escalation
 exec "/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1"
 

@@ -1,5 +1,8 @@
+add_newline = true
 # format = "\n$all"
 format = """
+($cmd_duration
+)\
 $time\
 $username\
 $hostname\
@@ -9,8 +12,8 @@ $package\
 $nodejs\
 $python\
 $golang\
+$docker_context\
 $env_var\
-$cmd_duration\
 $line_break\
 \
 $directory\
@@ -34,13 +37,9 @@ $nix_shell\
 $ruby\
 $rust\
 $terraform\
-\
-\
-\
 $cmake\
 $conda\
 $crystal\
-$docker_context\
 $hg_branch\
 $dotnet\
 $elixir\
@@ -116,18 +115,33 @@ format = "took [$duration]($style) "
 style = 'red'
 min_time = 5000
 
-[env_var]
+[docker_context]
+disabled = false
+format = 'via [$symbol$context]($style) '
+style = 'blue bold'
+symbol = ''
+
+# [env_var]
+# disabled = true
+# format = '[DEBUG]($style) '
+# # style = 'bold gray dimmed'
+# style = 'dimmed'
+# variable = 'DEBUG'
+
+[env_var.compose_file]
 disabled = true
-format = '[DEBUG]($style) '
+format = '[$env_value]($style) '
 # style = 'bold gray dimmed'
 style = 'dimmed'
-variable = 'DEBUG'
+variable = 'COMPOSE_FILE'
 
 [git_branch]
 disabled = false
 format = '[$symbol$branch]($style)'
 style = 'dimmed yellow'
-symbol = ''
+# symbol = ''
+# symbol = ''
+symbol = ''
 
 [git_commit]
 disabled = false
@@ -144,12 +158,14 @@ disabled = false
 format = '(([\[$all_status$ahead_behind\]]($style)))'
 style = 'dimmed red'
 # show_sync_count = true
+# 
 
 [helm]
 disabled = false
 format = '[$symbol$version]($style) '
 style = 'bold white'
-symbol = '⎈'
+# symbol = '⎈'
+symbol = ' '
 
 [kubernetes]
 disabled = false
@@ -159,21 +175,22 @@ style = 'blue'
 # symbol = '☸ '
 # symbol = '⛵'
 symbol = ' ' # fontawesome 5
-[kubernetes.context_aliases]
-'prolific-test' = 'p-test'
-'prolific-production' = 'p-prod☠️☠️☠️'
+# [kubernetes.context_aliases]
+# '(?P<cluster>[\\w-]+)-production' = '$cluster-prod☠️☠️☠️'
 
 [nodejs]
 disabled = false
 format = '[$symbol$version]($style) '
 style = 'dimmed purple'
-symbol = '⬢ '
+# symbol = '⬢ '
+symbol = ' '
 
 [package]
 disabled = false
 format = '[$symbol$version]($style) '
 style = 'bold 208'
 # symbol = '📦'
+# symbol = ' '
 symbol = ' '
 # display_private = 'false'
 display_private = 'true'
@@ -182,7 +199,8 @@ display_private = 'true'
 disabled = false
 format = '[${symbol}${version}]($style) '
 style = 'dimmed yellow'
-symbol = '🐍 '
+#symbol = '🐍 '
+symbol = ' '
 pyenv_version_name = true
 
 
@@ -195,12 +213,17 @@ disabled = false
 
 [golang]
 disabled = false
-symbol = '🐹'
+# symbol = '🐹'
+symbol = ' '
 
 [ruby]
 disabled = true
 
 [rust]
+disabled = true
+# 
+
+[terraform]
 disabled = true
 
 
@@ -218,9 +241,6 @@ disabled = true
 [nix_shell]
 disabled = true
 
-[terraform]
-disabled = true
-
 
 
 ## DISABLED
@@ -233,9 +253,6 @@ disabled = true
 disabled = true
 
 [crystal]
-disabled = true
-
-[docker_context]
 disabled = true
 
 [hg_branch]
