@@ -1,3 +1,0 @@
-[Unit]
-Description=i3wm target
-After=default.target

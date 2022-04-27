@@ -10,7 +10,7 @@ WORKON_HOME=~/.virtualenvs
 if [ -n "$BASH_VERSION" ]; then
     # include .bashrc if it exists
     if [ -f "$HOME/.bashrc" ]; then
-	. "$HOME/.bashrc"
+        . "$HOME/.bashrc"
     fi
 fi
 
@@ -31,6 +31,13 @@ if [ -d $HOME/.SpaceVim/bin ]; then export PATH=$HOME/.SpaceVim/bin:$PATH; fi
 if [ -d $HOME/.tmuxifier/bin ]; then export PATH=$HOME/.tmuxifier/bin:$PATH; fi
 if [ -d $HOME/.pyenv/shims ]; then export PATH=$HOME/.pyenv/shims:$PATH; fi
 
+export NIX_PATH="${HOME}/.nix-defexpr/channels:/nix/var/nix/profiles/per-user/root/channels${NIX_PATH:+:$NIX_PATH}"
+if [ -d "${HOME}/.nix-profile" ]; then
+    # shellcheck source=/dev/null
+    . "${HOME}/.nix-profile/etc/profile.d/hm-session-vars.sh"
+    export PATH="${HOME}/.nix-profile/bin:${PATH}"
+    export XDG_DATA_DIRS="${HOME}/.nix-profile/share:$XDG_DATA_DIRS"
+fi
 
 # Node/Ruby Version Manager
 export PATH="$PATH:$HOME/.npm-packages/bin"

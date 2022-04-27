@@ -34,5 +34,6 @@ if [ $CURRENT_VOLUME -gt 70 ]; then
 fi
 
 if [ -n "$SOUND" ]; then
-    play -q --volume "$VOLUME" "$SOUND" &
+    # play -q --volume "$VOLUME" "$SOUND" &
+    pw-play --volume "$VOLUME" "$SOUND" &
 fi

@@ -192,8 +192,8 @@ style = 'bold 208'
 # symbol = '📦'
 # symbol = ' '
 symbol = ' '
-# display_private = 'false'
-display_private = 'true'
+# display_private = false
+display_private = true
 
 [python]
 disabled = false

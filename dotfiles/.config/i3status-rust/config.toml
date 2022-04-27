@@ -1,0 +1,169 @@
+# theme = "solarized-dark"
+# icons = "awesome5"
+# icons_format = " <span font_family='FontAwesome'>{icon}</span> "
+
+[theme]
+name = "solarized-dark"
+[theme.overrides]
+separator = "<span font_family='Jetbrains Mono'></span>"
+# Monokai dark (Sublime colour / Atom colour)
+# Background  #0F0F0F / #242424
+# Current Line  #3E3D32 / #3D3D3D
+# Selection   #49483E / #403d3d
+# Comment   #8C8C8C
+# Foreground  #F8F8F2
+# String  #FFEE99
+# Number  #FF80F4
+# Thunderbird   #D3201F
+# Lavender Rose   #FFB2F9
+# Atlantis  #60cf30
+# Malibu  #90E7F7
+
+# Beige #E6DB74
+# Blue / Spray   #66D9EF
+# Green / Pear  #A6E22E
+# Orange / Tree Poppy  #FD971F
+# Fuchsia Pink  #CD5AC5
+# Radical Red   #F92672
+# Moave #ae81ff
+idle_bg = "#242424" # base03
+idle_fg = "#8C8C8C" # base1
+info_bg = "#66D9EF" # blue
+info_fg = "#242424" # base03
+good_bg = "#A6E22E" # green
+good_fg = "#242424" # base03
+warning_bg = "#FD971F" # yellow
+warning_fg = "#242424" # base03
+critical_bg = "#D3201F" # red
+critical_fg = "#F8F8F2" # base03
+separator_bg = "auto"
+separator_fg = "auto"
+
+[icons]
+name = "awesome5"
+[icons.overrides]
+time = ""
+
+# [[block]]
+# block = "custom"
+# command = '''echo '{"icon": "", "state": "Critical", "text": "Critical"}' '''
+# json = true
+# interval = "once"
+
+# [[block]]
+# block = "custom"
+# command = '''echo '{"icon": "", "state": "Warning", "text": "Warning"}' '''
+# json = true
+# interval = "once"
+
+# [[block]]
+# block = "custom"
+# command = '''echo '{"icon": "", "state": "Good", "text": "Good"}' '''
+# json = true
+# interval = "once"
+
+# [[block]]
+# block = "custom"
+# command = '''echo '{"icon": "", "state": "Info", "text": "Info"}' '''
+# json = true
+# interval = "once"
+
+# [[block]]
+# block = "custom"
+# command = '''echo '{"icon": "", "state": "Idle", "text": "Idle"}' '''
+# json = true
+# interval = "once"
+
+[[block]]
+block = "custom"
+command = '''bash -c "test -f /tmp/autolock_disabled && echo 'AUTOLOCK DISABLED'" '''
+interval = 60
+
+# [[block]]
+# block = "temperature"
+# good = 40
+# idle = 50
+# info = 60
+# warning = 80
+
+# [[block]]
+# block = "music"
+# max_width = 21
+# marquee = false
+# player = "spotify"
+# buttons = ["play", "next"]
+
+# [[block]]
+# block = "load"
+# interval = 1
+# format = "{1m} {5m} {15m}"
+
+[[block]]
+block = "cpu"
+interval = 1
+info = 50
+warning = 70
+critical = 90
+# format = "{utilization:3}"
+format = "{barchart}"
+
+[[block]]
+block = "memory"
+# format_mem = "{mem_used}/{mem_total}({mem_used_percents})"
+# format_swap = "{swap_used}/{swap_total}({swap_used_percents})"
+format_mem = "{mem_used} ({mem_used_percents})"
+format_swap = "{swap_used} ({swap_used_percents})"
+display_type = "memory"
+icons = true
+clickable = true
+interval = 5
+warning_mem = 80
+warning_swap = 80
+critical_mem = 90
+critical_swap = 90
+
+# [[block]]
+# block = "disk_space"
+# path = "/home/will"
+# alias = "~"
+# info_type = "available"
+# unit = "GB"
+# interval = 20
+
+[[block]]
+block = "sound"
+device_kind = "sink"
+headphones_indicator = true
+max_vol = 150
+on_click = "pavucontrol"
+# format = "{volume}"
+
+[[block]]
+block = "sound"
+max_vol = 100
+device_kind = "source"
+format = "{volume}"
+# format = ""
+
+[[block]]
+block = "battery"
+allow_missing = true
+hide_missing = true
+# device = 0
+
+[[block]]
+block = "time"
+interval = 1
+on_click = "gsimplecal"
+# format = "%a %d/%m %R"
+# format = "%R"
+format = "%T" # with seconds
+[block.theme_overrides]
+idle_bg = "#0f0f0f"
+
+# [[block]]
+# block = "custom"
+# # command = '''echo "<span font_family='Jetbrains Mono'></span>"'''
+# # command = 'echo ""'
+# [block.theme_overrides]
+# idle_bg = "#000000"

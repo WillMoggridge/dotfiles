@@ -60,6 +60,14 @@ if [[ $DESKTOP_SESSION = "i3" ]]; then
     export SSH_AGENT_PID=$GNOME_KEYRING_PID
 fi
 
+export NIX_PATH="${HOME}/.nix-defexpr/channels:/nix/var/nix/profiles/per-user/root/channels${NIX_PATH:+:$NIX_PATH}"
+if [ -d "${HOME}/.nix-profile" ]; then
+    # shellcheck source=/dev/null
+    . "${HOME}/.nix-profile/etc/profile.d/hm-session-vars.sh"
+    export PATH="${HOME}/.nix-profile/bin:${PATH}"
+    export XDG_DATA_DIRS="${HOME}/.nix-profile/share:$XDG_DATA_DIRS"
+fi
+
 # Node/Ruby/Python Version Manager
 # nvm
 # export PATH="$HOME/.npm-packages/bin:$PATH"

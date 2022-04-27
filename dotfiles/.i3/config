@@ -14,9 +14,52 @@ set $vim_right o
 
 set $border_width 4
 
-set $orange  #E95420
+#set $orange  #E95420
 set $orange_dark #d44615
 set $white #ffffff
+
+
+set $bg #0F0F0F
+set $bg_alt #242424
+set $bg_selection #3E3D32
+set $fg #F8F8F2
+set $fg_alt #8C8C8C
+set $beige #E6DB74
+set $blue  #66D9EF
+set $green #A6E22E
+set $orange #FD971F
+set $fuchsia #CD5AC5
+set $dark_red #D3201F
+set $vivid_red #F92672
+set $muave #ae81ff
+
+bar {
+    i3bar_command i3bar
+    font "pango: Roboto 11"
+    #font "pango: Jetbrains Mono 11"
+    position top
+    separator_symbol " • "
+    status_command /home/will/.nix-profile/bin/i3status-rs
+    tray_padding 4px
+    tray_output primary
+    workspace_min_width 50
+
+    colors {
+        background $bg
+        statusline #ffffffff
+        separator #666666ff
+
+        # border bg fg
+        focused_workspace  $fg_alt $blue $bg_alt
+        #focused_workspace  $orange $orange $bg
+        active_workspace   $fg_alt $fg_alt $bg_alt
+        inactive_workspace $bg_selection $bg_alt $fg_alt
+        #urgent_workspace   $fg_alt $dark_red $fg
+        urgent_workspace  $orange $orange $bg
+        #binding_mode       #fg_alt $blue $bg_alt
+        binding_mode       #fg_alt $muave $bg_alt
+    }
+}
 
 #bar {
 #    i3bar_command i3bar
@@ -43,13 +86,20 @@ set $white #ffffff
 
 focus_follows_mouse no
 mouse_warping none
-font pango: roboto, "Font Awesome" normal 8
+font "pango: Roboto 8"
+#font "pango: Jetbrains Mono 8"
 
-# Border settings
-client.focused          $orange $orange_dark $white $white
-client.focused_inactive #333333 #5F676A #ffffff #484e50
-client.unfocused        #333333 #424242 #888888 #292d2e
-client.urgent           #C10004 #900000 #ffffff #900000
+# Border settings (<border> <background> <text> <indicator> <child_border>)
+client.focused          $blue $blue $bg_alt $bg_alt
+#client.focused          $orange $orange $bg_alt $bg
+client.focused_inactive $fg_alt $fg_alt $bg_alt $bg
+client.unfocused        $bg_alt $bg_selection $fg_alt #292d2e
+#client.urgent           $fg_alt $dark_red $fg $fg
+client.urgent         $orange $orange $bg_alt $bg
+#client.focused          $orange $orange_dark $white $white
+#client.focused_inactive #333333 #5F676A #ffffff #484e50
+#client.unfocused        #333333 #424242 #888888 #292d2e
+#client.urgent           #C10004 #900000 #ffffff #900000
 #hide_edge_borders both
 new_float normal $border_width
 new_window pixel $border_width
@@ -449,10 +499,10 @@ exec --no-startup-id "xautolock"
 #exec --no-startup-id "compton -CG --config ~/.config/compton.conf"
 
 # Polybar
- exec --no-startup-id "polybar-launch"
+#exec --no-startup-id "polybar-launch"
 
 # Picom compositor
- exec --no-startup-id "picom"
+exec --no-startup-id "picom"
 
 # Gnome security policies and privilege escalation
 exec --no-startup-id "/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1"
@@ -468,7 +518,7 @@ exec --no-startup-id "dex --autostart --environment i3"
 exec --no-startup-id flameshot
 
 # Make sure notifications are up
-exec --no-startup-id dunst
+#exec --no-startup-id dunst
 
 # Service for i3-hud-menu
 # exec --no-startup-id "i3-appmenu-service"

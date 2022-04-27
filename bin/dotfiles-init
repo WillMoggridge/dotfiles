@@ -11,10 +11,10 @@ ln -s $HOME/.dotfiles/dotfiles/.config/autorandr $HOME/.config/
 ln -s $HOME/.dotfiles/dotfiles/.config/dunst $HOME/.config/
 ln -s $HOME/.dotfiles/dotfiles/.config/gsimplecal $HOME/.config/
 ln -s $HOME/.dotfiles/dotfiles/.config/kak $HOME/.config/
+ln -s $HOME/.dotfiles/dotfiles/.config/i3status-rust $HOME/.config/
 ln -s $HOME/.dotfiles/dotfiles/.config/markdownlint $HOME/.config/
 ln -s $HOME/.dotfiles/dotfiles/.config/nvim $HOME/.config/
 ln -s $HOME/.dotfiles/dotfiles/.config/SpaceVim.d $HOME/.config/
-ln -s $HOME/.dotfiles/dotfiles/.config/systemd $HOME/.config/
 if [ ! -d $HOME/.dotfiles/dotfiles/.config/flameshot ]; then
     ln -s $HOME/.dotfiles/dotfiles/.config/flameshot $HOME/.config/Dharkael
 fi
