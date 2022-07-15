@@ -11,6 +11,7 @@ let
     # ytmdesktop
 
     # Dev
+    helix
     k6
   ];
 
