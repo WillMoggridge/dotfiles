@@ -13,6 +13,10 @@
 # pyenv
 .python-version
 
+# pyright LSP
+pyrightconfig.json
+.pyrightconfig.json
+
 # gotask
 Taskfile.local.yml
 
