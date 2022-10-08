@@ -2,8 +2,20 @@
 
 export LC_ALL="en_GB.UTF-8"
 
-WORKON_HOME=~/.virtualenvs
+export WORKON_HOME=~/.virtualenvs
 export GOPATH="$HOME/.go"
+
+export ZSH_EVALCACHE_DIR="${XDG_CACHE_HOME:-${HOME}/.cache}/zsh-evalcache"
+
+export EDITOR='kak'
+export VISUAL="$EDITOR"
+
+# Define terminal for i3
+export TERMINAL=kitty
+
+source <(antibody init)
+# Cache eval functions
+antibody bundle mroth/evalcache
 
 # Add extra paths
 if [ -d /usr/local/go/bin ]; then export PATH=/usr/local/go/bin:$PATH; fi
@@ -34,28 +46,9 @@ if cmd_exists 'minikube'; then . <(minikube completion zsh); fi
 if [ -f /usr/share/source-highlight/src-hilite-lesspipe.sh ]; then \
     export LESSOPEN="| /usr/share/source-highlight/src-hilite-lesspipe.sh %s"; fi
 
-# if cmd_exists 'nvim'; then
-#   export EDITOR='nvim'
-#   export VISUAL='nvim'
-# else
-#   export EDITOR='vim'
-#   export VISUAL='vim'
-# fi
-export EDITOR='kak'
-export VISUAL="$EDITOR"
-
-# Define terminal for i3
-export TERMINAL=kitty
-
-# SpaceVim config directory
-export SPACEVIMDIR="$HOME/.config/SpaceVim.d"
-
-# Set default Juju location for dev
-export JUJU_REPOSITORY=$HOME/dev/juju-charms
-
 # Add Gnome Keyring as the SSH auth if we are in i3
 if [[ $DESKTOP_SESSION = "i3" ]]; then
-    eval $(gnome-keyring-daemon --start)
+    _evalcache gnome-keyring-daemon --start
     export SSH_AUTH_SOCK GPG_AGENT_INFO GNOME_KEYRING_CONTROL GNOME_KEYRING_PID
     export SSH_AGENT_PID=$GNOME_KEYRING_PID
 fi
@@ -82,9 +75,9 @@ export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 if cmd_exists 'pyenv'; then
     # initialize pyenv
-    eval "$(pyenv init -)"
+    _evalcache pyenv init -
     # initialize pyenv virtualenv
-    eval "$(pyenv virtualenv-init -)"
+    _evalcache pyenv virtualenv-init -
 fi
 PIPX_DEFAULT_PYTHON="$(pyenv prefix pipx)/bin/python"
 export PIPX_DEFAULT_PYTHON
@@ -94,5 +87,5 @@ export PATH="$HOME/.rvm/bin:$PATH"
 
 # Load directory .envrc with direnv
 if cmd_exists 'direnv'; then
-    eval "$(direnv hook zsh)"
+    _evalcache direnv hook zsh
 fi

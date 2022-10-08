@@ -49,6 +49,9 @@ DISABLE_AUTO_TITLE="true"
 # )
 plugins=()
 
+autoload bashcompinit
+bashcompinit
+
 source <(antibody init)
 # antibody oh-my-zsh <<EOBUNDLE
 #     asdf
@@ -58,12 +61,15 @@ source <(antibody init)
 #     pip
 #     tmux
 # EOBUNDLE
-# antibody bundle ohmyzsh/ohmyzsh path:plugins/asdf
+antibody bundle ohmyzsh/ohmyzsh path:plugins/asdf
 antibody bundle ohmyzsh/ohmyzsh path:plugins/autojump
 antibody bundle ohmyzsh/ohmyzsh path:plugins/docker
 antibody bundle ohmyzsh/ohmyzsh path:plugins/git
 antibody bundle ohmyzsh/ohmyzsh path:plugins/pip
 antibody bundle ohmyzsh/ohmyzsh path:plugins/tmux
+antibody bundle sorin-ionescu/prezto path:modules/completion
+# antibody bundle marlonrichert/zsh-autocomplete
+antibody bundle mroth/evalcache
 antibody bundle <<EOBUNDLE
   jimhester/per-directory-history
   larkery/zsh-histdb
@@ -130,9 +136,9 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
 bindkey '^ ' autosuggest-accept
 
 # Oh my ZSH
-if [ -f $ZSH/oh-my-zsh.sh ]; then source $ZSH/oh-my-zsh.sh; fi
+# if [ -f $ZSH/oh-my-zsh.sh ]; then source $ZSH/oh-my-zsh.sh; fi
 
-eval "$(starship init zsh)"
+_evalcache starship init zsh
 
 if cmd_exists 'kubeadm'; then . <(kubeadm completion zsh); fi
 if cmd_exists 'kubectl'; then . <(kubectl completion zsh); fi
@@ -143,10 +149,12 @@ if cmd_exists 'pipenv'; then . <(_PIPENV_COMPLETE=zsh_source pipenv); fi
 #login-motd
 
 # Keep syntax highlighting loading till last
-antibody bundle zsh-users/zsh-syntax-highlighting
+antibody bundle zdharma-continuum/fast-syntax-highlighting
+# antibody bundle zsh-users/zsh-syntax-highlighting
 # local ZSH_SYNTAX_HL=/usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # if [ -f $ZSH_SYNTAX_HL ]; then
 #     . $ZSH_SYNTAX_HL
+# fi
 if [ -n "${ZSH_HIGHLIGHT_STYLES}" ]; then
     # 8 = bright black
     ZSH_HIGHLIGHT_STYLES[comment]='fg=214'

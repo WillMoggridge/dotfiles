@@ -147,7 +147,7 @@ format = "{volume}"
 
 [[block]]
 block = "battery"
-allow_missing = true
+# allow_missing = true
 hide_missing = true
 # device = 0
 
