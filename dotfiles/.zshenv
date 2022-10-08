@@ -31,8 +31,6 @@ if [ -d $HOME/.local/bin ]; then export PATH=$HOME/.local/bin:$PATH; fi
 if [ -d $HOME/.pyenv/shims ]; then export PATH=$HOME/.pyenv/shims:$PATH; fi
 
 # Load up env settings and aliases
-autoload -U compinit && compinit
-fpath=($HOME/.zsh/completions $fpath)
 if [ -f $HOME/.aliases ]; then source $HOME/.aliases; fi
 if [ -f $HOME/.canonistack/novarc ]; then source $HOME/.canonistack/novarc; fi
 if [ -f $HOME/.local_envs ]; then source $HOME/.local_envs; fi

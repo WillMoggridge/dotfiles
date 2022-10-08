@@ -169,3 +169,6 @@ if [ -n "${ZSH_HIGHLIGHT_STYLES}" ]; then
     ZSH_HIGHLIGHT_PATTERNS+=('rm -rf *' 'fg=white,bold,bg=red')
     #ZSH_HIGHLIGHT_REGEXP+=('\bsudo\b' fg=123,bold)
 fi
+
+fpath=($HOME/.zsh/completions $fpath)
+autoload -U compinit && compinit
