@@ -25,7 +25,7 @@ autolock-enable() {
 
 lock-pre() {
     debug-echo "lock-pre"
-    killall -SIGUSR1 dunst # Pause notifications
+    dunstctl set-paused true
     autolock-disable
     # xset +dpms dpms 0 0 5
 }
@@ -33,7 +33,7 @@ lock-post() {
     debug-echo "lock-post"
     # xset dpms 0 0 0
     autolock-enable
-    killall -SIGUSR2 dunst # Resume notifications
+    dunstctl set-paused false
 }
 lock-command() {
     debug-echo "lock"

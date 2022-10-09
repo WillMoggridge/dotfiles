@@ -181,7 +181,10 @@ bindsym $mod+Shift+grave      exec "autorandr --change --force"
 bindsym $mod+$alt+equal       exec "xrandr --output eDP1 --mode 2560x1440"
 bindsym $mod+$alt+minus       exec "xrandr --output eDP1 --mode 1920x1080"
 
-
+# Notifications
+bindsym ctrl+grave            exec "dunstctl close"
+bindsym ctrl+shift+grave      exec "dunstctl history-pop"
+bindsym $alt+grave            exec "dunstctl context"
 
 ####################
 #################### Navigation / Change focus
