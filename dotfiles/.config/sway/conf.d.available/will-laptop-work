@@ -1,6 +1,7 @@
 
 set $laptop_display "eDP-1"
 
+bindsym $mod+shift+grave      output $laptop_display enable
 bindsym --locked $mod+shift+grave      output $laptop_display enable
 
 # Clamshell mode

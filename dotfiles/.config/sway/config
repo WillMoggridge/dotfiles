@@ -113,8 +113,11 @@ input "2:1:PS/2_Synaptics_TouchPad" {
 
     # Pulse Audio controls
     bindsym XF86AudioRaiseVolume  exec --no-startup-id ctl-volume raise
+    bindsym --locked XF86AudioRaiseVolume  exec --no-startup-id ctl-volume raise
     bindsym XF86AudioLowerVolume  exec --no-startup-id ctl-volume lower
+    bindsym --locked XF86AudioLowerVolume  exec --no-startup-id ctl-volume lower
     bindsym XF86AudioMute         exec --no-startup-id ctl-volume mute
+    bindsym --locked XF86AudioMute         exec --no-startup-id ctl-volume mute
     bindsym XF86AudioMicMute      exec amixer -q -D pulse sset Capture Capture toggle
     bindsym Alt_R                 exec amixer -q -D pulse sset Capture Capture toggle
     bindsym ISO_Level3_Shift      exec amixer -q -D pulse sset Capture Capture toggle
