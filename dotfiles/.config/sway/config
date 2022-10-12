@@ -271,6 +271,8 @@ input "2:1:PS/2_Synaptics_TouchPad" {
     # Make the current focus fullscreen
     bindsym $mod+f fullscreen
 
+    bindsym $mod+b border toggle
+
     # Toggle the current focus between tiling and floating mode
     bindsym $mod+Shift+space floating toggle
 
@@ -497,6 +499,7 @@ hide_edge_borders smart
 ####################
 
 # The command you are looking for is xprop, future-Will.
+# ...Or swaymsg -t get_tree
 
 ### General pop-up catch all
 for_window [window_role="pop-up"]       floating enable
@@ -507,6 +510,10 @@ for_window [class="Update-manager"]     floating enable
 
 # Fixes multimonitor for flameshot
 for_window [app_id="flameshot"] border pixel 0, floating enable, fullscreen disable, move absolute position 0 0
+
+# Firefox webrtc popup
+for_window [app_id="firefox" title="Firefox — Sharing Indicator"] exec sway-move-to very-top "Firefox — Sharing Indicator"
+for_window [app_id="firefox-aurora" title="Firefox Developer Edition — Sharing Indicator"] exec sway-move-to very-top "Firefox — Sharing Indicator"
 
 
 # Gnome security policies and privilege escalation
