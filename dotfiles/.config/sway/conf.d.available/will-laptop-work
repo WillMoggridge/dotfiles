@@ -1,0 +1,12 @@
+
+set $laptop_display "eDP-1"
+
+bindsym --locked $mod+shift+grave      output $laptop_display enable
+
+# Clamshell mode
+# https://github.com/swaywm/sway/wiki#clamshell-mode
+
+#bindswitch --reload --locked lid:on output $laptop_display disable
+#bindswitch --reload --locked lid:off output $laptop_display enable
+
+#exec_always /home/will/.dotfiles/bin/sway-clamshell-reset eDP-1

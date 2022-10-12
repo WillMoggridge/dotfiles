@@ -67,6 +67,7 @@ antibody bundle ohmyzsh/ohmyzsh path:plugins/docker
 antibody bundle ohmyzsh/ohmyzsh path:plugins/git
 antibody bundle ohmyzsh/ohmyzsh path:plugins/pip
 antibody bundle ohmyzsh/ohmyzsh path:plugins/tmux
+antibody bundle ohmyzsh/ohmyzsh path:lib/key-bindings.zsh
 antibody bundle sorin-ionescu/prezto path:modules/completion
 # antibody bundle marlonrichert/zsh-autocomplete
 antibody bundle mroth/evalcache

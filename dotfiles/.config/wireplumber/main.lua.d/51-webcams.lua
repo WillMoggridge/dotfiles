@@ -1,0 +1,13 @@
+-- rule = {
+--   matches = {
+--     {
+--       { "device.name", "equals", "v4l2_input.pci-0000_07_00.0-usb-0_1.4.2_1.0" },
+--       { "media.class", "matches", "Video/Source" },
+--     },
+--   },
+--   apply_properties = {
+--     ["priority.driver"]        = 2050,
+--     ["priority.session"]       = 2050,
+--   },
+-- }
+-- table.insert(alsa_monitor.rules, rule)

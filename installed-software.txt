@@ -20,6 +20,7 @@ i3
 i3blocks
 jq
 kakoune
+kanshi
 kitty
 pasystray
 pavucontrol
@@ -35,8 +36,13 @@ shellcheck
 source-highlight
 sox
 sqlite3
+slurp
+sway
+swaylock
+swayidle
 taskwarrior
 taskd
+wdisplays
 xautolock
 xbacklight
 xdotool

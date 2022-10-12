@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+LAPTOP_DISPLAY="${1:-${LAPTOP_DISPLAY}}"
+
+if [ -f /proc/acpi/button/lid/LID0/state ]; then
+    if grep -q open /proc/acpi/button/lid/LID0/state; then
+        swaymsg output "${LAPTOP_DISPLAY}" enable
+    else
+        swaymsg output "${LAPTOP_DISPLAY}" disable
+    fi
+fi

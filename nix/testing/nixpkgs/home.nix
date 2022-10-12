@@ -7,7 +7,14 @@ let
     autorandr
     bat
     # helvum
+    flameshot
     i3status-rust
+    nwg-panel
+    # sway
+    # swaylock
+    # swayidle
+    wl-clipboard
+    wofi
     # ytmdesktop
 
     # Dev
@@ -55,5 +62,25 @@ in
 
   services.dunst.enable = true;
   services.dunst.configFile = "$XDG_CONFIG_HOME/dunst.dotfiles/dunstrc";
+
+  systemd.user.services.sway = {
+    Unit = {
+      Description = "sway - i3-compatible Wayland compositor";
+      Documentation = "man:sway(5)";
+      # Before = "graphical-session.service";
+      # BindsTo = "graphical-session.service";
+      # Wants = "graphical-session-pre.service";
+      # After = "graphical-session-pre.service";
+    };
+
+    Service = {
+      Type = "simple";
+      EnvironmentFile = "-%h/.config/sway/env";
+      ExecStart = "/usr/bin/sway";
+      Restart = "on-failure";
+      RestartSec = "1";
+      TimeoutStopSec = "10z";
+    };
+  };
 
 }

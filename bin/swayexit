@@ -1,27 +1,53 @@
 #!/usr/bin/env bash
+
+debug-echo() {
+    if [ "${DEBUG}" = true ]; then
+        echo "${@}"
+    fi
+}
+
 lock() {
-    killall -SIGUSR1 dunst # Pause notifications
+    dunstctl set-paused true
     # xautolock -disable
     # swaylock --nofork --dpms -c 000000
+    # swaylock --daemonize -c 000000
     swaylock -c 000000
     # xautolock -enable
-    killall -SIGUSR2 dunst # Resume notifications
+}
+lock-post() {
+    dunstctl set-paused false
 }
 
 case "$1" in
     lock)
         lock
+        lock-post
         ;;
     logout)
         swaymsg exit
         ;;
     suspend)
-        swaylock -f -c 000000
+        # Naive fix to stop bluetooth blocking suspend
+        # https://askubuntu.com/questions/1089067/wakes-from-suspend-immediately-when-bluetooth-device-disconnected
+        # Possible bug: https://bugzilla.kernel.org/show_bug.cgi?id=200039
+        RESTORE_BLUETOOTH=false
+        if hcitool dev | grep 'hci' &>/dev/null; then
+            debug-echo "Disabling bluetooth"
+            RESTORE_BLUETOOTH=true
+            rfkill block bluetooth
+        fi
+        # lock &
         systemctl suspend
+        # lock-post
+        if [ "${RESTORE_BLUETOOTH}" = true ]; then
+            debug-echo "Enabling bluetooth"
+            rfkill unblock bluetooth
+        fi
         ;;
     hibernate)
-        swaylock -f -c 000000
         systemctl hibernate
+        lock
+        lock-post
         ;;
     reboot)
         systemctl reboot

@@ -1,0 +1,15 @@
+
+partial alphanumeric_keys modifier_keys
+xkb_symbols "colemak-tek" {
+
+    include "us(colemak)"
+    name[Group1]= "English (Colemak, TEK)";
+
+    //keycode 101 = Super_L <HKTG>
+    //keycode 97 = Super_R <AB11>
+
+    key <HKTG> { [  Super_L ] };
+    key <AB11>  { [  Super_R ] };
+    modifier_map Mod4 { <HKTG>, <AB11> };
+
+};

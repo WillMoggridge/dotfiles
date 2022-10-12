@@ -43,6 +43,18 @@ fi
 #################### Other
 ####################
 
+
+if [ -d $HOME/bin ]; then export PATH=$HOME/bin:$PATH; fi
+if [ -d $HOME/.local/bin ]; then export PATH=$HOME/.local/bin:$PATH; fi
+
+if [[ $DESKTOP_SESSION = "sway"* ]]; then
+    # Add Gnome Keyring as the SSH auth if we are in i3
+    eval $(gnome-keyring-daemon --start)
+    export SSH_AUTH_SOCK GPG_AGENT_INFO GNOME_KEYRING_CONTROL GNOME_KEYRING_PID
+    export SSH_AGENT_PID=$GNOME_KEYRING_PID
+fi
+
+
 if [[ $DESKTOP_SESSION = "i3" ]]; then
     # Check for a default screen layout from arandr
     if [ -x $HOME/.screenlayout/default ]

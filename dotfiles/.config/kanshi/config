@@ -1,0 +1,26 @@
+profile laptop {
+  output eDP-1 enable position 0,0
+  #output DP-1 enable transform 270
+  #exec swaymsg workspace 1, move workspace to eDP-1
+}
+
+profile office-dock {
+  output eDP-1 disable position 0,1080
+  output "BenQ Corporation BenQ XL2420TX A3D02735SL0" enable position 0,0
+  output "Samsung Electric Company LC32G7xT H4ZR400043" enable position 1920,0
+  exec swaymsg workspace 4, move workspace to '"BenQ Corporation BenQ XL2420TX A3D02735SL0"'
+  exec swaymsg workspace 8, move workspace to '"BenQ Corporation BenQ XL2420TX A3D02735SL0"'
+  # Finish on workspace 8
+  exec swaymsg workspace 8
+
+  exec swaymsg workspace 1, move workspace to '"Samsung Electric Company LC32G7xT H4ZR400043"'
+  exec swaymsg workspace 2, move workspace to '"Samsung Electric Company LC32G7xT H4ZR400043"'
+  exec swaymsg workspace 3, move workspace to '"Samsung Electric Company LC32G7xT H4ZR400043"'
+  exec swaymsg workspace 5, move workspace to '"Samsung Electric Company LC32G7xT H4ZR400043"'
+  exec swaymsg workspace 6, move workspace to '"Samsung Electric Company LC32G7xT H4ZR400043"'
+  exec swaymsg workspace 7, move workspace to '"Samsung Electric Company LC32G7xT H4ZR400043"'
+  exec swaymsg workspace 9, move workspace to '"Samsung Electric Company LC32G7xT H4ZR400043"'
+  exec swaymsg workspace 10, move workspace to '"Samsung Electric Company LC32G7xT H4ZR400043"'
+  # Finish on workspace 6
+  exec swaymsg workspace 6
+}

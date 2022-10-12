@@ -39,6 +39,10 @@ if [ -d "${HOME}/.nix-profile" ]; then
     export XDG_DATA_DIRS="${HOME}/.nix-profile/share:$XDG_DATA_DIRS"
 fi
 
+if [ "$XDG_SESSION_TYPE" == "wayland" ]; then
+    export MOZ_ENABLE_WAYLAND=1
+fi
+
 # Node/Ruby Version Manager
 export PATH="$PATH:$HOME/.npm-packages/bin"
 export NVM_DIR="$HOME/.nvm"
