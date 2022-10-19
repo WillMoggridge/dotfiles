@@ -1,0 +1,9 @@
+stylesheet=style-arc-dark.css
+gtk_dark=true
+allow_images=true
+allow_markup=true
+dmenu-parse_action=true
+insensitive=true
+term=kitty
+#key_expand=Control_L-Tab
+key_expand=Tab

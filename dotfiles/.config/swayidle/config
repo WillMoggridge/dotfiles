@@ -1,0 +1,8 @@
+idlehint 600
+
+timeout 840 'swayexit lock-actual &'
+timeout 900 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"'
+before-sleep 'swayexit suspend-pre'
+after-resume 'swayexit suspend-post'
+lock 'swayexit lock-actual &'
+#unlock 'swayexit ...'

@@ -1,63 +1,113 @@
 #!/usr/bin/env bash
 
+# AUTOLOCK_DISABLED_FILE="/tmp/autolock_disabled"
+BLUETOOTH_DISABLED_FILE="/tmp/bluetooth_disabled"
+
 debug-echo() {
     if [ "${DEBUG}" = true ]; then
         echo "${@}"
     fi
 }
 
-lock() {
+# autolock-disable() {
+#     touch "${AUTOLOCK_DISABLED_FILE}"
+#     debug-echo "Creating tmp autolock state file"
+#     # todo
+# }
+# autolock-enable() {
+#     if [ -e "${AUTOLOCK_DISABLED_FILE}" ]; then
+#         debug-echo "Deleting tmp autolock state file"
+#         rm "${AUTOLOCK_DISABLED_FILE}"
+#     fi
+#     # todo
+# }
+
+lock-pre() {
     dunstctl set-paused true
-    # xautolock -disable
-    # swaylock --nofork --dpms -c 000000
-    # swaylock --daemonize -c 000000
-    swaylock -c 000000
-    # xautolock -enable
+    # autolock-disable
+}
+lock-actual() {
+    lock-pre
+    SWAYLOCK_ARGS="${SWAYLOCK_ARGS:-}"
+    swaylock ${SWAYLOCK_ARGS}
+    lock-post
 }
 lock-post() {
+    # autolock-enable
     dunstctl set-paused false
+}
+
+suspend-pre() {
+    # Naive fix to stop bluetooth blocking suspend
+    # https://askubuntu.com/questions/1089067/wakes-from-suspend-immediately-when-bluetooth-device-disconnected
+    # Possible bug: https://bugzilla.kernel.org/show_bug.cgi?id=200039
+    # RESTORE_BLUETOOTH=false
+    if hcitool dev | grep 'hci' &>/dev/null; then
+        debug-echo "Disabling bluetooth"
+        rfkill block bluetooth
+        touch "${BLUETOOTH_DISABLED_FILE}"
+    fi
+    loginctl lock-session
+}
+suspend() {
+    # swayidle handles pre and post
+    systemctl suspend
+}
+suspend-post() {
+    if [ -e "${BLUETOOTH_DISABLED_FILE}" ]; then
+        debug-echo "Enabling bluetooth"
+        sleep 3
+        rfkill unblock bluetooth
+        rm "${BLUETOOTH_DISABLED_FILE}"
+    fi
 }
 
 case "$1" in
     lock)
-        lock
-        lock-post
+        killall -USR1 swayidle
+        ;;
+    lock-actual)
+        lock-actual
         ;;
     logout)
         swaymsg exit
         ;;
     suspend)
-        # Naive fix to stop bluetooth blocking suspend
-        # https://askubuntu.com/questions/1089067/wakes-from-suspend-immediately-when-bluetooth-device-disconnected
-        # Possible bug: https://bugzilla.kernel.org/show_bug.cgi?id=200039
-        RESTORE_BLUETOOTH=false
-        if hcitool dev | grep 'hci' &>/dev/null; then
-            debug-echo "Disabling bluetooth"
-            RESTORE_BLUETOOTH=true
-            rfkill block bluetooth
-        fi
-        # lock &
-        systemctl suspend
-        # lock-post
-        if [ "${RESTORE_BLUETOOTH}" = true ]; then
-            debug-echo "Enabling bluetooth"
-            rfkill unblock bluetooth
-        fi
+        suspend
         ;;
-    hibernate)
-        systemctl hibernate
-        lock
-        lock-post
-        ;;
+    # hibernate)
+    #     lock
+    #     systemctl hibernate
+    #     lock-post
+    #     ;;
     reboot)
         systemctl reboot
         ;;
     shutdown)
         systemctl poweroff
         ;;
+    # "autolock-disable")
+    #     autolock-disable
+    #     ;;
+    # "autolock-enable")
+    #     autolock-enable
+    #     ;;
+    "lock-pre")
+        lock-pre
+        ;;
+    "lock-post")
+        lock-post
+        ;;
+    "suspend-pre")
+        suspend-pre
+        ;;
+    "suspend-post")
+        suspend-post
+        ;;
     *)
         echo "Usage: $0 {lock|logout|suspend|hibernate|reboot|shutdown}"
         exit 2
+        ;;
 esac
 
 exit 0

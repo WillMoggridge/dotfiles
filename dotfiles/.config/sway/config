@@ -102,6 +102,11 @@ input "2:1:PS/2_Synaptics_TouchPad" {
     bindsym $mod+$alt+d exec $menu
 
     #bindsym $mod+period           exec i3-input
+    bindsym $mod+period            exec echo "" | wofi --dmenu -p "swaymsg" | xargs -r swaymsg
+    # Rename workspace (can list names from csv)
+    set $workspace_names = ""
+    bindsym $mod+comma             exec echo "$workspace_names" | wofi --dmenu -p "New name for this workspace" | xargs -r swaymsg rename workspace to
+
 
     # dmenu and launchers
     #bindsym $mod+d                exec rofi -show run
@@ -131,6 +136,9 @@ input "2:1:PS/2_Synaptics_TouchPad" {
     # Sreen brightness controls
     bindsym XF86MonBrightnessUp   exec --no-startup-id ctl-backlight +
     bindsym XF86MonBrightnessDown exec --no-startup-id ctl-backlight -
+
+    # Suspend from lock screen
+    bindsym --locked $mod+Shift+Escape exec swayexit suspend
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -494,8 +502,11 @@ client.urgent         $orange $orange $bg_alt $bg
 default_floating_border normal $border_width
 default_border pixel $border_width
 
+#smart_borders on
+hide_edge_borders --i3 smart
 
-hide_edge_borders smart
+# Default workspace layout
+workspace_layout stacking
 
 ####################
 #################### Rules
@@ -504,6 +515,7 @@ hide_edge_borders smart
 # The command you are looking for is xprop, future-Will.
 # ...Or swaymsg -t get_tree
 
+
 ### General pop-up catch all
 for_window [window_role="pop-up"]       floating enable
 
@@ -511,12 +523,46 @@ for_window [window_role="pop-up"]       floating enable
 for_window [class="Gsimplecal"]         floating enable
 for_window [class="Update-manager"]     floating enable
 
+# Try to inhibit idle if a window is fullscreen
+# xwayland
+for_window [class="^.*"] inhibit_idle fullscreen
+# wayland
+for_window [app_id="^.*"] inhibit_idle fullscreen
+# Steam apps
+for_window [class="steam_app*"] inhibit_idle focus
+
 # Fixes multimonitor for flameshot
 for_window [app_id="flameshot"] border pixel 0, floating enable, fullscreen disable, move absolute position 0 0
 
 # Firefox webrtc popup
 for_window [app_id="firefox" title="Firefox — Sharing Indicator"] exec sway-move-to very-top "Firefox — Sharing Indicator"
 for_window [app_id="firefox-aurora" title="Firefox Developer Edition — Sharing Indicator"] exec sway-move-to very-top "Firefox — Sharing Indicator"
+
+# TODO Sticky floating Chrome meet pop out
+
+### Default workspaces
+# Firefox
+# https://addons.mozilla.org/en-GB/firefox/addon/window-titler/
+for_window [title="\[Home\] .* — Firefox( Developer Edition)?"] move window to workspace 1
+for_window [title="\[Chat\] .* — Firefox( Developer Edition)?"] move window to workspace 4
+for_window [title="\[Work\] .* — Firefox( Developer Edition)?"] move window to workspace 6
+# Slack
+# Slack chat window
+for_window [class="Slack" window_type="normal"] move window to workspace 8
+# Slack Huddle window
+for_window [class="Slack" title=".* - Huddle"] move window to workspace 9; workspace number 9
+# kitty terminal
+for_window [app_id="kitty-home"] move window to workspace 3
+for_window [app_id="kitty-work"] move window to workspace 7
+
+
+# Default apps
+bindsym $mod+Shift+period \
+    exec slack; \
+    exec ff-default; \
+    exec kitty --class="kitty-home" -- zsh -c "tmux-home"; \
+    exec sleep 5 && kitty --class="kitty-work" -- zsh -c "tmux-work"; \
+    exec pkill kanshi; exec kanshi
 
 
 # Gnome security policies and privilege escalation
@@ -541,5 +587,5 @@ include /home/will/.config/sway/conf.d/_*
 exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
 exec hash dbus-update-activation-environment 2>/dev/null && \
      dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
-exec_always "systemctl --user import-environment"
-#exec_always "systemctl --user import-environment; systemctl --user start sway-session.target"
+#exec_always "systemctl --user import-environment"
+exec_always "systemctl --user import-environment; systemctl --user start sway-session.target"

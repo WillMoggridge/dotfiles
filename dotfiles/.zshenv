@@ -27,6 +27,14 @@ if [ -d $HOME/.SpaceVim/bin ]; then export PATH=$HOME/.SpaceVim/bin:$PATH; fi
 if [ -d $HOME/.tmuxifier/bin ]; then export PATH=$HOME/.tmuxifier/bin:$PATH; fi
 if [ -d $HOME/.dotfiles/bin ]; then export PATH=$HOME/.dotfiles/bin:$PATH; fi
 if [ -d $HOME/bin ]; then export PATH=$HOME/bin:$PATH; fi
+if [ -d $HOME/.local/bin.d ]; then
+    subdirs="$(find "$HOME/.local/bin.d" -mindepth 1 -maxdepth 1 -type d)"
+    subdir_count="$( echo "$subdirs" | wc -l)"
+    if [[ "$subdir_count" -gt 0 ]]
+    then
+        for bin in "$subdirs"; do export PATH="$bin:$PATH"; done
+    fi
+fi
 if [ -d $HOME/.local/bin ]; then export PATH=$HOME/.local/bin:$PATH; fi
 if [ -d $HOME/.pyenv/shims ]; then export PATH=$HOME/.pyenv/shims:$PATH; fi
 

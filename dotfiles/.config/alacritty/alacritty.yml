@@ -2,9 +2,9 @@
 
 # The FreeType rasterizer needs to know the device DPI for best results
 # (changes require restart)
-dpi:
-  x: 96.0
-  y: 96.0
+# dpi:
+#   x: 96.0
+#   y: 96.0
 
 # Display tabs using this many cells (changes require restart)
 selection:
@@ -19,24 +19,25 @@ draw_bold_text_with_bright_colors: false
 # Font configuration (changes require restart)
 font:
   normal:
-    family: "Ubuntu Mono derivative Powerline"
+    family: "JetBrainsMono"
     style: Regular
-    # - "Firacode-Medium"
-    # - family: "Ubuntu Mono derivative Powerline"
-    #   style: Regular
-    # - family: "FontAwesome"
-    #   style: Regular
   bold:
-    family: "Ubuntu Mono derivative Powerline"
+    family: "JetBrainsMono"
     style: Bold
   italic:
-    family: "Ubuntu Mono derivative Powerline"
+    family: "JetBrainsMono"
     style: Italic
-  size: 12.0
-  offset:
+  size: 11
+  # offset:
+  #   x: 1
+  #   y: 1
+  use_thin_strokes: true
+
+window:
+  padding:
     x: 1
     y: 1
-  use_thin_strokes: true
+  dynamic_padding: true
 
 visual_bell:
   animation: EaseOutExpo
@@ -74,41 +75,84 @@ debug.render_timer: false
 #     cyan:    '0x54ced6'
 #     white:   '0x2a2a2a'
 
-# Colors (Solarized Dark)
+
+# set $bg #0F0F0F
+# set $bg_alt #242424
+# set $bg_selection #3E3D32
+# set $fg #F8F8F2
+# set $fg_alt #8C8C8C
+# set $beige #E6DB74
+# set $blue  #66D9EF
+# set $green #A6E22E
+# set $orange #FD971F
+# set $fuchsia #CD5AC5
+# set $dark_red #D3201F
+# set $vivid_red #F92672
+# set $muave #ae81ff
+# Colors (Monokai)
 colors:
   # Default colors
   primary:
-    #background: '0x002b36'
-    #foreground: '0x839496'
     background: '0x000000'
-    foreground: '0xb5b5b5'
+    foreground: '0xF8F8F2'
 
   # Normal colors
   normal:
-    black:   '0x000020'
-    red:     '0xdc322f'
-    green:   '0x859900'
-    yellow:  '0xb58900'
-    blue:    '0x268bd2'
-    magenta: '0xd33682'
-    cyan:    '0x2aa198'
-    white:   '0xeee8d5'
+    black:   '0x000000'
+    red:     '0xD3201F'
+    green:   '0xA6E22E'
+    yellow:  '0xf9cc6c'
+    blue:    '0x66D9EF'
+    magenta: '0xCD5AC5'
+    cyan:    '0x85dacc'
+    white:   '0xfff1f3'
 
   # Bright colors
   bright:
-    black:   '0x3b3b4a'
-    red:     '0xcb4b16'
-    green:   '0x586e75'
-    yellow:  '0x657b83'
-    blue:    '0x839496'
-    magenta: '0x6c71c4'
-    cyan:    '0x93a1a1'
-    white:   '0xfdf6e3'
+    black:   '0x000000'
+    red:     '0xF92672' #'0xfd6883'
+    green:   '0xA6E22E'
+    yellow:  '0xf9cc6c'
+    blue:    '0x66D9EF'
+    magenta: '0xCD5AC5'
+    cyan:    '0x85dacc'
+    white:   '0xfff1f3'
 
-  # Custom cursor colour
-  cursor:
-    text:    '0x073642'
-    cursor:  '0x93a1a1'
+# # Colors (Solarized Dark)
+# colors:
+#   # Default colors
+#   primary:
+#     #background: '0x002b36'
+#     #foreground: '0x839496'
+#     background: '0x000000'
+#     foreground: '0xb5b5b5'
+
+#   # Normal colors
+#   normal:
+#     black:   '0x000020'
+#     red:     '0xdc322f'
+#     green:   '0x859900'
+#     yellow:  '0xb58900'
+#     blue:    '0x268bd2'
+#     magenta: '0xd33682'
+#     cyan:    '0x2aa198'
+#     white:   '0xeee8d5'
+
+#   # Bright colors
+#   bright:
+#     black:   '0x3b3b4a'
+#     red:     '0xcb4b16'
+#     green:   '0x586e75'
+#     yellow:  '0x657b83'
+#     blue:    '0x839496'
+#     magenta: '0x6c71c4'
+#     cyan:    '0x93a1a1'
+#     white:   '0xfdf6e3'
+
+#   # Custom cursor colour
+#   cursor:
+#     text:    '0x073642'
+#     cursor:  '0x93a1a1'
 
 # Key bindings
 #

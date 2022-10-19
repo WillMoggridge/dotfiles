@@ -23,6 +23,9 @@ Taskfile.local.yml
 # VSCode files
 .vscode
 
+# Jetbrains Fleet
+.fleet
+
 
 ######################
 # Local files

@@ -63,23 +63,52 @@ in
   services.dunst.enable = true;
   services.dunst.configFile = "$XDG_CONFIG_HOME/dunst.dotfiles/dunstrc";
 
-  systemd.user.services.sway = {
+  # systemd.user.services.sway = {
+  #   Unit = {
+  #     Description = "sway - i3-compatible Wayland compositor";
+  #     Documentation = "man:sway(5)";
+  #     # Before = "graphical-session.service";
+  #     # BindsTo = "graphical-session.service";
+  #     # Wants = "graphical-session-pre.service";
+  #     # After = "graphical-session-pre.service";
+  #   };
+
+  #   Service = {
+  #     Type = "simple";
+  #     EnvironmentFile = "-%h/.config/sway/env";
+  #     ExecStart = "/usr/bin/sway";
+  #     Restart = "on-failure";
+  #     RestartSec = "1";
+  #     TimeoutStopSec = "10z";
+  #   };
+  # };
+
+  systemd.user.targets.sway-session = {
     Unit = {
       Description = "sway - i3-compatible Wayland compositor";
-      Documentation = "man:sway(5)";
-      # Before = "graphical-session.service";
-      # BindsTo = "graphical-session.service";
-      # Wants = "graphical-session-pre.service";
-      # After = "graphical-session-pre.service";
+      Documentation = "man:systemd.special";
+      BindsTo = "graphical-session.target";
+      Wants = "graphical-session-pre.target";
+      After = "graphical-session-pre.target";
+    };
+  };
+
+  systemd.user.services.swayidle = {
+    Unit = {
+      Description = "swayidle - Idle manager for Wayland";
+      Documentation = "man:swayidle(1)";
+      PartOf = "graphical-session.target";
     };
 
     Service = {
       Type = "simple";
-      EnvironmentFile = "-%h/.config/sway/env";
-      ExecStart = "/usr/bin/sway";
+      ExecStart = "/usr/bin/swayidle -w";
       Restart = "on-failure";
       RestartSec = "1";
-      TimeoutStopSec = "10z";
+    };
+
+    Install = {
+      WantedBy = ["sway-session.target"];
     };
   };
 
